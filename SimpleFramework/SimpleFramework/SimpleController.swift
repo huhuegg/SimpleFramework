@@ -26,6 +26,12 @@ public class SimpleController:UIViewController,SimpleControllerProtocol {
     public var needSendBackData:Dictionary<String,AnyObject>?
     public var receiveBackData:Dictionary<String,AnyObject>?
     
+    //Controller Animation
+    public var controllerAnimatedTransitioning:UIViewControllerAnimatedTransitioning?
+    
+    //Controller Status
+    public var isShowing:Bool = false
+    
     public func className() ->String {
         return String(self.classForCoder)
     }
@@ -79,6 +85,8 @@ public class SimpleController:UIViewController,SimpleControllerProtocol {
     
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        //Change controller status -> false
+        self.isShowing = false
     }
 
     deinit {
@@ -92,5 +100,6 @@ extension SimpleControllerProtocol where Self:SimpleController{
     public func initView() {
         print("SimpleController initView")
     }
-
 }
+
+

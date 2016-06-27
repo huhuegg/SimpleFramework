@@ -37,6 +37,9 @@ extension SimpleControllerProtocol where Self:Test2Controller {
     func initView() {
         print("Test2Controller initView")
         self.view.backgroundColor = UIColor.white()
+        
+        let t = SimpleControllerAnimation(duration:1.0)
+        self.setControllerAnimation(transitioning: t)
+        
     }
 }
-

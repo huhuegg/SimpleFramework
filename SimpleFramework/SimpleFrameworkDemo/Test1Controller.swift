@@ -13,9 +13,10 @@ class Test1Controller: SimpleController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print((handler as! Test1Handler).data)
+
         initView()
-        
+
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,10 +43,17 @@ class Test1Controller: SimpleController {
         (handler as! Test1Handler).presentToTest2(["key":"presentFromTest1Controller"])
     }
 
+    
+    
 }
 
 extension SimpleControllerProtocol where Self:Test1Controller {
     func initView() {
         print("Test1Controller initView")
+        self.view.backgroundColor = UIColor.green()
+        let t = Test1ControllerAnimation(duration:0.7)
+        self.setControllerAnimation(transitioning: t)
     }
+    
 }
+

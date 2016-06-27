@@ -37,6 +37,7 @@ extension SimpleControllerProtocol where Self:TestController {
     func initView() {
         print("TestController initView")
         self.view.backgroundColor = UIColor.white()
+        clearColorNavigationBarBackground()
     }
 }
 
