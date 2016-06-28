@@ -30,7 +30,6 @@ extension SimpleRouterProtocol where Self:TestHandler {
         ctl.data = data
         
         self.activeController = ctl
-//        addController(controller: ctl)
     }
 
     

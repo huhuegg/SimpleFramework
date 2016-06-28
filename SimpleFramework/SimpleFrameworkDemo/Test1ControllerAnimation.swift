@@ -9,7 +9,7 @@
 import UIKit
 import SimpleFramework
 
-class Test1ControllerAnimation: SimpleControllerAnimation {
+class Test1ControllerAnimation: SimpleControllerAnimatedTransitioning {
     override func transitionDuration(_ transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }

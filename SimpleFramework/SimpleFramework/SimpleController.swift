@@ -8,16 +8,13 @@
 
 import UIKit
 
-public protocol SimpleControllerProtocol {
-    func initView()
-}
-
 public enum SimpleControllerFrom {
     case present
     case push
 }
 
-public class SimpleController:UIViewController,SimpleControllerProtocol {
+public class SimpleController:UIViewController {
+    //MARK:- Property
     public var handler:SimpleHandler?
     
     public var fromType:SimpleControllerFrom = .present
@@ -32,26 +29,9 @@ public class SimpleController:UIViewController,SimpleControllerProtocol {
     //Controller Status
     public var isShowing:Bool = false
     
-    public func className() ->String {
-        return String(self.classForCoder)
-    }
-
-    private func saveFromType() {
-        if let navi = self.navigationController {
-            if navi.viewControllers.count > 0 {
-                if navi.viewControllers[navi.viewControllers.count - 1] == self {
-                    fromType = .push
-                }
-            }
-        }
-        switch fromType {
-        case .push:
-            print("\(self.className()) is from PUSH")
-        case .present:
-            print("\(self.className()) is from PRESENT")
-        }
-    }
-
+    
+    
+    //MARK:- ViewController Life Cycle
     public override func viewDidLoad() {
         super.viewDidLoad()
         saveFromType()
@@ -94,12 +74,50 @@ public class SimpleController:UIViewController,SimpleControllerProtocol {
             print("~~~ \(self.className()) deinit ~~~")
         }
     }
+    
+    
+    //MARK:- Function
+    public func className() ->String {
+        return String(self.classForCoder)
+    }
+    
+    private func saveFromType() {
+        if let navi = self.navigationController {
+            if navi.viewControllers.count > 0 {
+                if navi.viewControllers[navi.viewControllers.count - 1] == self {
+                    fromType = .push
+                }
+            }
+        }
+        switch fromType {
+        case .push:
+            print("\(self.className()) is from PUSH")
+        case .present:
+            print("\(self.className()) is from PRESENT")
+        }
+    }
+
+    //过场动画
+    public func setControllerAnimation(transitioning:UIViewControllerAnimatedTransitioning?) {
+        if let _ = transitioning {
+            self.transitioningDelegate = self
+            self.controllerAnimatedTransitioning = transitioning
+            
+            if fromType == .present {
+                self.modalPresentationStyle = UIModalPresentationStyle.custom
+            }
+        }
+    }
+    
+    //初始化
+    public func initView() {
+        print("TestController initView")
+        self.view.backgroundColor = UIColor.white()
+        clearColorNavigationBarBackground()
+    }
+    
+    
 }
 
-extension SimpleControllerProtocol where Self:SimpleController{
-    public func initView() {
-        print("SimpleController initView")
-    }
-}
 
 

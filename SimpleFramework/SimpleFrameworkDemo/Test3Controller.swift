@@ -10,7 +10,16 @@ import UIKit
 import SimpleFramework
 
 class Test3Controller: SimpleController {
-
+    
+    override func initView() {
+        print("Test3Controller initView")
+        self.view.backgroundColor = UIColor.yellow()
+        
+        //添加Controller切换动画
+        let t = Test3ControllerAnimation(duration:0.5)
+        setControllerAnimation(transitioning: t)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
@@ -38,14 +47,4 @@ class Test3Controller: SimpleController {
     }
 }
 
-extension SimpleControllerProtocol where Self:Test3Controller {
-    func initView() {
-        print("Test3Controller initView")
-        self.view.backgroundColor = UIColor.yellow()
-        
-        //添加Controller切换动画
-        let t = Test3ControllerAnimation(duration:0.5)
-        setControllerAnimation(transitioning: t)
-    }
-}
 

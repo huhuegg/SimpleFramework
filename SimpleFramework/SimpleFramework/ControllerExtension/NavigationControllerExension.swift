@@ -8,8 +8,9 @@
 
 import UIKit
 
-//MARK:- Navigation扩展
+//MARK:- NavigationController扩展
 extension SimpleController {
+    
     //MARK:- 设置状态栏样式
     public func changeStatusBarStyle(_ statusBarStyle:UIStatusBarStyle) {
         //动态修改状态栏样式必须在Info.plist中将View controller-based status bar appearance设置为NO
@@ -36,5 +37,6 @@ extension SimpleController {
         //导航栏下的细线
         self.navigationController?.navigationBar.shadowImage = UIImage()
     }
-    
+
 }
+

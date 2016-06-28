@@ -15,10 +15,11 @@
 		845793341D17E9DC008C33CD /* SimpleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845793331D17E9DC008C33CD /* SimpleHandler.swift */; };
 		845793361D17EA03008C33CD /* SimpleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845793351D17EA03008C33CD /* SimpleRouter.swift */; };
 		845793381D17EE02008C33CD /* SimpleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845793371D17EE02008C33CD /* SimpleController.swift */; };
+		845C28B01D2219FF00A61433 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C28AF1D2219FF00A61433 /* IAPManager.swift */; };
 		84BC66B81D20DC9A006A0412 /* Test3ControllerAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC66B71D20DC9A006A0412 /* Test3ControllerAnimation.swift */; };
 		84BC66BA1D21269E006A0412 /* Test1ControllerAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC66B91D21269E006A0412 /* Test1ControllerAnimation.swift */; };
-		84BC66BD1D213315006A0412 /* SimpleControllerAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC66BC1D213315006A0412 /* SimpleControllerAnimation.swift */; };
-		84BC66C01D21336F006A0412 /* NavigationExension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC66BF1D21336F006A0412 /* NavigationExension.swift */; };
+		84BC66BD1D213315006A0412 /* SimpleControllerAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC66BC1D213315006A0412 /* SimpleControllerAnimatedTransitioning.swift */; };
+		84BC66C01D21336F006A0412 /* NavigationControllerExension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC66BF1D21336F006A0412 /* NavigationControllerExension.swift */; };
 		84BC66C21D2133C7006A0412 /* ControllerAnimationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC66C11D2133C7006A0412 /* ControllerAnimationExtension.swift */; };
 		84E737191D1953DD0003A16F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E737181D1953DD0003A16F /* AppDelegate.swift */; };
 		84E7371E1D1953DD0003A16F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E7371C1D1953DD0003A16F /* Main.storyboard */; };
@@ -68,10 +69,11 @@
 		845793331D17E9DC008C33CD /* SimpleHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleHandler.swift; sourceTree = "<group>"; };
 		845793351D17EA03008C33CD /* SimpleRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleRouter.swift; sourceTree = "<group>"; };
 		845793371D17EE02008C33CD /* SimpleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleController.swift; sourceTree = "<group>"; };
+		845C28AF1D2219FF00A61433 /* IAPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		84BC66B71D20DC9A006A0412 /* Test3ControllerAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test3ControllerAnimation.swift; sourceTree = "<group>"; };
 		84BC66B91D21269E006A0412 /* Test1ControllerAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test1ControllerAnimation.swift; sourceTree = "<group>"; };
-		84BC66BC1D213315006A0412 /* SimpleControllerAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleControllerAnimation.swift; sourceTree = "<group>"; };
-		84BC66BF1D21336F006A0412 /* NavigationExension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationExension.swift; sourceTree = "<group>"; };
+		84BC66BC1D213315006A0412 /* SimpleControllerAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleControllerAnimatedTransitioning.swift; sourceTree = "<group>"; };
+		84BC66BF1D21336F006A0412 /* NavigationControllerExension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerExension.swift; sourceTree = "<group>"; };
 		84BC66C11D2133C7006A0412 /* ControllerAnimationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerAnimationExtension.swift; sourceTree = "<group>"; };
 		84E737161D1953DD0003A16F /* SimpleFrameworkDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleFrameworkDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E737181D1953DD0003A16F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -148,11 +150,20 @@
 				845793351D17EA03008C33CD /* SimpleRouter.swift */,
 				845793331D17E9DC008C33CD /* SimpleHandler.swift */,
 				845793371D17EE02008C33CD /* SimpleController.swift */,
-				84BC66BE1D21334F006A0412 /* ControllerExtension */,
+				84BC66BE1D21334F006A0412 /* Extension */,
 				84BC66BB1D213315006A0412 /* Animation */,
+				845C28AE1D2219FF00A61433 /* Tools */,
 				8457932D1D17E8AB008C33CD /* Info.plist */,
 			);
 			path = SimpleFramework;
+			sourceTree = "<group>";
+		};
+		845C28AE1D2219FF00A61433 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				845C28AF1D2219FF00A61433 /* IAPManager.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		84BC66B61D20DC3B006A0412 /* Animation */ = {
@@ -167,17 +178,18 @@
 		84BC66BB1D213315006A0412 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
-				84BC66BC1D213315006A0412 /* SimpleControllerAnimation.swift */,
+				84BC66BC1D213315006A0412 /* SimpleControllerAnimatedTransitioning.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
 		};
-		84BC66BE1D21334F006A0412 /* ControllerExtension */ = {
+		84BC66BE1D21334F006A0412 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				84BC66BF1D21336F006A0412 /* NavigationExension.swift */,
+				84BC66BF1D21336F006A0412 /* NavigationControllerExension.swift */,
 				84BC66C11D2133C7006A0412 /* ControllerAnimationExtension.swift */,
 			);
+			name = Extension;
 			path = ControllerExtension;
 			sourceTree = "<group>";
 		};
@@ -361,8 +373,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84BC66BD1D213315006A0412 /* SimpleControllerAnimation.swift in Sources */,
-				84BC66C01D21336F006A0412 /* NavigationExension.swift in Sources */,
+				845C28B01D2219FF00A61433 /* IAPManager.swift in Sources */,
+				84BC66BD1D213315006A0412 /* SimpleControllerAnimatedTransitioning.swift in Sources */,
+				84BC66C01D21336F006A0412 /* NavigationControllerExension.swift in Sources */,
 				845793341D17E9DC008C33CD /* SimpleHandler.swift in Sources */,
 				845793381D17EE02008C33CD /* SimpleController.swift in Sources */,
 				84BC66C21D2133C7006A0412 /* ControllerAnimationExtension.swift in Sources */,

@@ -10,7 +10,16 @@ import UIKit
 import SimpleFramework
 
 class Test2Controller: SimpleController {
-
+    
+    override func initView() {
+        print("Test2Controller initView")
+        self.view.backgroundColor = UIColor.white()
+        
+        let t = SimpleControllerAnimatedTransitioning(duration:1.0)
+        self.setControllerAnimation(transitioning: t)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
@@ -29,17 +38,5 @@ class Test2Controller: SimpleController {
         needSendBackData = ["key":"DismissFromTest2Controller"]
         
         (handler as! Test2Handler).dismissToTest1()
-    }
-}
-
-
-extension SimpleControllerProtocol where Self:Test2Controller {
-    func initView() {
-        print("Test2Controller initView")
-        self.view.backgroundColor = UIColor.white()
-        
-        let t = SimpleControllerAnimation(duration:1.0)
-        self.setControllerAnimation(transitioning: t)
-        
     }
 }

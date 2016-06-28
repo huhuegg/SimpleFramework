@@ -9,7 +9,7 @@
 import UIKit
 
 //MARK:- 过场动画
-public class SimpleControllerAnimation:NSObject,UIViewControllerAnimatedTransitioning {
+public class SimpleControllerAnimatedTransitioning:NSObject,UIViewControllerAnimatedTransitioning {
     public var duration = 1.0
     
     public init(duration:TimeInterval) {

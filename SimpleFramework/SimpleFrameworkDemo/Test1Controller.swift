@@ -11,6 +11,13 @@ import SimpleFramework
 
 class Test1Controller: SimpleController {
 
+    override func initView() {
+        print("Test1Controller initView")
+        self.view.backgroundColor = UIColor.green()
+        let t = SimpleControllerAnimatedTransitioning(duration:0.7)
+        self.setControllerAnimation(transitioning: t)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,14 +53,3 @@ class Test1Controller: SimpleController {
     
     
 }
-
-extension SimpleControllerProtocol where Self:Test1Controller {
-    func initView() {
-        print("Test1Controller initView")
-        self.view.backgroundColor = UIColor.green()
-        let t = Test1ControllerAnimation(duration:0.7)
-        self.setControllerAnimation(transitioning: t)
-    }
-    
-}
-
