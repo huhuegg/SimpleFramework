@@ -12,8 +12,10 @@ import SimpleFramework
 class TestHandler: SimpleHandler {
     //MARK:- Handler
     
+    
     //MARK:- Router
     func pushToTest1(_ data:Dictionary<String,AnyObject>?) {
+        //let transitioning:UIViewControllerAnimatedTransitioning? = nil
         let transitioning = SimpleControllerAnimatedTransitioning(duration: 1)
         AppRouter.instance.show(routerId: AppRouterID.test1, type: ControllerShowType.push, fromHandler: self, animated: true, transitioning:transitioning, data: data)
     }
@@ -42,6 +44,7 @@ extension SimpleRouterProtocol where Self:TestHandler {
         ctl.data = data
         
         self.activeController = ctl
+
     }
 
 }

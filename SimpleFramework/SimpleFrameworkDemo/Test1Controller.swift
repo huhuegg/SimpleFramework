@@ -21,6 +21,8 @@ class Test1Controller: SimpleController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
+        print("\(self.className()) addPopRecognizer")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +39,8 @@ class Test1Controller: SimpleController {
         super.viewWillDisappear(animated)
 
     }
+    
+    
 }
 
 //MARK:- IBAction and private functions

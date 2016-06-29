@@ -57,6 +57,7 @@ public class SimpleRouter: NSObject {
         }
         toController.receiveBackData = nil
         toController.needSendBackData = nil
+        toController.fromType = type
         
         switch type {
         case .push:
@@ -74,8 +75,14 @@ public class SimpleRouter: NSObject {
                 throw SimpleRouterError.naviViewControllersLastNotMatch
             }
             
-            //NavigationControll过场动画的delegate在发起Push的Controller上 (fromController)
-            fromController.setNavigationTransitioning(transitioning: transitioning)
+            //NavigationController自定义过场动画
+            if let _ = transitioning {
+                //NavigationControll过场动画的delegate在发起Push的Controller上 (fromController)
+                fromController.setNavigationTransitioning(transitioning: transitioning)
+                //添加滑动返回手势
+                toController.addPopRecognizer()
+            }
+            
             naviCtl.pushViewController(toController, animated: animated)
         case .present:
             //ViewControll过场动画的delegate在被Present的Controller上 (toController)

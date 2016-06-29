@@ -8,20 +8,19 @@
 
 import UIKit
 
-public enum SimpleControllerFrom {
-    case present
-    case push
-}
 
 public class SimpleController:UIViewController {
     //MARK:- Property
     public var handler:SimpleHandler?
     
     //Controller切换类型
-    public var fromType:SimpleControllerFrom = .present
+    public var fromType:ControllerShowType = .present
     
     //Controller切换动画
     public var transitioning:UIViewControllerAnimatedTransitioning?
+    
+    //定义navigationControllerDelegate后右划手势返回失效，此处手动添加手势
+    public var interactivePopTransition: UIPercentDrivenInteractiveTransition?
     
     //初始化数据
     public var data:Dictionary<String,AnyObject>?
@@ -36,14 +35,14 @@ public class SimpleController:UIViewController {
     //MARK:- ViewController Life Cycle
     public override func viewDidLoad() {
         super.viewDidLoad()
-        saveFromType()
     }
+    
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let _ = receiveBackData {
-            //print("\(self): viewWillAppear, data:\(data) receiveBackData:\(receiveBackData)")
-        }
+//        if let _ = receiveBackData {
+//            print("\(self): viewWillAppear, data:\(data) receiveBackData:\(receiveBackData)")
+//        }
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -83,31 +82,13 @@ public class SimpleController:UIViewController {
         return String(self.classForCoder)
     }
     
-    private func saveFromType() {
-        if let navi = self.navigationController {
-            if navi.viewControllers.count > 0 {
-                if navi.viewControllers[navi.viewControllers.count - 1] == self {
-                    fromType = .push
-                }
-            }
-        }
-        switch fromType {
-        case .push:
-            print("\(self.className()) is from PUSH")
-        case .present:
-            print("\(self.className()) is from PRESENT")
-        }
-    }
-
-    
     //初始化
     public func initView() {
         print("TestController initView")
         self.view.backgroundColor = UIColor.white()
         clearColorNavigationBarBackground()
     }
-    
-    
+
 }
 
 //MARK:- UIViewControllerTransitioningDelegate (Present/Dismiss过场动画)
@@ -140,6 +121,43 @@ extension SimpleController:UINavigationControllerDelegate  {
         print("\(self.className()) setNavigationTransitioning: \(transitioning)")
         self.navigationController!.delegate = self
         self.transitioning = transitioning
+        
+        addPopRecognizer()
+    }
+    
+    public func addPopRecognizer() {
+        let popRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(SimpleController.handlePopRecognizer(recognizer:)))
+        popRecognizer.edges = .left
+        self.view.addGestureRecognizer(popRecognizer)
+    }
+
+    func handlePopRecognizer(recognizer: UIScreenEdgePanGestureRecognizer) {
+        // 获取手势在屏幕横屏范围的滑动百分比，并控制在0.0 - 1.0之间
+        var progress = recognizer.translation(in: self.view).x / self.view.bounds.width
+        progress = min(1.0, max(0.0, progress))
+
+        switch recognizer.state {
+        case .began:    // 开始滑动：初始化UIPercentDrivenInteractiveTransition对象，并开启导航pop
+            interactivePopTransition = UIPercentDrivenInteractiveTransition()
+
+        //self.popViewControllerAnimated(true)
+        case .changed:  // 滑动过程中，根据在屏幕上滑动的百分比更新状态
+            interactivePopTransition?.update(progress)
+        case .ended, .cancelled:    // 滑动结束或取消
+            //向右滑动超过40%宽度时pop,否则取消
+            if progress > 0.4 {
+                interactivePopTransition?.finish()
+                try? SimpleRouter.close(handler: handler!, animated: true)
+            } else {
+                interactivePopTransition?.cancel()
+            }
+            interactivePopTransition = nil
+        default: break
+        }
+    }
+    
+    public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactivePopTransition
     }
     
     public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
