@@ -24,10 +24,18 @@ class PresentControllerBoxAnimation: SimpleControllerAnimatedTransitioning {
         
         if let naviCtl = transitionContext.viewController(forKey: UITransitionContextToViewControllerKey) as? UINavigationController {
             if naviCtl.viewControllers.count > 0 {
-                if let ctl = naviCtl.viewControllers[naviCtl.viewControllers.count - 1] as? SimpleController {
-                    toController = ctl
+                guard let ctl = naviCtl.viewControllers[naviCtl.viewControllers.count - 1] as? SimpleController else {
+                    print("toController is not SimpleController")
+                    return
                 }
+                toController = ctl
             }
+        } else if let tabBarCtl = transitionContext.viewController(forKey: UITransitionContextToViewControllerKey) as? UITabBarController {
+            guard let ctl = tabBarCtl.selectedViewController as? SimpleController else {
+                print("toController is not SimpleController")
+                return
+            }
+            toController = ctl
         } else {
             if let ctl = transitionContext.viewController(forKey: UITransitionContextToViewControllerKey) as? SimpleController {
                 toController = ctl
@@ -35,7 +43,7 @@ class PresentControllerBoxAnimation: SimpleControllerAnimatedTransitioning {
         }
 
         guard let _ = toController else {
-            print("toController is not SimpleController")
+            print("toController is nil")
             transitionContext.completeTransition(true)
             return
         }

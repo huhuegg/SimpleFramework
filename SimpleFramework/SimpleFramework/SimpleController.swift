@@ -102,6 +102,7 @@ extension SimpleController: UIViewControllerTransitioningDelegate {
         return transitioning
     }
     
+    //UIViewControllerAnimatedTransitioning: 这个协议中提供了接口, 遵守这个协议的对象实现动画的具体内容
     public func animationController(forPresentedController presented: UIViewController, presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         print("\(String(self.classForCoder)) animationController forPresentedController:\(transitioning)")
         self.isShowing = true
@@ -156,10 +157,12 @@ extension SimpleController:UINavigationControllerDelegate  {
         }
     }
     
+    //UIViewControllerInteractiveTransitioning: 这个协议中提供了手势交互动画的接口
     public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactivePopTransition
     }
     
+    //UIViewControllerAnimatedTransitioning: 这个协议中提供了接口, 遵守这个协议的对象实现动画的具体内容
     public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         print("navigationController animationControllerFor from->to")
         return transitioning
@@ -174,3 +177,9 @@ extension SimpleController:UINavigationControllerDelegate  {
     }
 }
 
+//MARK:- UITabBarController自定义转场动画
+extension SimpleController:UITabBarControllerDelegate {
+    public func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return transitioning
+    }
+}

@@ -24,7 +24,7 @@ public class SimpleControllerAnimatedTransitioning:NSObject,UIViewControllerAnim
     
     // 实现转场动画的具体内容
     public func animateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
-        // 得到容器视图
+        //使用containerView获取到当前的containerView, 将要执行动画的view都在这个containerView上进行
         let containerView = transitionContext.containerView()
         //
         let fromView = transitionContext.view(forKey: UITransitionContextFromViewKey)!

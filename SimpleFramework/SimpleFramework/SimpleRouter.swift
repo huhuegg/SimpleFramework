@@ -131,7 +131,7 @@ public class SimpleRouter: NSObject {
 
             
         case .present:
-            if let navi = controller.presentingViewController as? UINavigationController {
+            if let navi = controller.presentingViewController as? UINavigationController { ////发起present的是UINavigationController
                 guard navi.viewControllers.count > 0 else {
                     print("Is present from navigation,but navigation.viewControllers is empty")
                     throw SimpleRouterError.naviViewControllersCountError
@@ -145,6 +145,15 @@ public class SimpleRouter: NSObject {
                 controller.dismiss(animated: animated, completion: {
                 })
 
+            } else if let tabBarCtl = controller.presentingViewController as? UITabBarController { //发起present的是UITabBarController
+                guard let backController = tabBarCtl.selectedViewController as? SimpleController else {
+                    print("PresentBackController is nil")
+                    throw SimpleRouterError.presentBackControllerNil
+                }
+                backController.receiveBackData = controller.needSendBackData
+                print("**DISMISS** \(willCloseControllerName) -> \(String(backController.classForCoder))")
+                backController.dismiss(animated: animated, completion: {
+                })
             } else {
                 guard let backController = controller.presentingViewController as? SimpleController else {
                     print("PresentBackController is nil")
