@@ -11,7 +11,7 @@ import SimpleFramework
 
 
 //缩放
-class Test3ControllerAnimation: SimpleControllerAnimatedTransitioning {
+class PresentControllerBoxAnimation: SimpleControllerAnimatedTransitioning {
     override func transitionDuration(_ transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }
@@ -71,18 +71,13 @@ class Test3ControllerAnimation: SimpleControllerAnimatedTransitioning {
                             fromView.alpha = 0
                             fromView.frame = CGRect(x: fromView.frame.size.width/2, y: fromView.frame.size.height/2, width: 0, height: 0)
                             fromView.layoutIfNeeded()
-                            print("animate:\(fromView.frame)")
+                            //print("animate:\(fromView.frame)")
 
                 }, completion: { _ in
                     transitionContext.completeTransition(true)
             })
 
         }
-        
-        
-        
-        
-        
 
     }
 }

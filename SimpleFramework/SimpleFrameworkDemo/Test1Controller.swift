@@ -11,19 +11,16 @@ import SimpleFramework
 
 class Test1Controller: SimpleController {
 
+    //MARK:- 初始化
     override func initView() {
         print("Test1Controller initView")
         self.view.backgroundColor = UIColor.green()
-        let t = SimpleControllerAnimatedTransitioning(duration:0.7)
-        self.setControllerAnimation(transitioning: t)
     }
     
+    //MARK:- ViewController Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         initView()
-
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +37,10 @@ class Test1Controller: SimpleController {
         super.viewWillDisappear(animated)
 
     }
+}
+
+//MARK:- IBAction and private functions
+private extension Test1Controller {
     
     @IBAction func popToTest(_ sender: AnyObject) {
         needSendBackData = ["key":"BackFromTest1Controller"]
@@ -49,7 +50,5 @@ class Test1Controller: SimpleController {
     @IBAction func presentTest2(_ sender: AnyObject) {
         (handler as! Test1Handler).presentToTest2(["key":"presentFromTest1Controller"])
     }
-
-    
-    
 }
+

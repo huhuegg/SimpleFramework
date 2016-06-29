@@ -44,7 +44,7 @@ public class SimpleRouter: NSObject {
         return  handlerClass.init()
     }
 
-    public class func show(type:ControllerShowType,fromHandler:SimpleHandler,toHandler:SimpleHandler,animated:Bool,data:Dictionary<String,AnyObject>?) throws {
+    public class func show(type:ControllerShowType,fromHandler:SimpleHandler,toHandler:SimpleHandler,animated:Bool,transitioning:UIViewControllerAnimatedTransitioning?,data:Dictionary<String,AnyObject>?) throws {
 
         guard let fromController = fromHandler.activeController else {
             print("show need fromHandler activeController")
@@ -73,8 +73,13 @@ public class SimpleRouter: NSObject {
                 print("naviCtl.viewControllers.last is not self, FAILED!")
                 throw SimpleRouterError.naviViewControllersLastNotMatch
             }
+            
+            //NavigationControll过场动画的delegate在发起Push的Controller上 (fromController)
+            fromController.setNavigationTransitioning(transitioning: transitioning)
             naviCtl.pushViewController(toController, animated: animated)
         case .present:
+            //ViewControll过场动画的delegate在被Present的Controller上 (toController)
+            toController.setPresentTransitioning(transitioning: transitioning)
             fromController.present(toController, animated: animated, completion: {
             })
         }

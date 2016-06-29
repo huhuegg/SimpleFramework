@@ -11,15 +11,14 @@ import SimpleFramework
 
 class Test3Controller: SimpleController {
     
+    //MARK:- 初始化
     override func initView() {
         print("Test3Controller initView")
         self.view.backgroundColor = UIColor.yellow()
-        
-        //添加Controller切换动画
-        let t = Test3ControllerAnimation(duration:0.5)
-        setControllerAnimation(transitioning: t)
+        self.transitioningDelegate = self
     }
     
+    //MARK:- ViewController Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
@@ -29,22 +28,15 @@ class Test3Controller: SimpleController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+}
+
+//MARK:- IBAction and private functions
+private extension Test3Controller {
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     @IBAction func dismiss(_ sender: AnyObject) {
         needSendBackData = ["key":"DissmissFromTest3"]
         (handler as! Test3Handler).dismiss()
     }
 }
-
 

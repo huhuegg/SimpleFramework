@@ -17,20 +17,22 @@ public class SimpleController:UIViewController {
     //MARK:- Property
     public var handler:SimpleHandler?
     
+    //Controller切换类型
     public var fromType:SimpleControllerFrom = .present
     
+    //Controller切换动画
+    public var transitioning:UIViewControllerAnimatedTransitioning?
+    
+    //初始化数据
     public var data:Dictionary<String,AnyObject>?
+    //Controller返回时需要带的数据
     public var needSendBackData:Dictionary<String,AnyObject>?
+    //Controller返回收到的数据
     public var receiveBackData:Dictionary<String,AnyObject>?
     
-    //Controller Animation
-    public var controllerAnimatedTransitioning:UIViewControllerAnimatedTransitioning?
-    
-    //Controller Status
+    //Controller状态，Present/Dismiss动画使用
     public var isShowing:Bool = false
-    
-    
-    
+
     //MARK:- ViewController Life Cycle
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,17 +99,6 @@ public class SimpleController:UIViewController {
         }
     }
 
-    //过场动画
-    public func setControllerAnimation(transitioning:UIViewControllerAnimatedTransitioning?) {
-        if let _ = transitioning {
-            self.transitioningDelegate = self
-            self.controllerAnimatedTransitioning = transitioning
-            
-            if fromType == .present {
-                self.modalPresentationStyle = UIModalPresentationStyle.custom
-            }
-        }
-    }
     
     //初始化
     public func initView() {
@@ -119,5 +110,49 @@ public class SimpleController:UIViewController {
     
 }
 
+//MARK:- UIViewControllerTransitioningDelegate (Present/Dismiss过场动画)
+extension SimpleController: UIViewControllerTransitioningDelegate {
+    func setPresentTransitioning(transitioning:UIViewControllerAnimatedTransitioning?)->UIViewControllerAnimatedTransitioning? {
+        print("\(self.className()) setPresentTransitioning: \(transitioning)")
+        if let _ = transitioning {
+            self.transitioning = transitioning
+            self.transitioningDelegate = self
+        }
+        return transitioning
+    }
+    
+    public func animationController(forPresentedController presented: UIViewController, presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        print("\(String(self.classForCoder)) animationController forPresentedController:\(transitioning)")
+        self.isShowing = true
+        return transitioning
+    }
+    
+    public func animationController(forDismissedController dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        print("\(String(self.classForCoder)) animationController forDismissedController:\(transitioning)")
+        self.isShowing = false
+        return transitioning
+    }
+}
 
+//MARK:- UINavigationControllerDelegate (Push/Pop过场动画)
+extension SimpleController:UINavigationControllerDelegate  {
+    func setNavigationTransitioning(transitioning:UIViewControllerAnimatedTransitioning?) {
+        print("\(self.className()) setNavigationTransitioning: \(transitioning)")
+        self.navigationController!.delegate = self
+        self.transitioning = transitioning
+    }
+    
+    public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        print("navigationController animationControllerFor from->to")
+        return transitioning
+    }
+    
+    public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        print("navigationController willShow")
+    }
+    
+    public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        print("navigationController didShow")
+    }
+}
 

@@ -13,10 +13,17 @@ class TestController: SimpleController {
     
     @IBOutlet weak var returnButton: UIButton!
 
+    //MARK:- 初始化
+    override func initView() {
+        print("TestController initView")
+        self.view.backgroundColor = UIColor.white()
+        clearColorNavigationBarBackground()
+    }
+    
     //MARK:- ViewController Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        initView()        
+        initView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -24,13 +31,7 @@ class TestController: SimpleController {
         // Dispose of any resources that can be recreated.
     }
 
-    //初始化
-    override func initView() {
-        print("TestController initView")
-        self.view.backgroundColor = UIColor.white()
-        
-        setupNavigation()
-    }
+    
 }
 
 
@@ -46,22 +47,5 @@ private extension TestController {
         (handler as! TestHandler).presentToTest3(["key":"presentFromTestController"])
     }
 
-}
-
-extension UINavigationControllerDelegate where Self:TestController {
-    //设置Navigation
-    func setupNavigation() {
-        print("TestController setupNavigation")
-        self.navigationController!.delegate = self
-        clearColorNavigationBarBackground()
-        setupAnimation()
-    }
-    
-    func setupAnimation() {
-        //过场动画
-        let t = SimpleControllerAnimatedTransitioning(duration:0.7)
-        self.setControllerAnimation(transitioning: t)
-    }
-    
 }
 

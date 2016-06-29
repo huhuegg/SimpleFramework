@@ -94,7 +94,7 @@ class AppRouter: NSObject {
 }
 
 extension AppRouter {
-    func show(routerId:AppRouterID,type:ControllerShowType, fromHandler:SimpleHandler, animated:Bool, data:Dictionary<String,AnyObject>?) {
+    func show(routerId:AppRouterID,type:ControllerShowType, fromHandler:SimpleHandler, animated:Bool, transitioning:UIViewControllerAnimatedTransitioning?,data:Dictionary<String,AnyObject>?) {
         
         
         //guard let fromController = fromHandler.activeController() else {
@@ -113,7 +113,7 @@ extension AppRouter {
         let typeName = type == ControllerShowType.push ? "=PUSH=" : "=PRESENT="
         print("\(typeName) \(fromControllerName) -> \(toHandlerName)")
         
-        try? SimpleRouter.show(type: type, fromHandler: fromHandler, toHandler: toHandler, animated: animated, data: data)
+        try? SimpleRouter.show(type: type, fromHandler: fromHandler, toHandler: toHandler, animated: animated,transitioning:transitioning, data: data)
     }
     
     func close(handler:SimpleHandler,animated:Bool) {

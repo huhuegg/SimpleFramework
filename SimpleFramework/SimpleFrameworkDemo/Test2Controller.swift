@@ -11,15 +11,13 @@ import SimpleFramework
 
 class Test2Controller: SimpleController {
     
+    //MARK:- 初始化
     override func initView() {
         print("Test2Controller initView")
         self.view.backgroundColor = UIColor.white()
-        
-        let t = SimpleControllerAnimatedTransitioning(duration:1.0)
-        self.setControllerAnimation(transitioning: t)
-        
     }
     
+    //MARK:- ViewController Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
@@ -29,11 +27,16 @@ class Test2Controller: SimpleController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+}
+
+//MARK:- IBAction and private functions
+private extension Test2Controller {
     
     @IBAction func presentToTest3(_ sender: AnyObject) {
         (handler as! Test2Handler).presentToTest3(["key":"presentFromTest2Controller"])
     }
-
+    
     @IBAction func dismissToTest1(_ sender: AnyObject) {
         needSendBackData = ["key":"DismissFromTest2Controller"]
         
