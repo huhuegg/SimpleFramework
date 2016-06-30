@@ -13,16 +13,14 @@ class Test1Controller: SimpleController {
 
     //MARK:- 初始化
     override func initView() {
-        print("Test1Controller initView")
         self.view.backgroundColor = UIColor.green()
     }
     
     //MARK:- ViewController Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Test1Controller.viewDidLoad: initView")
         initView()
-        print("\(self.className()) addPopRecognizer")
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,11 +46,11 @@ private extension Test1Controller {
     
     @IBAction func popToTest(_ sender: AnyObject) {
         needSendBackData = ["key":"BackFromTest1Controller"]
-        (handler as! Test1Handler).popToTest()
+        (handler as! Test1Handler).popToTest(from: self)
     }
     
     @IBAction func presentTest2(_ sender: AnyObject) {
-        (handler as! Test1Handler).presentToTest2(["key":"presentFromTest1Controller"])
+        (handler as! Test1Handler).presentToTest2(from: self, data: ["key":"presentFromTest1Controller"])
     }
 }
 

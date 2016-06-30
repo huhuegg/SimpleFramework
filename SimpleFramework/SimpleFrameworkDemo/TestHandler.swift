@@ -14,21 +14,21 @@ class TestHandler: SimpleHandler {
     
     
     //MARK:- Router
-    func pushToTest1(_ data:Dictionary<String,AnyObject>?) {
+    func pushToTest1(from:SimpleController, data:Dictionary<String,AnyObject>?) {
         //let transitioning:UIViewControllerAnimatedTransitioning? = nil
         let transitioning = SimpleControllerAnimatedTransitioning(duration: 1)
-        AppRouter.instance.show(routerId: AppRouterID.test1, type: ControllerShowType.push, fromHandler: self, animated: true, transitioning:transitioning, data: data)
+        AppRouter.instance.show(routerId: AppRouterID.test1, type: ControllerShowType.push, fromController: from, animated: true, transitioning:transitioning, data: data)
     }
     
-    func presentToTest3(_ data:Dictionary<String,AnyObject>?) {
+    func presentToTest3(from:SimpleController, data:Dictionary<String,AnyObject>?) {
         let transitioning = PresentControllerBoxAnimation(duration: 1)
-        AppRouter.instance.show(routerId: AppRouterID.test3, type: ControllerShowType.present, fromHandler: self, animated: true, transitioning:transitioning,data: data)
+        AppRouter.instance.show(routerId: AppRouterID.test3, type: ControllerShowType.present, fromController: from, animated: true, transitioning:transitioning,data: data)
     }
 }
 
 extension SimpleRouterProtocol where Self:TestHandler {
     //不使用SimpleHandler的setupController
-    func setupController(data:Dictionary<String,AnyObject>?) {
+    func setupController(data:Dictionary<String,AnyObject>?)->SimpleController? {
         let storyboardName = "Main"
         let controllerIdentifier = name + "Controller"
         
@@ -36,15 +36,14 @@ extension SimpleRouterProtocol where Self:TestHandler {
         let sb = UIStoryboard(name: storyboardName, bundle: bundle)
         guard let ctl = sb.instantiateViewController(withIdentifier: controllerIdentifier) as? TestController else {
             print("setupController error!")
-            return
+            return nil
         }
         //print("\(self.className()): setupController, identifier:\(controllerIdentifier)")
         
         ctl.handler = self
         ctl.data = data
         
-        self.activeController = ctl
-
+        return ctl
     }
 
 }

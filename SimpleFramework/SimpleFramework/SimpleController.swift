@@ -19,7 +19,7 @@ public class SimpleController:UIViewController {
     //Controller切换动画
     public var transitioning:UIViewControllerAnimatedTransitioning?
     
-    //定义navigationControllerDelegate后右划手势返回失效，此处手动添加手势
+    //定义navigationControllerDelegate后右划手势返回失效，此处手动添加右划手势
     public var interactivePopTransition: UIPercentDrivenInteractiveTransition?
     
     //初始化数据
@@ -35,11 +35,13 @@ public class SimpleController:UIViewController {
     //MARK:- ViewController Life Cycle
     public override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //print("\(self.className()) viewWillAppear: \(self)")
 //        if let _ = receiveBackData {
 //            print("\(self): viewWillAppear, data:\(data) receiveBackData:\(receiveBackData)")
 //        }
@@ -84,7 +86,6 @@ public class SimpleController:UIViewController {
     
     //初始化
     public func initView() {
-        print("TestController initView")
         self.view.backgroundColor = UIColor.white()
         clearColorNavigationBarBackground()
     }
@@ -120,10 +121,10 @@ extension SimpleController: UIViewControllerTransitioningDelegate {
 extension SimpleController:UINavigationControllerDelegate  {
     func setNavigationTransitioning(transitioning:UIViewControllerAnimatedTransitioning?) {
         print("\(self.className()) setNavigationTransitioning: \(transitioning)")
-        self.navigationController!.delegate = self
-        self.transitioning = transitioning
-        
-        addPopRecognizer()
+        if let _ = transitioning {
+            self.navigationController!.delegate = self
+            self.transitioning = transitioning
+        }
     }
     
     public func addPopRecognizer() {
@@ -148,7 +149,7 @@ extension SimpleController:UINavigationControllerDelegate  {
             //向右滑动超过40%宽度时pop,否则取消
             if progress > 0.4 {
                 interactivePopTransition?.finish()
-                try? SimpleRouter.close(handler: handler!, animated: true)
+                try? SimpleRouter.close(fromController: self, animated: true)
             } else {
                 interactivePopTransition?.cancel()
             }

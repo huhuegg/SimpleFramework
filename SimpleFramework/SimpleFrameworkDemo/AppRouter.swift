@@ -24,91 +24,30 @@ enum AppRouterID {
 
 class AppRouter: NSObject {
     private static let appRouterInstance = AppRouter()
-    var window:UIWindow!
-
-    var tabbarCtl:UITabBarController = UITabBarController()
-    var naviCtl:UINavigationController = UINavigationController()
     
-    
-    //MARK: Add Handler Here
-    var testHandler:TestHandler!
-    var test1Handler:Test1Handler!
-    var test2Handler:Test2Handler!
-    var test3Handler:Test3Handler!
-    
-    //MARK:- Function
     static let instance:AppRouter = {
         return appRouterInstance
     }()
     
-    //Start AppRouter
-    func start(type:AppRootViewControllerType)->Bool {
-        guard let appDelegate = UIApplication.shared().delegate as? AppDelegate  else {
-            print("AppDelegate is nil")
-            return false
+    var window:UIWindow? = {
+        if let appDelegate = UIApplication.shared().delegate as? AppDelegate {
+            return appDelegate.window
         }
-        
-        func startWithViewController(controller:UIViewController) {
-            print("startWithViewController")
-            appDelegate.window!.rootViewController = controller
-        }
-        
-        func startWithNavigationController(controllers:Array<UIViewController>) {
-            print("startWithNavigationController")
-            naviCtl.viewControllers = controllers
-            appDelegate.window!.rootViewController = naviCtl
-        }
-        
-        func startWithTabBarController() {
-            print("startWithTabBarController")
-            let controllers = setupTabBar()
-            tabbarCtl.viewControllers = controllers
-            appDelegate.window!.addSubview(tabbarCtl.view)
-            appDelegate.window!.rootViewController = tabbarCtl
-        }
-        
-        func setupTabBar()->Array<UIViewController> {
-            let eduCtl = setupController(handler: testHandler!)
-            let newsCtl = setupController(handler: test1Handler!)
-            let giftCtl = setupController(handler: test2Handler!)
-            let homeCtl = setupController(handler: test3Handler!)
-            eduCtl!.tabBarItem = UITabBarItem(title: "教育", image: UIImage(named: "edu"), tag: 0)
-            newsCtl!.tabBarItem = UITabBarItem(title: "新闻", image: UIImage(named: "news"), tag: 0)
-            giftCtl!.tabBarItem = UITabBarItem(title: "礼物", image: UIImage(named: "gift"), tag: 0)
-            homeCtl!.tabBarItem = UITabBarItem(title: "个人", image: UIImage(named: "home"), tag: 0)
-            return [eduCtl!,newsCtl!,giftCtl!,homeCtl!]
-        }
-        
-        initHandlers()
-        let handler = testHandler
-        
-        switch type {
-        case .navigationController:
-            guard let firstController = setupController(handler: handler!) else {
-                print("initRouters failed")
-                return false
-            }
-            print("firstController is \(String(firstController.classForCoder))")
-            startWithNavigationController(controllers: [firstController])
-            return true
-        case .tabbarController:
-            startWithTabBarController()
-            return true
-        case .viewController:
-            guard let firstController = setupController(handler: handler!) else {
-                print("initRouters failed")
-                return false
-            }
-            print("firstController is \(String(firstController.classForCoder))")
-            startWithViewController(controller: firstController)
-            return true
-        }
+        return nil
+    }()
 
-        return false
-    }
+    //容器
+    var tabbarCtl:UITabBarController = UITabBarController()
+    var naviCtl:UINavigationController = UINavigationController()
 
+    
+    //TODO:- 定义所有Handler
+    var testHandler:TestHandler!
+    var test1Handler:Test1Handler!
+    var test2Handler:Test2Handler!
+    var test3Handler:Test3Handler!
 
-    func initHandlers() {
+    private func initHandlers() {
         testHandler = SimpleRouter.create(name: "Test") as! TestHandler
         test1Handler = SimpleRouter.create(name: "Test1") as! Test1Handler
         test2Handler = SimpleRouter.create(name: "Test2") as! Test2Handler
@@ -116,63 +55,143 @@ class AppRouter: NSObject {
 
     }
     
-    func setupController(handler:SimpleHandler)->SimpleController? {
-        //setupRoot
-        handler.setupController(data: ["key":"value"])
-        return handler.activeController
-    }
-    
-    
-}
-
-extension AppRouter {
-    func setupToHandler(routerId:AppRouterID, data: Dictionary<String, AnyObject>?)->SimpleHandler? {
-        var toHandler:SimpleHandler?
-        
+    private func getHandler(routerId:AppRouterID)->SimpleHandler? {
         switch routerId {
         case .test:
-            //Controller初始化
-            testHandler.setupController(data: data)
-            toHandler = testHandler
+            return testHandler
         case .test1:
-            test1Handler.setupController(data: data)
-            toHandler = test1Handler
+            return test1Handler
         case .test2:
-            test2Handler.setupController(data: data)
-            toHandler = test2Handler
+            return test2Handler
         case .test3:
-            test3Handler.setupController(data: data)
-            toHandler = test3Handler
-        default:
-            print("AppRouteID no defined")
+            return test3Handler
         }
-        
-        return toHandler
     }
     
-    func show(routerId:AppRouterID,type:ControllerShowType, fromHandler:SimpleHandler, animated:Bool, transitioning:UIViewControllerAnimatedTransitioning?,data:Dictionary<String,AnyObject>?) {
+    private func setupTabBar(data:Dictionary<String,AnyObject>?)->Array<UIViewController> {
+        let (_,eduCtl) = setupToHandler(routerId: .test, data: nil)
+        let (_,newsCtl) = setupToHandler(routerId: .test1, data: nil)
+        let (_,giftCtl) = setupToHandler(routerId: .test2, data: nil)
+        let (_,homeCtl) = setupToHandler(routerId: .test3, data: nil)
+        
+        eduCtl!.tabBarItem = UITabBarItem(title: "教育", image: UIImage(named: "edu"), tag: 0)
+        newsCtl!.tabBarItem = UITabBarItem(title: "新闻", image: UIImage(named: "news"), tag: 0)
+        giftCtl!.tabBarItem = UITabBarItem(title: "礼物", image: UIImage(named: "gift"), tag: 0)
+        homeCtl!.tabBarItem = UITabBarItem(title: "个人", image: UIImage(named: "home"), tag: 0)
+        return [eduCtl!,newsCtl!,giftCtl!,homeCtl!]
+    }
+
+}
+
+private extension AppRouter {
+    //获取指定routeId的Handler，并初始化Controller
+    func setupToHandler(routerId:AppRouterID, data: Dictionary<String, AnyObject>?)->(SimpleHandler?,SimpleController?) {
+        
+        let toHandler = getHandler(routerId: routerId)
+        //Controller初始化
+        let toController = toHandler?.setupController(data: data)
+        return (toHandler,toController)
+        
+    }
+}
+
+
+//MARK:- 外部调用方法
+extension AppRouter {
+    //Start AppRouter
+    func start(firstRouterId:AppRouterID,type:AppRootViewControllerType,data:Dictionary<String,AnyObject>?)->Bool {
+        //初始化所有Handler
+        initHandlers()
+        
+        //TODO:- 指定firstHandler
+        guard let firstHandler = getHandler(routerId: firstRouterId) else {
+            print("firstHandler not found")
+            return false
+        }
         
         
-        //guard let fromController = fromHandler.activeController() else {
-        guard let fromController = fromHandler.activeController else {
-            print("fromHandler.activeController is nil")
+        switch type {
+        case .navigationController:
+            guard let firstController = firstHandler.setupController(data: data) else {
+                print("firstController setup failed")
+                return false
+            }
+            print("firstController is \(firstController.className())")
+            startWithNavigationController(controllers: [firstController])
+        case .tabbarController:
+            startWithTabBarController(data: data)
+        case .viewController:
+            guard let firstController = firstHandler.setupController(data: data) else {
+                print("firstController setup failed")
+                return false
+            }
+            print("firstController is \(firstController.className())")
+            startWithViewController(controller: firstController)
+        }
+        
+        return true
+    }
+    
+    func show(routerId:AppRouterID,type:ControllerShowType, fromController:SimpleController, animated:Bool, transitioning:UIViewControllerAnimatedTransitioning?,data:Dictionary<String,AnyObject>?) {
+        
+        if type == .push && fromController.navigationController == nil {
+            print("==PUSH== can't push from \(fromController.className()), navigationCtl is nil")
             return
         }
         
-        guard let toHandler = setupToHandler(routerId: routerId, data: data) else {
+        let (handler,controller) = setupToHandler(routerId: routerId, data: data)
+        
+        guard let toHandler = handler else {
             print("toHandler is nil")
             return
         }
         
-        let toHandlerName = String(toHandler.className())
-        let fromControllerName = String(fromController.classForCoder)
-        let typeName = type == ControllerShowType.push ? "=PUSH=" : "=PRESENT="
-        print("\(typeName) \(fromControllerName) -> \(toHandlerName)")
+        guard let toController = controller else {
+            print("toController is nil")
+            return
+        }
+
         
-        try? SimpleRouter.show(type: type, fromHandler: fromHandler, toHandler: toHandler, animated: animated,transitioning:transitioning, data: data)
+        switch type {
+        case .push:
+            print("==PUSH== \(fromController.className()) -> \(toController.className())")
+            
+            try? SimpleRouter.show(type: type, fromController: fromController, toHandler: toHandler, animated: animated,transitioning:transitioning, data: data)
+        case .present:
+            print("==PRESENT== \(fromController.className()) -> \(toController.className())")
+            
+            try? SimpleRouter.show(type: type, fromController: fromController, toHandler: toHandler, animated: animated,transitioning:transitioning, data: data)
+        }
     }
     
-    func close(handler:SimpleHandler,animated:Bool) {
-        try? SimpleRouter.close(handler: handler,animated: true)
+    func close(fromController:SimpleController,animated:Bool) {
+        try? SimpleRouter.close(fromController: fromController,animated: true)
     }
+}
+
+//MARK:- 内部方法
+private extension AppRouter {
+
+    func startWithViewController(controller:UIViewController) {
+        print("startWithViewController")
+        window!.rootViewController = controller
+    }
+    
+    func startWithNavigationController(controllers:Array<UIViewController>) {
+        print("startWithNavigationController")
+        naviCtl.viewControllers = controllers
+        window!.rootViewController = naviCtl
+    }
+    
+    func startWithTabBarController(data:Dictionary<String,AnyObject>?) {
+        print("startWithTabBarController")
+        let controllers = setupTabBar(data:data)
+        
+        tabbarCtl.viewControllers = controllers
+        
+        //TODO:- 此处修改默认选中的Controller
+        tabbarCtl.selectedIndex = 1
+        window!.rootViewController = tabbarCtl
+    }
+
 }

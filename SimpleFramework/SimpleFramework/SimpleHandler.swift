@@ -15,7 +15,7 @@ public enum ControllerShowType {
 
 public class SimpleHandler: NSObject,SimpleRouterProtocol {
     public var name:String!
-    public var activeController:SimpleController?
+
     public var data:Dictionary<String,AnyObject>?
     
     
@@ -27,23 +27,21 @@ public class SimpleHandler: NSObject,SimpleRouterProtocol {
     public func className() ->String {
         return String(self.classForCoder)
     }
-    
+
 }
 
 extension SimpleRouterProtocol where Self:SimpleHandler {
 
-    public func setupController(data:Dictionary<String,AnyObject>?) {
+    public func setupController(data:Dictionary<String,AnyObject>?)->SimpleController? {
         let storyboardName = "Main"
         let controllerIdentifier = name + "Controller"
         
         let bundle = Bundle.main()
         let sb = UIStoryboard(name: storyboardName, bundle: bundle)
         guard let ctl = sb.instantiateViewController(withIdentifier: controllerIdentifier) as? SimpleController else {
-            print("setupController error!")
-            return
+            print("\(storyboardName).\(controllerIdentifier) setupController error!")
+            return nil
         }
-        
-        //print("SimpleHandler: setupController success")
         
         ctl.handler = self
         //print("SimpleController: handler is \(ctl.handler)")
@@ -51,7 +49,7 @@ extension SimpleRouterProtocol where Self:SimpleHandler {
         ctl.data = data
         //print("\(ctl) data:\(ctl.data)")
 
-        activeController = ctl
+        return ctl
     }
     
     

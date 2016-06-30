@@ -13,7 +13,6 @@ class Test3Controller: SimpleController {
     
     //MARK:- 初始化
     override func initView() {
-        print("Test3Controller initView")
         self.view.backgroundColor = UIColor.yellow()
         self.transitioningDelegate = self
     }
@@ -21,6 +20,7 @@ class Test3Controller: SimpleController {
     //MARK:- ViewController Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Test3Controller.viewDidLoad: initView")
         initView()
     }
 
@@ -36,7 +36,7 @@ private extension Test3Controller {
     
     @IBAction func dismiss(_ sender: AnyObject) {
         needSendBackData = ["key":"DissmissFromTest3"]
-        (handler as! Test3Handler).dismiss()
+        (handler as! Test3Handler).dismiss(from: self)
     }
 }
 

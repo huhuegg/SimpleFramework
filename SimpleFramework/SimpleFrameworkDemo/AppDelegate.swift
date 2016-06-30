@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         self.window = UIWindow(frame: UIScreen.main().bounds)
-        let status = AppRouter.instance.start(type: AppRootViewControllerType.tabbarController)
+        let status = AppRouter.instance.start(firstRouterId:AppRouterID.test,type: AppRootViewControllerType.tabbarController,data: nil)
         print("AppRouter setup: \(status == true ? "success":"failed")")
         
         self.window?.makeKeyAndVisible()

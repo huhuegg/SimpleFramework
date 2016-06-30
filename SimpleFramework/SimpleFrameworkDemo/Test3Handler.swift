@@ -13,8 +13,8 @@ class Test3Handler: SimpleHandler {
     //MARK:- Handler
     
     //MARK:- Router
-    func dismiss() {
-        AppRouter.instance.close(handler: self, animated: true)
+    func dismiss(from:SimpleController) {
+        AppRouter.instance.close(fromController: from, animated: true)
     }
 }
 

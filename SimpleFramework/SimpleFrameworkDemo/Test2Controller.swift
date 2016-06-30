@@ -13,13 +13,13 @@ class Test2Controller: SimpleController {
     
     //MARK:- 初始化
     override func initView() {
-        print("Test2Controller initView")
         self.view.backgroundColor = UIColor.white()
     }
     
     //MARK:- ViewController Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Test2Controller.viewDidLoad: initView")
         initView()
     }
 
@@ -34,12 +34,12 @@ class Test2Controller: SimpleController {
 private extension Test2Controller {
     
     @IBAction func presentToTest3(_ sender: AnyObject) {
-        (handler as! Test2Handler).presentToTest3(["key":"presentFromTest2Controller"])
+        (handler as! Test2Handler).presentToTest3(from: self, data: ["key":"presentFromTest2Controller"])
     }
     
     @IBAction func dismissToTest1(_ sender: AnyObject) {
         needSendBackData = ["key":"DismissFromTest2Controller"]
         
-        (handler as! Test2Handler).dismissToTest1()
+        (handler as! Test2Handler).dismissToTest1(from: self)
     }
 }

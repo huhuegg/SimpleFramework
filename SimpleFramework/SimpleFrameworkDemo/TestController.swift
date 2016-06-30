@@ -15,7 +15,6 @@ class TestController: SimpleController {
 
     //MARK:- 初始化
     override func initView() {
-        print("TestController initView")
         self.view.backgroundColor = UIColor.white()
         clearColorNavigationBarBackground()
     }
@@ -23,6 +22,7 @@ class TestController: SimpleController {
     //MARK:- ViewController Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("TestController.viewDidLoad: initView")
         initView()
     }
     
@@ -39,12 +39,11 @@ class TestController: SimpleController {
 private extension TestController {
 
     @IBAction func pushToTest1(_ sender: AnyObject) {
-        //print("\(handler?.className())")
-        (handler as! TestHandler).pushToTest1(["key":"pushFromTestController"])
+        (handler as! TestHandler).pushToTest1(from: self, data: ["key":"pushFromTestController"])
     }
     
     @IBAction func presentToTest3(_ sender: AnyObject) {
-        (handler as! TestHandler).presentToTest3(["key":"presentFromTestController"])
+        (handler as! TestHandler).presentToTest3(from: self, data: ["key":"presentFromTestController"])
     }
 
 }

@@ -26,6 +26,13 @@ public class SimpleControllerAnimatedTransitioning:NSObject,UIViewControllerAnim
     public func animateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         //使用containerView获取到当前的containerView, 将要执行动画的view都在这个containerView上进行
         let containerView = transitionContext.containerView()
+        
+        guard let toController = getToController(transitionContext: transitionContext) else {
+            print("toController is nil")
+            transitionContext.completeTransition(true)
+            return
+        }
+        
         //
         let fromView = transitionContext.view(forKey: UITransitionContextFromViewKey)!
         // 目标视图
@@ -44,4 +51,31 @@ public class SimpleControllerAnimatedTransitioning:NSObject,UIViewControllerAnim
     }
 }
 
+extension SimpleControllerAnimatedTransitioning {
+    public func getToController(transitionContext:UIViewControllerContextTransitioning)->SimpleController? {
+        
+        var toController:SimpleController?
+        
+        if let naviCtl = transitionContext.viewController(forKey: UITransitionContextToViewControllerKey) as? UINavigationController {
+            if naviCtl.viewControllers.count > 0 {
+                guard let ctl = naviCtl.viewControllers[naviCtl.viewControllers.count - 1] as? SimpleController else {
+                    print("toController is not SimpleController")
+                    return nil
+                }
+                toController = ctl
+            }
+        } else if let tabBarCtl = transitionContext.viewController(forKey: UITransitionContextToViewControllerKey) as? UITabBarController {
+            guard let ctl = tabBarCtl.selectedViewController as? SimpleController else {
+                print("toController is not SimpleController")
+                return nil
+            }
+            toController = ctl
+        } else {
+            if let ctl = transitionContext.viewController(forKey: UITransitionContextToViewControllerKey) as? SimpleController {
+                toController = ctl
+            }
+        }
+        return toController
+    }
+}
 

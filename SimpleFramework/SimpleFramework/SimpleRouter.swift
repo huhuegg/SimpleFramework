@@ -10,7 +10,7 @@ import UIKit
 //重要的事情说三遍：public public public
 
 public protocol SimpleRouterProtocol {
-    func setupController(data:Dictionary<String,AnyObject>?)
+    func setupController(data:Dictionary<String,AnyObject>?)->SimpleController?
 }
 
 public enum SimpleRouterError:ErrorProtocol {
@@ -44,15 +44,11 @@ public class SimpleRouter: NSObject {
         return  handlerClass.init()
     }
 
-    public class func show(type:ControllerShowType,fromHandler:SimpleHandler,toHandler:SimpleHandler,animated:Bool,transitioning:UIViewControllerAnimatedTransitioning?,data:Dictionary<String,AnyObject>?) throws {
+    public class func show(type:ControllerShowType,fromController:SimpleController,toHandler:SimpleHandler,animated:Bool,transitioning:UIViewControllerAnimatedTransitioning?,data:Dictionary<String,AnyObject>?) throws {
+        
 
-        guard let fromController = fromHandler.activeController else {
-            print("show need fromHandler activeController")
-            throw SimpleRouterError.fromControllerNil
-        }
-
-        guard let toController = toHandler.activeController else {
-            print("toHandler.activeController is nil")
+        guard let toController = toHandler.setupController(data: data) else {
+            print("toController setup failed")
             throw SimpleRouterError.toControllerNil
         }
         toController.receiveBackData = nil
@@ -86,23 +82,19 @@ public class SimpleRouter: NSObject {
             naviCtl.pushViewController(toController, animated: animated)
         case .present:
             //ViewControll过场动画的delegate在被Present的Controller上 (toController)
-            toController.setPresentTransitioning(transitioning: transitioning)
+            let _ = toController.setPresentTransitioning(transitioning: transitioning)
             fromController.present(toController, animated: animated, completion: {
             })
         }
 
     }
 
-    public class func close(handler:SimpleHandler,animated:Bool) throws {
-        guard let controller = handler.activeController else {
-            print("show need fromHandler activeController")
-            throw SimpleRouterError.fromControllerNil
-        }
-        
-        let willCloseControllerName = String(controller.classForCoder)
-        switch controller.fromType {
+    public class func close(fromController:SimpleController,animated:Bool) throws {
+
+        let willCloseControllerName = String(fromController.classForCoder)
+        switch fromController.fromType {
         case .push:
-            guard let naviCtl = controller.navigationController else {
+            guard let naviCtl = fromController.navigationController else {
                 print("Can't find naviCtl, POP failed!")
                 throw SimpleRouterError.naviNil
             }
@@ -111,7 +103,7 @@ public class SimpleRouter: NSObject {
                 throw SimpleRouterError.naviViewControllersCountError
             }
             
-            guard naviCtl.viewControllers[naviCtl.viewControllers.count - 1] == controller else {
+            guard naviCtl.viewControllers[naviCtl.viewControllers.count - 1] == fromController else {
                 print("naviCtl.viewControllers.last is not self, FAILED!")
                 throw SimpleRouterError.naviViewControllersLastNotMatch
             }
@@ -122,7 +114,7 @@ public class SimpleRouter: NSObject {
             
             print("**POP** \(willCloseControllerName) -> \(String(popToController.classForCoder))")
 
-            popToController.receiveBackData = controller.needSendBackData
+            popToController.receiveBackData = fromController.needSendBackData
             
             naviCtl.popViewController(animated: animated)
             //Navigation leftButton返回和手势右滑不会调用此方法,部分操作需要在viewDidDisappear执行
@@ -131,7 +123,7 @@ public class SimpleRouter: NSObject {
 
             
         case .present:
-            if let navi = controller.presentingViewController as? UINavigationController { ////发起present的是UINavigationController
+            if let navi = fromController.presentingViewController as? UINavigationController { ////发起present的是UINavigationController
                 guard navi.viewControllers.count > 0 else {
                     print("Is present from navigation,but navigation.viewControllers is empty")
                     throw SimpleRouterError.naviViewControllersCountError
@@ -140,28 +132,28 @@ public class SimpleRouter: NSObject {
                     print("Is present from navigation,but last is not SimpleController")
                     throw SimpleRouterError.naviViewControllersLastNotMatch
                 }
-                backController.receiveBackData = controller.needSendBackData
+                backController.receiveBackData = fromController.needSendBackData
                 print("**DISMISS** \(willCloseControllerName) -> \(String(backController.classForCoder))")
-                controller.dismiss(animated: animated, completion: {
+                fromController.dismiss(animated: animated, completion: {
                 })
 
-            } else if let tabBarCtl = controller.presentingViewController as? UITabBarController { //发起present的是UITabBarController
+            } else if let tabBarCtl = fromController.presentingViewController as? UITabBarController { //发起present的是UITabBarController
                 guard let backController = tabBarCtl.selectedViewController as? SimpleController else {
                     print("PresentBackController is nil")
                     throw SimpleRouterError.presentBackControllerNil
                 }
-                backController.receiveBackData = controller.needSendBackData
+                backController.receiveBackData = fromController.needSendBackData
                 print("**DISMISS** \(willCloseControllerName) -> \(String(backController.classForCoder))")
                 backController.dismiss(animated: animated, completion: {
                 })
             } else {
-                guard let backController = controller.presentingViewController as? SimpleController else {
+                guard let backController = fromController.presentingViewController as? SimpleController else {
                     print("PresentBackController is nil")
                     throw SimpleRouterError.presentBackControllerNil
                 }
-                backController.receiveBackData = controller.needSendBackData
+                backController.receiveBackData = fromController.needSendBackData
                 print("**DISMISS** \(willCloseControllerName) -> \(String(backController.classForCoder))")
-                controller.dismiss(animated: animated, completion: {
+                fromController.dismiss(animated: animated, completion: {
                 })
             }
 

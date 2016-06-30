@@ -13,13 +13,13 @@ class Test2Handler: SimpleHandler {
     //MARK:- Handler
     
     //MARK:- Router
-    func dismissToTest1() {
-        AppRouter.instance.close(handler: self, animated: true)
+    func dismissToTest1(from:SimpleController) {
+        AppRouter.instance.close(fromController: from, animated: true)
     }
     
-    func presentToTest3(_ data:Dictionary<String,AnyObject>?) {
+    func presentToTest3(from:SimpleController, data:Dictionary<String,AnyObject>?) {
         let transitioning:UIViewControllerAnimatedTransitioning? = nil
-        AppRouter.instance.show(routerId: AppRouterID.test3, type: ControllerShowType.present, fromHandler: self, animated: true, transitioning:transitioning,data: data)
+        AppRouter.instance.show(routerId: AppRouterID.test3, type: ControllerShowType.present, fromController: from, animated: true, transitioning:transitioning,data: data)
     }
 }
 

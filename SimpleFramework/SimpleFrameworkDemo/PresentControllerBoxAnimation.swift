@@ -20,38 +20,16 @@ class PresentControllerBoxAnimation: SimpleControllerAnimatedTransitioning {
         // 得到容器视图
         let containerView = transitionContext.containerView()
         
-        var toController:SimpleController?
-        
-        if let naviCtl = transitionContext.viewController(forKey: UITransitionContextToViewControllerKey) as? UINavigationController {
-            if naviCtl.viewControllers.count > 0 {
-                guard let ctl = naviCtl.viewControllers[naviCtl.viewControllers.count - 1] as? SimpleController else {
-                    print("toController is not SimpleController")
-                    return
-                }
-                toController = ctl
-            }
-        } else if let tabBarCtl = transitionContext.viewController(forKey: UITransitionContextToViewControllerKey) as? UITabBarController {
-            guard let ctl = tabBarCtl.selectedViewController as? SimpleController else {
-                print("toController is not SimpleController")
-                return
-            }
-            toController = ctl
-        } else {
-            if let ctl = transitionContext.viewController(forKey: UITransitionContextToViewControllerKey) as? SimpleController {
-                toController = ctl
-            }
-        }
-
-        guard let _ = toController else {
+        guard let toController = getToController(transitionContext: transitionContext) else {
             print("toController is nil")
             transitionContext.completeTransition(true)
             return
         }
-
+        
         let fromView = transitionContext.view(forKey: UITransitionContextFromViewKey)!
         let toView = transitionContext.view(forKey: UITransitionContextToViewKey)!
         
-        if toController!.isShowing {
+        if toController.isShowing {
             print("present")
             containerView.addSubview(toView)
             
