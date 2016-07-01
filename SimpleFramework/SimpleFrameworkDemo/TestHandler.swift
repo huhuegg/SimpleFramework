@@ -10,22 +10,11 @@ import UIKit
 import SimpleFramework
 
 class TestHandler: SimpleHandler {
-    //MARK:- Handler
-    
-    
-    //MARK:- Router
-    func pushToTest1(from:SimpleController, data:Dictionary<String,AnyObject>?) {
-        //let transitioning:UIViewControllerAnimatedTransitioning? = nil
-        let transitioning = SimpleControllerAnimatedTransitioning(duration: 1)
-        AppRouter.instance.show(routerId: AppRouterID.test1, type: ControllerShowType.push, fromController: from, animated: true, transitioning:transitioning, data: data)
-    }
-    
-    func presentToTest3(from:SimpleController, data:Dictionary<String,AnyObject>?) {
-        let transitioning = PresentControllerBoxAnimation(duration: 1)
-        AppRouter.instance.show(routerId: AppRouterID.test3, type: ControllerShowType.present, fromController: from, animated: true, transitioning:transitioning,data: data)
-    }
+    //MARK:- Controller call handler func
+
 }
 
+//MARK:- Setup controller
 extension SimpleRouterProtocol where Self:TestHandler {
     //不使用SimpleHandler的setupController
     func setupController(data:Dictionary<String,AnyObject>?)->SimpleController? {
@@ -48,6 +37,33 @@ extension SimpleRouterProtocol where Self:TestHandler {
 
 }
 
+//MARK:- Router
+extension TestHandler {
+    func pushToTest1(from:SimpleController, data:Dictionary<String,AnyObject>?) {
+        //let transitioning:UIViewControllerAnimatedTransitioning? = nil
+        let transitioning = SimpleControllerAnimatedTransitioning(duration: 1)
+        AppRouter.instance.show(routerId: AppRouterID.test1, type: ControllerShowType.push, fromController: from, animated: true, transitioning:transitioning, data: data)
+    }
+    
+    func presentToTest3(from:SimpleController, data:Dictionary<String,AnyObject>?) {
+        let transitioning = PresentControllerBoxAnimation(duration: 1)
+        AppRouter.instance.show(routerId: AppRouterID.test3, type: ControllerShowType.present, fromController: from, animated: true, transitioning:transitioning,data: data)
+    }
+}
+
+//MARK:- Broadcast to controllers
+extension TestHandler {
+    
+    func broadcast() {
+        for ctl in controllers {
+            if let c = ctl as? TestController {
+                //c.callWithHandler()
+            }
+        }
+    }
+}
+
+//MARK:- Private handler func
 private extension TestHandler {
     
 

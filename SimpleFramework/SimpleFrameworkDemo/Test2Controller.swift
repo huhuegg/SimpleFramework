@@ -30,6 +30,13 @@ class Test2Controller: SimpleController {
 
 }
 
+//MARK:- handler call controller func
+extension Test2Controller {
+    func callWithHandler() {
+        print("\(self) callWithHandler")
+    }
+}
+
 //MARK:- IBAction and private functions
 private extension Test2Controller {
     

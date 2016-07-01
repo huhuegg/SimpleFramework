@@ -35,7 +35,7 @@ public class SimpleController:UIViewController {
     //MARK:- ViewController Life Cycle
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
+        handler?.addController(controller: self)
     }
     
     
@@ -67,15 +67,16 @@ public class SimpleController:UIViewController {
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
         //Change controller status -> false
         self.isShowing = false
+        
+        super.viewDidDisappear(animated)
+        
     }
 
     deinit {
-        if let _ = handler {
-            print("~~~ \(self.className()) deinit ~~~")
-        }
+        print("~~~ \(self.className()) deinit ~~~")
+        handler!.removeController(controller: self)
     }
     
     

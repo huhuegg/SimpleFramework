@@ -10,9 +10,17 @@ import UIKit
 import SimpleFramework
 
 class Test1Handler: SimpleHandler {
-    //MARK:- Handler
+    //MARK:- Controller call handler func
+
+}
+
+extension SimpleRouterProtocol where Self:Test1Handler {
+    //使用SimpleHandler的setupController
+}
+
+//MARK:- Router
+extension Test1Handler {
     
-    //MARK:- Router
     func popToTest(from:SimpleController) {
         AppRouter.instance.close(fromController: from, animated: true)
     }
@@ -24,10 +32,20 @@ class Test1Handler: SimpleHandler {
     }
 }
 
-extension SimpleRouterProtocol where Self:Test1Handler {
-    //使用SimpleHandler的setupController
+//MARK:- Broadcast to controllers
+extension Test1Handler {
+    
+    func broadcast() {
+        for ctl in controllers {
+            if let c = ctl as? Test1Controller {
+                //c.callWithHandler()
+            }
+        }
+    }
 }
 
+//MARK:- Private handler func
 private extension Test1Handler {
+    
     
 }

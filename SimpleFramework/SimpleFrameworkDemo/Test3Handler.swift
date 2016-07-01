@@ -10,20 +10,37 @@ import UIKit
 import SimpleFramework
 
 class Test3Handler: SimpleHandler {
-    //MARK:- Handler
+    //MARK:- Controller call handler func
     
-    //MARK:- Router
-    func dismiss(from:SimpleController) {
-        AppRouter.instance.close(fromController: from, animated: true)
-    }
 }
 
+//MARK:- Setup controller
 extension SimpleRouterProtocol where Self:Test3Handler {
     //使用SimpleHandler的setupController
     
 }
 
+//MARK:- Router
+extension Test3Handler {
+    
+    func dismiss(from:SimpleController) {
+        AppRouter.instance.close(fromController: from, animated: true)
+    }
+}
 
+//MARK:- Broadcast to controllers
+extension Test3Handler {
+    
+    func broadcast() {
+        for ctl in controllers {
+            if let c = ctl as? Test3Controller {
+                //c.callWithHandler()
+            }
+        }
+    }
+}
+
+//MARK:- Private handler func
 private extension Test3Handler {
     
 }

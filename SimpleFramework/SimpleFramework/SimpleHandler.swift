@@ -18,6 +18,7 @@ public class SimpleHandler: NSObject,SimpleRouterProtocol {
 
     public var data:Dictionary<String,AnyObject>?
     
+    public var controllers:Array<SimpleController?> = Array()
     
     //Any SimpleHandlerClass Init
     required override public init() {
@@ -28,6 +29,23 @@ public class SimpleHandler: NSObject,SimpleRouterProtocol {
         return String(self.classForCoder)
     }
 
+    public func addController(controller:SimpleController) {
+        for ctl  in controllers {
+            if ctl == controller {
+                return
+            }
+        }
+        controllers.append(controller)
+    }
+        
+    public func removeController(controller:SimpleController) {
+        for (idx,ctl)  in controllers.enumerated() {
+            if ctl == controller {
+                controllers.remove(at: idx)
+                return
+            }
+        }
+    }
 }
 
 extension SimpleRouterProtocol where Self:SimpleHandler {
