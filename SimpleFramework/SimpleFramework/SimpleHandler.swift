@@ -35,12 +35,15 @@ public class SimpleHandler: NSObject,SimpleRouterProtocol {
                 return
             }
         }
+        print("handler:\(self) addController:\(controller)")
         controllers.append(controller)
     }
         
     public func removeController(controller:SimpleController) {
+        
         for (idx,ctl)  in controllers.enumerated() {
             if ctl == controller {
+                print("removeController:\(ctl)")
                 controllers.remove(at: idx)
                 return
             }

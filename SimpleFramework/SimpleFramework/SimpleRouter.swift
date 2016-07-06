@@ -76,7 +76,7 @@ public class SimpleRouter: NSObject {
                 //NavigationControll过场动画的delegate在发起Push的Controller上 (fromController)
                 fromController.setNavigationTransitioning(transitioning: transitioning)
                 //添加滑动返回手势
-                toController.addPopRecognizer()
+                fromController.addPopRecognizerOnNavigationController()
             }
             
             naviCtl.pushViewController(toController, animated: animated)
@@ -114,13 +114,13 @@ public class SimpleRouter: NSObject {
             
             print("**POP** \(willCloseControllerName) -> \(String(popToController.classForCoder))")
 
-            popToController.receiveBackData = fromController.needSendBackData
+//            popToController.receiveBackData = fromController.needSendBackData
             
             naviCtl.popViewController(animated: animated)
             //Navigation leftButton返回和手势右滑不会调用此方法,部分操作需要在viewDidDisappear执行
             //  popToController.receiveBackData = data
             
-            fromController.handler?.removeController(controller: fromController)
+            //fromController.handler?.removeController(controller: fromController)
 
 
             

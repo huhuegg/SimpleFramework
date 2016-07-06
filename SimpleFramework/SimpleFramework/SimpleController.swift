@@ -45,6 +45,14 @@ public class SimpleController:UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if let ctl = handler!.controllers.last {
+            if ctl != self {
+                handler?.removeController(controller: self)
+                handler?.addController(controller: self)
+            }
+            
+        }
+        
         //print("\(self.className()) viewWillAppear: \(self)")
 //        if let _ = receiveBackData {
 //            print("\(self): viewWillAppear, data:\(data) receiveBackData:\(receiveBackData)")
@@ -131,10 +139,10 @@ extension SimpleController:UINavigationControllerDelegate  {
         }
     }
     
-    public func addPopRecognizer() {
+    public func addPopRecognizerOnNavigationController() {
         let popRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(SimpleController.handlePopRecognizer(recognizer:)))
         popRecognizer.edges = .left
-        self.view.addGestureRecognizer(popRecognizer)
+        self.navigationController!.view.addGestureRecognizer(popRecognizer)
     }
 
     func handlePopRecognizer(recognizer: UIScreenEdgePanGestureRecognizer) {
@@ -146,14 +154,13 @@ extension SimpleController:UINavigationControllerDelegate  {
         case .began:    // 开始滑动：初始化UIPercentDrivenInteractiveTransition对象，并开启导航pop
             interactivePopTransition = UIPercentDrivenInteractiveTransition()
 
-        //self.popViewControllerAnimated(true)
+            self.navigationController!.popViewController(animated: true)
         case .changed:  // 滑动过程中，根据在屏幕上滑动的百分比更新状态
             interactivePopTransition?.update(progress)
         case .ended, .cancelled:    // 滑动结束或取消
-            //向右滑动超过40%宽度时pop,否则取消
-            if progress > 0.4 {
+            //向右滑动超过50%宽度时pop,否则取消
+            if progress > 0.5 {
                 interactivePopTransition?.finish()
-                try? SimpleRouter.close(fromController: self, animated: true)
             } else {
                 interactivePopTransition?.cancel()
             }

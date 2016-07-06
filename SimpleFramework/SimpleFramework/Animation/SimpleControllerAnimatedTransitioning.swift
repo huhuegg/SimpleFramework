@@ -10,7 +10,7 @@ import UIKit
 
 //MARK:- 过场动画
 public class SimpleControllerAnimatedTransitioning:NSObject,UIViewControllerAnimatedTransitioning {
-    public var duration = 1.0
+    public var duration:TimeInterval = 0.4
     
     public init(duration:TimeInterval) {
         super.init()
@@ -46,7 +46,7 @@ public class SimpleControllerAnimatedTransitioning:NSObject,UIViewControllerAnim
                                    animations: {
                                     toView.alpha = 1.0
             }, completion: { _ in
-                transitionContext.completeTransition(true)
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
         })
     }
 }
