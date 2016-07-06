@@ -8,6 +8,10 @@
 
 import UIKit
 
+public protocol SimpleControllerBroadcastProtocol {
+    //callFromHandler
+    func callFromHandler(dict:Dictionary<String,AnyObject>?)
+}
 
 public class SimpleController:UIViewController {
     //MARK:- Property
@@ -74,10 +78,9 @@ public class SimpleController:UIViewController {
         
     }
 
-    deinit {
-        print("~~~ \(self.className()) deinit ~~~")
-        handler!.removeController(controller: self)
-    }
+//    deinit {
+//        print("~~~ \(self.className()) deinit ~~~")
+//    }
     
     
     //MARK:- Function

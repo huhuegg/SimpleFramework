@@ -32,17 +32,6 @@ extension Test1Handler {
     }
 }
 
-//MARK:- Broadcast to controllers
-extension Test1Handler {
-    
-    func broadcast() {
-        for ctl in controllers {
-            if let c = ctl as? Test1Controller {
-                //c.callWithHandler()
-            }
-        }
-    }
-}
 
 //MARK:- Private handler func
 private extension Test1Handler {

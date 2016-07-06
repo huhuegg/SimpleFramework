@@ -46,6 +46,15 @@ public class SimpleHandler: NSObject,SimpleRouterProtocol {
             }
         }
     }
+    
+    public func broadcastControllers(data:Dictionary<String,AnyObject>?) {
+        for ctl in controllers {
+            if let c = ctl as? SimpleControllerBroadcastProtocol {
+                print("broadcastController:\(c) data:\(data)")
+                c.callFromHandler(dict: data)
+            }
+        }
+    }
 }
 
 extension SimpleRouterProtocol where Self:SimpleHandler {

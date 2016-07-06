@@ -119,6 +119,8 @@ public class SimpleRouter: NSObject {
             naviCtl.popViewController(animated: animated)
             //Navigation leftButton返回和手势右滑不会调用此方法,部分操作需要在viewDidDisappear执行
             //  popToController.receiveBackData = data
+            
+            fromController.handler?.removeController(controller: fromController)
 
 
             
@@ -135,6 +137,8 @@ public class SimpleRouter: NSObject {
                 backController.receiveBackData = fromController.needSendBackData
                 print("**DISMISS** \(willCloseControllerName) -> \(String(backController.classForCoder))")
                 fromController.dismiss(animated: animated, completion: {
+                    print("dismiss to naviCtl")
+                    fromController.handler?.removeController(controller: fromController)
                 })
 
             } else if let tabBarCtl = fromController.presentingViewController as? UITabBarController { //发起present的是UITabBarController
@@ -144,7 +148,9 @@ public class SimpleRouter: NSObject {
                 }
                 backController.receiveBackData = fromController.needSendBackData
                 print("**DISMISS** \(willCloseControllerName) -> \(String(backController.classForCoder))")
-                backController.dismiss(animated: animated, completion: {
+                fromController.dismiss(animated: animated, completion: {
+                    print("dismiss to tabBarCtl")
+                    fromController.handler?.removeController(controller: fromController)
                 })
             } else {
                 guard let backController = fromController.presentingViewController as? SimpleController else {
@@ -154,6 +160,8 @@ public class SimpleRouter: NSObject {
                 backController.receiveBackData = fromController.needSendBackData
                 print("**DISMISS** \(willCloseControllerName) -> \(String(backController.classForCoder))")
                 fromController.dismiss(animated: animated, completion: {
+                    print("dismiss to ctl")
+                    fromController.handler?.removeController(controller: fromController)
                 })
             }
 

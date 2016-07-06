@@ -11,7 +11,9 @@ import SimpleFramework
 
 class Test3Handler: SimpleHandler {
     //MARK:- Controller call handler func
-    
+    func getTestDataList() {
+        broadcastControllers(data: ["from":"Test3Handler"])
+    }
 }
 
 //MARK:- Setup controller
@@ -28,17 +30,6 @@ extension Test3Handler {
     }
 }
 
-//MARK:- Broadcast to controllers
-extension Test3Handler {
-    
-    func broadcast() {
-        for ctl in controllers {
-            if let c = ctl as? Test3Controller {
-                //c.callWithHandler()
-            }
-        }
-    }
-}
 
 //MARK:- Private handler func
 private extension Test3Handler {

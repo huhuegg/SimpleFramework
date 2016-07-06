@@ -34,7 +34,6 @@ class TestController: SimpleController {
     
 }
 
-
 //MARK:- IBAction and private functions
 private extension TestController {
 

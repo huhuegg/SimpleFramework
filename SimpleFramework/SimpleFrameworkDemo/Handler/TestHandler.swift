@@ -16,7 +16,7 @@ class TestHandler: SimpleHandler {
 
 //MARK:- Setup controller
 extension SimpleRouterProtocol where Self:TestHandler {
-    //不使用SimpleHandler的setupController
+    //不使用默认的SimpleHandler.setupController时需要定义
     func setupController(data:Dictionary<String,AnyObject>?)->SimpleController? {
         let storyboardName = "Main"
         let controllerIdentifier = name + "Controller"
@@ -48,18 +48,6 @@ extension TestHandler {
     func presentToTest3(from:SimpleController, data:Dictionary<String,AnyObject>?) {
         let transitioning = PresentControllerBoxAnimation(duration: 1)
         AppRouter.instance.show(routerId: AppRouterID.test3, type: ControllerShowType.present, fromController: from, animated: true, transitioning:transitioning,data: data)
-    }
-}
-
-//MARK:- Broadcast to controllers
-extension TestHandler {
-    
-    func broadcast() {
-        for ctl in controllers {
-            if let c = ctl as? TestController {
-                //c.callWithHandler()
-            }
-        }
     }
 }
 

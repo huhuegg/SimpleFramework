@@ -20,6 +20,7 @@ enum AppRouterID {
     case test1
     case test2
     case test3
+    case center
 }
 
 class AppRouter: NSObject {
@@ -46,13 +47,14 @@ class AppRouter: NSObject {
     var test1Handler:Test1Handler!
     var test2Handler:Test2Handler!
     var test3Handler:Test3Handler!
+    var centerHandler:CenterHandler!
 
     private func initHandlers() {
         testHandler = SimpleRouter.create(name: "Test") as! TestHandler
         test1Handler = SimpleRouter.create(name: "Test1") as! Test1Handler
         test2Handler = SimpleRouter.create(name: "Test2") as! Test2Handler
         test3Handler = SimpleRouter.create(name: "Test3") as! Test3Handler
-
+        centerHandler = SimpleRouter.create(name: "Center") as! CenterHandler
     }
     
     private func getHandler(routerId:AppRouterID)->SimpleHandler? {
@@ -65,20 +67,27 @@ class AppRouter: NSObject {
             return test2Handler
         case .test3:
             return test3Handler
+        case .center:
+            return centerHandler
         }
     }
     
     private func setupTabBar(data:Dictionary<String,AnyObject>?)->Array<UIViewController> {
         let (_,eduCtl) = setupToHandler(routerId: .test, data: nil)
         let (_,newsCtl) = setupToHandler(routerId: .test1, data: nil)
+        let (_,centerCtl) = setupToHandler(routerId: .center, data: nil)
         let (_,giftCtl) = setupToHandler(routerId: .test2, data: nil)
         let (_,homeCtl) = setupToHandler(routerId: .test3, data: nil)
         
         eduCtl!.tabBarItem = UITabBarItem(title: "教育", image: UIImage(named: "edu"), tag: 0)
         newsCtl!.tabBarItem = UITabBarItem(title: "新闻", image: UIImage(named: "news"), tag: 0)
+        
+        centerCtl!.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "center"), tag: 0).customSetup(renderingMode: UIImageRenderingMode.alwaysOriginal, selectImage: UIImage(named: "center"), selectRenderingMode: UIImageRenderingMode.alwaysOriginal, customImageInsets: UIEdgeInsets(top: -5, left: 0, bottom: 5, right: 0))
+        
         giftCtl!.tabBarItem = UITabBarItem(title: "礼物", image: UIImage(named: "gift"), tag: 0)
         homeCtl!.tabBarItem = UITabBarItem(title: "个人", image: UIImage(named: "home"), tag: 0)
-        return [eduCtl!,newsCtl!,giftCtl!,homeCtl!]
+
+        return [eduCtl!,newsCtl!,centerCtl!,giftCtl!,homeCtl!]
     }
 
 }

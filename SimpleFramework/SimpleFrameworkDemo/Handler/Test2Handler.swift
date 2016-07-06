@@ -33,18 +33,6 @@ extension Test2Handler {
     }
 }
 
-//MARK:- Broadcast to controllers
-extension Test2Handler {
-    
-    func broadcast() {
-        for ctl in controllers {
-            if let c = ctl as? Test2Controller {
-                c.callWithHandler()
-            }
-        }
-    }
-}
-
 //MARK:- Private handler func
 private extension Test2Handler {
     

@@ -7,30 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8411E2841D1BECA7008C8FB0 /* Test2Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8411E2831D1BECA7008C8FB0 /* Test2Handler.swift */; };
-		8411E2861D1BECC6008C8FB0 /* Test2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8411E2851D1BECC6008C8FB0 /* Test2Controller.swift */; };
-		8411E2891D1BECF5008C8FB0 /* Test3Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8411E2881D1BECF5008C8FB0 /* Test3Controller.swift */; };
-		8411E28B1D1BED0F008C8FB0 /* Test3Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8411E28A1D1BED0F008C8FB0 /* Test3Handler.swift */; };
+		844BA70E1D2CDE1200F11E76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA70C1D2CDE1200F11E76 /* AppDelegate.swift */; };
+		844BA70F1D2CDE1200F11E76 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA70D1D2CDE1200F11E76 /* AppRouter.swift */; };
+		844BA7131D2CDE2900F11E76 /* PresentControllerBoxAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA7111D2CDE2900F11E76 /* PresentControllerBoxAnimation.swift */; };
+		844BA7141D2CDE2900F11E76 /* Test1ControllerAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA7121D2CDE2900F11E76 /* Test1ControllerAnimation.swift */; };
+		844BA7171D2CDE4600F11E76 /* CenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA7151D2CDE4600F11E76 /* CenterController.swift */; };
+		844BA7181D2CDE4600F11E76 /* CenterHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA7161D2CDE4600F11E76 /* CenterHandler.swift */; };
+		844BA71B1D2CDE6500F11E76 /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA7191D2CDE6500F11E76 /* TestController.swift */; };
+		844BA71C1D2CDE6500F11E76 /* TestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA71A1D2CDE6500F11E76 /* TestHandler.swift */; };
+		844BA71F1D2CDE7300F11E76 /* Test1Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA71D1D2CDE7300F11E76 /* Test1Controller.swift */; };
+		844BA7201D2CDE7300F11E76 /* Test1Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA71E1D2CDE7300F11E76 /* Test1Handler.swift */; };
+		844BA7231D2CDE7D00F11E76 /* Test2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA7211D2CDE7D00F11E76 /* Test2Controller.swift */; };
+		844BA7241D2CDE7D00F11E76 /* Test2Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA7221D2CDE7D00F11E76 /* Test2Handler.swift */; };
+		844BA7271D2CDE8900F11E76 /* Test3Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA7251D2CDE8900F11E76 /* Test3Controller.swift */; };
+		844BA7281D2CDE8900F11E76 /* Test3Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA7261D2CDE8900F11E76 /* Test3Handler.swift */; };
+		844BA72B1D2CDEE400F11E76 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA72A1D2CDEE400F11E76 /* TestData.swift */; };
+		844BA72D1D2CE12500F11E76 /* SimpleNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA72C1D2CE12500F11E76 /* SimpleNetwork.swift */; };
 		8457932C1D17E8AB008C33CD /* SimpleFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 8457932B1D17E8AB008C33CD /* SimpleFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		845793341D17E9DC008C33CD /* SimpleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845793331D17E9DC008C33CD /* SimpleHandler.swift */; };
 		845793361D17EA03008C33CD /* SimpleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845793351D17EA03008C33CD /* SimpleRouter.swift */; };
 		845793381D17EE02008C33CD /* SimpleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845793371D17EE02008C33CD /* SimpleController.swift */; };
 		845C28B01D2219FF00A61433 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C28AF1D2219FF00A61433 /* IAPManager.swift */; };
-		84BC66B81D20DC9A006A0412 /* PresentControllerBoxAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC66B71D20DC9A006A0412 /* PresentControllerBoxAnimation.swift */; };
-		84BC66BA1D21269E006A0412 /* Test1ControllerAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC66B91D21269E006A0412 /* Test1ControllerAnimation.swift */; };
 		84BC66BD1D213315006A0412 /* SimpleControllerAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC66BC1D213315006A0412 /* SimpleControllerAnimatedTransitioning.swift */; };
-		84BC66C01D21336F006A0412 /* NavigationControllerExension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC66BF1D21336F006A0412 /* NavigationControllerExension.swift */; };
-		84E737191D1953DD0003A16F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E737181D1953DD0003A16F /* AppDelegate.swift */; };
+		84CDB3A41D2B64BE00CA55FF /* NavigationControllerExension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDB3A31D2B64BE00CA55FF /* NavigationControllerExension.swift */; };
+		84CDB3A61D2B64E100CA55FF /* TabbarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDB3A51D2B64E100CA55FF /* TabbarExtension.swift */; };
 		84E7371E1D1953DD0003A16F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E7371C1D1953DD0003A16F /* Main.storyboard */; };
 		84E737201D1953DD0003A16F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E7371F1D1953DD0003A16F /* Assets.xcassets */; };
 		84E737231D1953DD0003A16F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E737211D1953DD0003A16F /* LaunchScreen.storyboard */; };
 		84E737281D19544F0003A16F /* SimpleFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845793281D17E8AB008C33CD /* SimpleFramework.framework */; };
 		84E737291D19544F0003A16F /* SimpleFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 845793281D17E8AB008C33CD /* SimpleFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		84E737321D1954A30003A16F /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7372D1D1954A30003A16F /* AppRouter.swift */; };
-		84E737331D1954A30003A16F /* Test1Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7372E1D1954A30003A16F /* Test1Controller.swift */; };
-		84E737341D1954A30003A16F /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7372F1D1954A30003A16F /* TestController.swift */; };
-		84E737351D1954A30003A16F /* Test1Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E737301D1954A30003A16F /* Test1Handler.swift */; };
-		84E737361D1954A30003A16F /* TestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E737311D1954A30003A16F /* TestHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,10 +63,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8411E2831D1BECA7008C8FB0 /* Test2Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test2Handler.swift; sourceTree = "<group>"; };
-		8411E2851D1BECC6008C8FB0 /* Test2Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test2Controller.swift; sourceTree = "<group>"; };
-		8411E2881D1BECF5008C8FB0 /* Test3Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test3Controller.swift; sourceTree = "<group>"; };
-		8411E28A1D1BED0F008C8FB0 /* Test3Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test3Handler.swift; sourceTree = "<group>"; };
+		844BA70C1D2CDE1200F11E76 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		844BA70D1D2CDE1200F11E76 /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		844BA7111D2CDE2900F11E76 /* PresentControllerBoxAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentControllerBoxAnimation.swift; sourceTree = "<group>"; };
+		844BA7121D2CDE2900F11E76 /* Test1ControllerAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test1ControllerAnimation.swift; sourceTree = "<group>"; };
+		844BA7151D2CDE4600F11E76 /* CenterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CenterController.swift; path = Controller/CenterController.swift; sourceTree = "<group>"; };
+		844BA7161D2CDE4600F11E76 /* CenterHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CenterHandler.swift; path = Handler/CenterHandler.swift; sourceTree = "<group>"; };
+		844BA7191D2CDE6500F11E76 /* TestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestController.swift; path = Controller/TestController.swift; sourceTree = "<group>"; };
+		844BA71A1D2CDE6500F11E76 /* TestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestHandler.swift; path = Handler/TestHandler.swift; sourceTree = "<group>"; };
+		844BA71D1D2CDE7300F11E76 /* Test1Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Test1Controller.swift; path = Controller/Test1Controller.swift; sourceTree = "<group>"; };
+		844BA71E1D2CDE7300F11E76 /* Test1Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Test1Handler.swift; path = Handler/Test1Handler.swift; sourceTree = "<group>"; };
+		844BA7211D2CDE7D00F11E76 /* Test2Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Test2Controller.swift; path = Controller/Test2Controller.swift; sourceTree = "<group>"; };
+		844BA7221D2CDE7D00F11E76 /* Test2Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Test2Handler.swift; path = Handler/Test2Handler.swift; sourceTree = "<group>"; };
+		844BA7251D2CDE8900F11E76 /* Test3Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Test3Controller.swift; path = Controller/Test3Controller.swift; sourceTree = "<group>"; };
+		844BA7261D2CDE8900F11E76 /* Test3Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Test3Handler.swift; path = Handler/Test3Handler.swift; sourceTree = "<group>"; };
+		844BA72A1D2CDEE400F11E76 /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		844BA72C1D2CE12500F11E76 /* SimpleNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleNetwork.swift; sourceTree = "<group>"; };
 		845793281D17E8AB008C33CD /* SimpleFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8457932B1D17E8AB008C33CD /* SimpleFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleFramework.h; sourceTree = "<group>"; };
 		8457932D1D17E8AB008C33CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -69,21 +86,14 @@
 		845793351D17EA03008C33CD /* SimpleRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleRouter.swift; sourceTree = "<group>"; };
 		845793371D17EE02008C33CD /* SimpleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleController.swift; sourceTree = "<group>"; };
 		845C28AF1D2219FF00A61433 /* IAPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
-		84BC66B71D20DC9A006A0412 /* PresentControllerBoxAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentControllerBoxAnimation.swift; sourceTree = "<group>"; };
-		84BC66B91D21269E006A0412 /* Test1ControllerAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test1ControllerAnimation.swift; sourceTree = "<group>"; };
 		84BC66BC1D213315006A0412 /* SimpleControllerAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleControllerAnimatedTransitioning.swift; sourceTree = "<group>"; };
-		84BC66BF1D21336F006A0412 /* NavigationControllerExension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerExension.swift; sourceTree = "<group>"; };
+		84CDB3A31D2B64BE00CA55FF /* NavigationControllerExension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerExension.swift; sourceTree = "<group>"; };
+		84CDB3A51D2B64E100CA55FF /* TabbarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarExtension.swift; sourceTree = "<group>"; };
 		84E737161D1953DD0003A16F /* SimpleFrameworkDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleFrameworkDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		84E737181D1953DD0003A16F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84E7371D1D1953DD0003A16F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84E7371F1D1953DD0003A16F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84E737221D1953DD0003A16F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84E737241D1953DD0003A16F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84E7372D1D1954A30003A16F /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
-		84E7372E1D1954A30003A16F /* Test1Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test1Controller.swift; sourceTree = "<group>"; };
-		84E7372F1D1954A30003A16F /* TestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
-		84E737301D1954A30003A16F /* Test1Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test1Handler.swift; sourceTree = "<group>"; };
-		84E737311D1954A30003A16F /* TestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +118,8 @@
 		8411E2821D1BEC88008C8FB0 /* Test2 */ = {
 			isa = PBXGroup;
 			children = (
-				8411E2831D1BECA7008C8FB0 /* Test2Handler.swift */,
-				8411E2851D1BECC6008C8FB0 /* Test2Controller.swift */,
+				844BA7211D2CDE7D00F11E76 /* Test2Controller.swift */,
+				844BA7221D2CDE7D00F11E76 /* Test2Handler.swift */,
 			);
 			name = Test2;
 			sourceTree = "<group>";
@@ -117,10 +127,36 @@
 		8411E2871D1BECCB008C8FB0 /* Test3 */ = {
 			isa = PBXGroup;
 			children = (
-				8411E28A1D1BED0F008C8FB0 /* Test3Handler.swift */,
-				8411E2881D1BECF5008C8FB0 /* Test3Controller.swift */,
+				844BA7251D2CDE8900F11E76 /* Test3Controller.swift */,
+				844BA7261D2CDE8900F11E76 /* Test3Handler.swift */,
 			);
 			name = Test3;
+			sourceTree = "<group>";
+		};
+		844BA70B1D2CDE1200F11E76 /* AppBase */ = {
+			isa = PBXGroup;
+			children = (
+				844BA70C1D2CDE1200F11E76 /* AppDelegate.swift */,
+				844BA70D1D2CDE1200F11E76 /* AppRouter.swift */,
+			);
+			path = AppBase;
+			sourceTree = "<group>";
+		};
+		844BA7101D2CDE2900F11E76 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				844BA7111D2CDE2900F11E76 /* PresentControllerBoxAnimation.swift */,
+				844BA7121D2CDE2900F11E76 /* Test1ControllerAnimation.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		844BA7291D2CDEAB00F11E76 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				844BA72A1D2CDEE400F11E76 /* TestData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8457931E1D17E8AB008C33CD = {
@@ -148,7 +184,8 @@
 				845793351D17EA03008C33CD /* SimpleRouter.swift */,
 				845793331D17E9DC008C33CD /* SimpleHandler.swift */,
 				845793371D17EE02008C33CD /* SimpleController.swift */,
-				84BC66BE1D21334F006A0412 /* Extension */,
+				844BA72C1D2CE12500F11E76 /* SimpleNetwork.swift */,
+				84CDB3A21D2B64BE00CA55FF /* Extensions */,
 				84BC66BB1D213315006A0412 /* Animation */,
 				845C28AE1D2219FF00A61433 /* Tools */,
 				8457932D1D17E8AB008C33CD /* Info.plist */,
@@ -164,15 +201,6 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
-		84BC66B61D20DC3B006A0412 /* Animation */ = {
-			isa = PBXGroup;
-			children = (
-				84BC66B71D20DC9A006A0412 /* PresentControllerBoxAnimation.swift */,
-				84BC66B91D21269E006A0412 /* Test1ControllerAnimation.swift */,
-			);
-			name = Animation;
-			sourceTree = "<group>";
-		};
 		84BC66BB1D213315006A0412 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,21 +209,31 @@
 			path = Animation;
 			sourceTree = "<group>";
 		};
-		84BC66BE1D21334F006A0412 /* Extension */ = {
+		84CDB3A21D2B64BE00CA55FF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				84BC66BF1D21336F006A0412 /* NavigationControllerExension.swift */,
+				84CDB3A31D2B64BE00CA55FF /* NavigationControllerExension.swift */,
+				84CDB3A51D2B64E100CA55FF /* TabbarExtension.swift */,
 			);
-			name = Extension;
-			path = ControllerExtension;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		84CDB3A71D2B662700CA55FF /* TabbarCenter */ = {
+			isa = PBXGroup;
+			children = (
+				844BA7151D2CDE4600F11E76 /* CenterController.swift */,
+				844BA7161D2CDE4600F11E76 /* CenterHandler.swift */,
+			);
+			name = TabbarCenter;
 			sourceTree = "<group>";
 		};
 		84E737171D1953DD0003A16F /* SimpleFrameworkDemo */ = {
 			isa = PBXGroup;
 			children = (
-				84E737381D19568A0003A16F /* AppBase */,
+				844BA7291D2CDEAB00F11E76 /* Model */,
+				844BA70B1D2CDE1200F11E76 /* AppBase */,
 				84E737371D1954B50003A16F /* Module */,
-				84BC66B61D20DC3B006A0412 /* Animation */,
+				844BA7101D2CDE2900F11E76 /* Animation */,
 				84E737391D1956B90003A16F /* res */,
 			);
 			path = SimpleFrameworkDemo;
@@ -204,21 +242,13 @@
 		84E737371D1954B50003A16F /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				84CDB3A71D2B662700CA55FF /* TabbarCenter */,
 				84E7373A1D1956FE0003A16F /* Test */,
 				84E7373B1D19570E0003A16F /* Test1 */,
 				8411E2821D1BEC88008C8FB0 /* Test2 */,
 				8411E2871D1BECCB008C8FB0 /* Test3 */,
 			);
 			name = Module;
-			sourceTree = "<group>";
-		};
-		84E737381D19568A0003A16F /* AppBase */ = {
-			isa = PBXGroup;
-			children = (
-				84E737181D1953DD0003A16F /* AppDelegate.swift */,
-				84E7372D1D1954A30003A16F /* AppRouter.swift */,
-			);
-			name = AppBase;
 			sourceTree = "<group>";
 		};
 		84E737391D1956B90003A16F /* res */ = {
@@ -235,8 +265,8 @@
 		84E7373A1D1956FE0003A16F /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				84E737311D1954A30003A16F /* TestHandler.swift */,
-				84E7372F1D1954A30003A16F /* TestController.swift */,
+				844BA7191D2CDE6500F11E76 /* TestController.swift */,
+				844BA71A1D2CDE6500F11E76 /* TestHandler.swift */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -244,8 +274,8 @@
 		84E7373B1D19570E0003A16F /* Test1 */ = {
 			isa = PBXGroup;
 			children = (
-				84E737301D1954A30003A16F /* Test1Handler.swift */,
-				84E7372E1D1954A30003A16F /* Test1Controller.swift */,
+				844BA71D1D2CDE7300F11E76 /* Test1Controller.swift */,
+				844BA71E1D2CDE7300F11E76 /* Test1Handler.swift */,
 			);
 			name = Test1;
 			sourceTree = "<group>";
@@ -370,9 +400,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84CDB3A41D2B64BE00CA55FF /* NavigationControllerExension.swift in Sources */,
+				84CDB3A61D2B64E100CA55FF /* TabbarExtension.swift in Sources */,
+				844BA72D1D2CE12500F11E76 /* SimpleNetwork.swift in Sources */,
 				845C28B01D2219FF00A61433 /* IAPManager.swift in Sources */,
 				84BC66BD1D213315006A0412 /* SimpleControllerAnimatedTransitioning.swift in Sources */,
-				84BC66C01D21336F006A0412 /* NavigationControllerExension.swift in Sources */,
 				845793341D17E9DC008C33CD /* SimpleHandler.swift in Sources */,
 				845793381D17EE02008C33CD /* SimpleController.swift in Sources */,
 				845793361D17EA03008C33CD /* SimpleRouter.swift in Sources */,
@@ -383,18 +415,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84E737341D1954A30003A16F /* TestController.swift in Sources */,
-				8411E2891D1BECF5008C8FB0 /* Test3Controller.swift in Sources */,
-				84BC66BA1D21269E006A0412 /* Test1ControllerAnimation.swift in Sources */,
-				8411E28B1D1BED0F008C8FB0 /* Test3Handler.swift in Sources */,
-				84BC66B81D20DC9A006A0412 /* PresentControllerBoxAnimation.swift in Sources */,
-				8411E2841D1BECA7008C8FB0 /* Test2Handler.swift in Sources */,
-				84E737351D1954A30003A16F /* Test1Handler.swift in Sources */,
-				84E737331D1954A30003A16F /* Test1Controller.swift in Sources */,
-				84E737191D1953DD0003A16F /* AppDelegate.swift in Sources */,
-				84E737321D1954A30003A16F /* AppRouter.swift in Sources */,
-				8411E2861D1BECC6008C8FB0 /* Test2Controller.swift in Sources */,
-				84E737361D1954A30003A16F /* TestHandler.swift in Sources */,
+				844BA7141D2CDE2900F11E76 /* Test1ControllerAnimation.swift in Sources */,
+				844BA7241D2CDE7D00F11E76 /* Test2Handler.swift in Sources */,
+				844BA70F1D2CDE1200F11E76 /* AppRouter.swift in Sources */,
+				844BA72B1D2CDEE400F11E76 /* TestData.swift in Sources */,
+				844BA7231D2CDE7D00F11E76 /* Test2Controller.swift in Sources */,
+				844BA71C1D2CDE6500F11E76 /* TestHandler.swift in Sources */,
+				844BA70E1D2CDE1200F11E76 /* AppDelegate.swift in Sources */,
+				844BA7281D2CDE8900F11E76 /* Test3Handler.swift in Sources */,
+				844BA7201D2CDE7300F11E76 /* Test1Handler.swift in Sources */,
+				844BA7271D2CDE8900F11E76 /* Test3Controller.swift in Sources */,
+				844BA7131D2CDE2900F11E76 /* PresentControllerBoxAnimation.swift in Sources */,
+				844BA71F1D2CDE7300F11E76 /* Test1Controller.swift in Sources */,
+				844BA7171D2CDE4600F11E76 /* CenterController.swift in Sources */,
+				844BA7181D2CDE4600F11E76 /* CenterHandler.swift in Sources */,
+				844BA71B1D2CDE6500F11E76 /* TestController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
