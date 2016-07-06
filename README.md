@@ -23,6 +23,8 @@ SimpleFramework is an app framework for iOS written in Swift3.
 
 ## Usage
 参考SimpleFrameworkDemo工程
+
+如工程中使用Swift Framework，遇到“cannot find swift declaration for this class”错误情况，请检查Build Settings -> BuildOptions -> Embedded Content Contains Swift Code  是否已经被设置为Yes
 ### AppDelegate
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
