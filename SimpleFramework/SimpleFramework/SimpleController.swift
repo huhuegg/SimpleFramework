@@ -45,13 +45,7 @@ public class SimpleController:UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let ctl = handler!.controllers.last {
-            if ctl != self {
-                handler?.removeController(controller: self)
-                handler?.addController(controller: self)
-            }
-            
-        }
+        print("handler:\(handler) controllers:\(handler?.controllers)")
         
         //print("\(self.className()) viewWillAppear: \(self)")
 //        if let _ = receiveBackData {
@@ -82,6 +76,10 @@ public class SimpleController:UIViewController {
         //Change controller status -> false
         self.isShowing = false
         
+        if fromType == .push && self.navigationController == nil {
+            print("``````````````````````````\(self.className())[\(fromType)] viewDidDisappear: \(self.navigationController)")
+            handler!.removeController(controller: self)
+        }
         super.viewDidDisappear(animated)
         
     }
@@ -165,7 +163,8 @@ extension SimpleController:UINavigationControllerDelegate  {
                 interactivePopTransition?.cancel()
             }
             interactivePopTransition = nil
-        default: break
+        default:
+            break
         }
     }
     
@@ -181,11 +180,11 @@ extension SimpleController:UINavigationControllerDelegate  {
     }
     
     public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        print("navigationController willShow")
+        //print("navigationController willShow")
     }
     
     public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        print("navigationController didShow")
+        //print("navigationController didShow")
     }
 }
 
