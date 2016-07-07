@@ -75,8 +75,6 @@ public class SimpleRouter: NSObject {
             if let _ = transitioning {
                 //NavigationControll过场动画的delegate在发起Push的Controller上 (fromController)
                 fromController.setNavigationTransitioning(transitioning: transitioning)
-                //添加滑动返回手势
-                fromController.addPopRecognizerOnNavigationController()
             }
             
             naviCtl.pushViewController(toController, animated: animated)

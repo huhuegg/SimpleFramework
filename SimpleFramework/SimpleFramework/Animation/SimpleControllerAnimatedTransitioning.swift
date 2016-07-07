@@ -49,9 +49,7 @@ public class SimpleControllerAnimatedTransitioning:NSObject,UIViewControllerAnim
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
         })
     }
-}
-
-extension SimpleControllerAnimatedTransitioning {
+    
     public func getToController(transitionContext:UIViewControllerContextTransitioning)->SimpleController? {
         
         var toController:SimpleController?
@@ -78,4 +76,3 @@ extension SimpleControllerAnimatedTransitioning {
         return toController
     }
 }
-

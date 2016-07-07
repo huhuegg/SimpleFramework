@@ -24,7 +24,7 @@ public class SimpleController:UIViewController {
     public var transitioning:UIViewControllerAnimatedTransitioning?
     
     //定义navigationControllerDelegate后右划手势返回失效，此处手动添加右划手势
-    public var interactivePopTransition: UIPercentDrivenInteractiveTransition?
+    public var interactiveNaviTransition: UIPercentDrivenInteractiveTransition?
     
     //初始化数据
     public var data:Dictionary<String,AnyObject>?
@@ -100,6 +100,45 @@ public class SimpleController:UIViewController {
         clearColorNavigationBarBackground()
     }
 
+    public func setNavigationTransitioning(transitioning:UIViewControllerAnimatedTransitioning?) {
+        print("\(self.className()) setNavigationTransitioning: \(transitioning)")
+        if let _ = transitioning {
+            self.navigationController!.delegate = self
+            self.transitioning = transitioning
+        }
+    }
+    
+    public func addRecognizerOnNavigationController() {
+        let naviRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(SimpleController.handleNaviRecognizer(recognizer:)))
+        naviRecognizer.edges = .left
+        self.navigationController!.view.addGestureRecognizer(naviRecognizer)
+    }
+    
+    public func handleNaviRecognizer(recognizer: UIScreenEdgePanGestureRecognizer) {
+        // 获取手势在屏幕横屏范围的滑动百分比，并控制在0.0 - 1.0之间
+        var progress = recognizer.translation(in: self.view).x / self.view.bounds.width
+        progress = min(1.0, max(0.0, progress))
+        
+        switch recognizer.state {
+        case .began:    // 开始滑动：初始化UIPercentDrivenInteractiveTransition对象，并开启导航pop
+            interactiveNaviTransition = UIPercentDrivenInteractiveTransition()
+            
+            self.navigationController!.popViewController(animated: true)
+        case .changed:  // 滑动过程中，根据在屏幕上滑动的百分比更新状态
+            interactiveNaviTransition?.update(progress)
+        case .ended, .cancelled:    // 滑动结束或取消
+            //向右滑动超过50%宽度时pop,否则取消
+            if progress > 0.5 {
+                interactiveNaviTransition?.finish()
+            } else {
+                interactiveNaviTransition?.cancel()
+            }
+            interactiveNaviTransition = nil
+        default:
+            break
+        }
+    }
+
 }
 
 //MARK:- UIViewControllerTransitioningDelegate (Present/Dismiss过场动画)
@@ -129,48 +168,10 @@ extension SimpleController: UIViewControllerTransitioningDelegate {
 
 //MARK:- UINavigationControllerDelegate (Push/Pop过场动画)
 extension SimpleController:UINavigationControllerDelegate  {
-    func setNavigationTransitioning(transitioning:UIViewControllerAnimatedTransitioning?) {
-        print("\(self.className()) setNavigationTransitioning: \(transitioning)")
-        if let _ = transitioning {
-            self.navigationController!.delegate = self
-            self.transitioning = transitioning
-        }
-    }
-    
-    public func addPopRecognizerOnNavigationController() {
-        let popRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(SimpleController.handlePopRecognizer(recognizer:)))
-        popRecognizer.edges = .left
-        self.navigationController!.view.addGestureRecognizer(popRecognizer)
-    }
-
-    func handlePopRecognizer(recognizer: UIScreenEdgePanGestureRecognizer) {
-        // 获取手势在屏幕横屏范围的滑动百分比，并控制在0.0 - 1.0之间
-        var progress = recognizer.translation(in: self.view).x / self.view.bounds.width
-        progress = min(1.0, max(0.0, progress))
-
-        switch recognizer.state {
-        case .began:    // 开始滑动：初始化UIPercentDrivenInteractiveTransition对象，并开启导航pop
-            interactivePopTransition = UIPercentDrivenInteractiveTransition()
-
-            self.navigationController!.popViewController(animated: true)
-        case .changed:  // 滑动过程中，根据在屏幕上滑动的百分比更新状态
-            interactivePopTransition?.update(progress)
-        case .ended, .cancelled:    // 滑动结束或取消
-            //向右滑动超过50%宽度时pop,否则取消
-            if progress > 0.5 {
-                interactivePopTransition?.finish()
-            } else {
-                interactivePopTransition?.cancel()
-            }
-            interactivePopTransition = nil
-        default:
-            break
-        }
-    }
     
     //UIViewControllerInteractiveTransitioning: 这个协议中提供了手势交互动画的接口
     public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return interactivePopTransition
+        return interactiveNaviTransition
     }
     
     //UIViewControllerAnimatedTransitioning: 这个协议中提供了接口, 遵守这个协议的对象实现动画的具体内容

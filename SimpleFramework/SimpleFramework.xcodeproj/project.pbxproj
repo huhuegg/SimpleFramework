@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		843EEE2B1D2E4B2200217A30 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EEE2A1D2E4B2200217A30 /* UIViewExtension.swift */; };
 		844BA70E1D2CDE1200F11E76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA70C1D2CDE1200F11E76 /* AppDelegate.swift */; };
 		844BA70F1D2CDE1200F11E76 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA70D1D2CDE1200F11E76 /* AppRouter.swift */; };
 		844BA7131D2CDE2900F11E76 /* PresentControllerBoxAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA7111D2CDE2900F11E76 /* PresentControllerBoxAnimation.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		843EEE2A1D2E4B2200217A30 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		844BA70C1D2CDE1200F11E76 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		844BA70D1D2CDE1200F11E76 /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		844BA7111D2CDE2900F11E76 /* PresentControllerBoxAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentControllerBoxAnimation.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 			children = (
 				84CDB3A31D2B64BE00CA55FF /* NavigationControllerExension.swift */,
 				84CDB3A51D2B64E100CA55FF /* TabbarExtension.swift */,
+				843EEE2A1D2E4B2200217A30 /* UIViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				845C28B01D2219FF00A61433 /* IAPManager.swift in Sources */,
 				84BC66BD1D213315006A0412 /* SimpleControllerAnimatedTransitioning.swift in Sources */,
 				845793341D17E9DC008C33CD /* SimpleHandler.swift in Sources */,
+				843EEE2B1D2E4B2200217A30 /* UIViewExtension.swift in Sources */,
 				845793381D17EE02008C33CD /* SimpleController.swift in Sources */,
 				845793361D17EA03008C33CD /* SimpleRouter.swift in Sources */,
 			);
