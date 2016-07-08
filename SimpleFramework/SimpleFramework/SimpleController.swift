@@ -45,7 +45,7 @@ public class SimpleController:UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("handler:\(handler) controllers:\(handler?.controllers)")
+        //print("handler:\(handler) controllers:\(handler?.controllers)")
         
         //print("\(self.className()) viewWillAppear: \(self)")
 //        if let _ = receiveBackData {

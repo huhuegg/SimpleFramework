@@ -35,7 +35,7 @@ public class SimpleHandler: NSObject,SimpleRouterProtocol {
                 return
             }
         }
-        print("handler:\(self) addController:\(controller)")
+        //print("handler:\(self) addController:\(controller)")
         controllers.append(controller)
     }
         
