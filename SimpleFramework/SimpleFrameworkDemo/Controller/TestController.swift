@@ -24,6 +24,7 @@ class TestController: SimpleController {
         super.viewDidLoad()
         print("TestController.viewDidLoad: initView")
         initView()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,6 +32,10 @@ class TestController: SimpleController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+    }
     
 }
 

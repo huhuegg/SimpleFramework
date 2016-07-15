@@ -19,11 +19,14 @@ extension UIView {
     }
     
     //截图
-    public class func imageFromView(v:UIView)->UIImage? {
-        UIGraphicsBeginImageContextWithOptions(v.bounds.size, v.isOpaque, 0.0)
-        v.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
+    public class func imageFromView(v:UIView?)->UIImage? {
+        if let _ = v {
+            UIGraphicsBeginImageContextWithOptions(v!.bounds.size, v!.isOpaque, 0.0)
+            v!.layer.render(in: UIGraphicsGetCurrentContext()!)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return image
+        }
+        return nil
     }
 }

@@ -24,6 +24,7 @@
 		844BA7281D2CDE8900F11E76 /* Test3Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA7261D2CDE8900F11E76 /* Test3Handler.swift */; };
 		844BA72B1D2CDEE400F11E76 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA72A1D2CDEE400F11E76 /* TestData.swift */; };
 		844BA72D1D2CE12500F11E76 /* SimpleNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA72C1D2CE12500F11E76 /* SimpleNetwork.swift */; };
+		844D33161D38BE0600741068 /* SimpleKeyframeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D33151D38BE0600741068 /* SimpleKeyframeAnimation.swift */; };
 		8457932C1D17E8AB008C33CD /* SimpleFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 8457932B1D17E8AB008C33CD /* SimpleFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		845793341D17E9DC008C33CD /* SimpleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845793331D17E9DC008C33CD /* SimpleHandler.swift */; };
 		845793361D17EA03008C33CD /* SimpleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845793351D17EA03008C33CD /* SimpleRouter.swift */; };
@@ -81,6 +82,7 @@
 		844BA7261D2CDE8900F11E76 /* Test3Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Test3Handler.swift; path = Handler/Test3Handler.swift; sourceTree = "<group>"; };
 		844BA72A1D2CDEE400F11E76 /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		844BA72C1D2CE12500F11E76 /* SimpleNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleNetwork.swift; sourceTree = "<group>"; };
+		844D33151D38BE0600741068 /* SimpleKeyframeAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleKeyframeAnimation.swift; sourceTree = "<group>"; };
 		845793281D17E8AB008C33CD /* SimpleFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8457932B1D17E8AB008C33CD /* SimpleFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleFramework.h; sourceTree = "<group>"; };
 		8457932D1D17E8AB008C33CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				84BC66BC1D213315006A0412 /* SimpleControllerAnimatedTransitioning.swift */,
+				844D33151D38BE0600741068 /* SimpleKeyframeAnimation.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				844D33161D38BE0600741068 /* SimpleKeyframeAnimation.swift in Sources */,
 				84CDB3A41D2B64BE00CA55FF /* NavigationControllerExension.swift in Sources */,
 				84CDB3A61D2B64E100CA55FF /* TabbarExtension.swift in Sources */,
 				844BA72D1D2CE12500F11E76 /* SimpleNetwork.swift in Sources */,

@@ -201,6 +201,9 @@ private extension AppRouter {
         //TODO:- 此处修改默认选中的Controller
         tabbarCtl.selectedIndex = 1
         window!.rootViewController = tabbarCtl
+        
+        //为tabBar添加点击事件并添加动画效果
+        tabbarCtl.addTargetForTabBarButtonClicked(animated: true)
     }
 
 }
