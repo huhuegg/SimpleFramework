@@ -1,4 +1,3 @@
-[![Twitter: @huhuegg1](https://img.shields.io/badge/contact-@huhuegg1-blue.svg?style=flat)](https://twitter.com/huhuegg1)
 [![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)](http://cocoadocs.org/docsets/SwiftForms)
 [![Language: Swift](https://img.shields.io/badge/lang-Swift-yellow.svg?style=flat)](https://developer.apple.com/swift/)
 [![Language: Swift](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://opensource.org/licenses/MIT)
@@ -24,7 +23,7 @@ SimpleFramework is an app framework for iOS written in Swift3.
 ## Usage
 参考SimpleFrameworkDemo工程
 
-如工程中使用Swift Framework，遇到“cannot find swift declaration for this class”错误情况，请检查Build Settings -> BuildOptions -> Embedded Content Contains Swift Code  是否已经被设置为Yes
+引入SimpleFramework，设置Build Settings -> BuildOptions -> Embedded Content Contains Swift Code 为Yes
 ### AppDelegate
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
