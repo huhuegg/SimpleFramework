@@ -13,7 +13,7 @@ class Test1Controller: SimpleController {
 
     //MARK:- 初始化
     override func initView() {
-        self.view.backgroundColor = UIColor.green()
+        self.view.backgroundColor = UIColor.simpleColorWithHex(hexStr:"#6cabdf",alpha: 1.0)
     }
     
     //MARK:- ViewController Life Cycle

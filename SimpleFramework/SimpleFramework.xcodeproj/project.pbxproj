@@ -30,6 +30,7 @@
 		845793361D17EA03008C33CD /* SimpleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845793351D17EA03008C33CD /* SimpleRouter.swift */; };
 		845793381D17EE02008C33CD /* SimpleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845793371D17EE02008C33CD /* SimpleController.swift */; };
 		845C28B01D2219FF00A61433 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C28AF1D2219FF00A61433 /* IAPManager.swift */; };
+		848D86411D3C7492006A6126 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D86401D3C7492006A6126 /* UIColorExtension.swift */; };
 		84BC66BD1D213315006A0412 /* SimpleControllerAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC66BC1D213315006A0412 /* SimpleControllerAnimatedTransitioning.swift */; };
 		84CDB3A41D2B64BE00CA55FF /* NavigationControllerExension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDB3A31D2B64BE00CA55FF /* NavigationControllerExension.swift */; };
 		84CDB3A61D2B64E100CA55FF /* TabbarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDB3A51D2B64E100CA55FF /* TabbarExtension.swift */; };
@@ -38,6 +39,7 @@
 		84E737231D1953DD0003A16F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E737211D1953DD0003A16F /* LaunchScreen.storyboard */; };
 		84E737281D19544F0003A16F /* SimpleFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845793281D17E8AB008C33CD /* SimpleFramework.framework */; };
 		84E737291D19544F0003A16F /* SimpleFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 845793281D17E8AB008C33CD /* SimpleFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		84EF58C51D3C8C7B00340FDE /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58C41D3C8C7B00340FDE /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,7 @@
 		845793351D17EA03008C33CD /* SimpleRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleRouter.swift; sourceTree = "<group>"; };
 		845793371D17EE02008C33CD /* SimpleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleController.swift; sourceTree = "<group>"; };
 		845C28AF1D2219FF00A61433 /* IAPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		848D86401D3C7492006A6126 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		84BC66BC1D213315006A0412 /* SimpleControllerAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleControllerAnimatedTransitioning.swift; sourceTree = "<group>"; };
 		84CDB3A31D2B64BE00CA55FF /* NavigationControllerExension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerExension.swift; sourceTree = "<group>"; };
 		84CDB3A51D2B64E100CA55FF /* TabbarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarExtension.swift; sourceTree = "<group>"; };
@@ -98,6 +101,7 @@
 		84E7371F1D1953DD0003A16F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84E737221D1953DD0003A16F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84E737241D1953DD0003A16F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84EF58C41D3C8C7B00340FDE /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +224,8 @@
 				84CDB3A31D2B64BE00CA55FF /* NavigationControllerExension.swift */,
 				84CDB3A51D2B64E100CA55FF /* TabbarExtension.swift */,
 				843EEE2A1D2E4B2200217A30 /* UIViewExtension.swift */,
+				848D86401D3C7492006A6126 /* UIColorExtension.swift */,
+				84EF58C41D3C8C7B00340FDE /* StringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -414,6 +420,8 @@
 				84BC66BD1D213315006A0412 /* SimpleControllerAnimatedTransitioning.swift in Sources */,
 				845793341D17E9DC008C33CD /* SimpleHandler.swift in Sources */,
 				843EEE2B1D2E4B2200217A30 /* UIViewExtension.swift in Sources */,
+				84EF58C51D3C8C7B00340FDE /* StringExtension.swift in Sources */,
+				848D86411D3C7492006A6126 /* UIColorExtension.swift in Sources */,
 				845793381D17EE02008C33CD /* SimpleController.swift in Sources */,
 				845793361D17EA03008C33CD /* SimpleRouter.swift in Sources */,
 			);
