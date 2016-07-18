@@ -21,6 +21,7 @@ enum AppRouterID {
     case test2
     case test3
     case center
+    case test4WithNav
 }
 
 class AppRouter: NSObject {
@@ -48,6 +49,7 @@ class AppRouter: NSObject {
     var test2Handler:Test2Handler!
     var test3Handler:Test3Handler!
     var centerHandler:CenterHandler!
+    var test4WithNavHandler:Test4WithNavHandler!
 
     private func initHandlers() {
         testHandler = SimpleRouter.create(name: "Test") as! TestHandler
@@ -55,6 +57,7 @@ class AppRouter: NSObject {
         test2Handler = SimpleRouter.create(name: "Test2") as! Test2Handler
         test3Handler = SimpleRouter.create(name: "Test3") as! Test3Handler
         centerHandler = SimpleRouter.create(name: "Center") as! CenterHandler
+        test4WithNavHandler = SimpleRouter.create(name: "Test4WithNav") as! Test4WithNavHandler
     }
     
     private func getHandler(routerId:AppRouterID)->SimpleHandler? {
@@ -69,6 +72,8 @@ class AppRouter: NSObject {
             return test3Handler
         case .center:
             return centerHandler
+        case .test4WithNav:
+            return test4WithNavHandler
         }
     }
     
@@ -170,7 +175,10 @@ extension AppRouter {
             print("==PRESENT== \(fromController.className()) -> \(toController.className())")
             
             try? SimpleRouter.show(type: type, fromController: fromController, toHandler: toHandler, animated: animated,transitioning:transitioning, data: data)
+        case .presentNavi:
+            print("==PRESENT Nav== \(fromController.className()) -> Navi[\(toController.className())]")
         }
+        try? SimpleRouter.show(type: type, fromController: fromController, toHandler: toHandler, animated: animated,transitioning:transitioning, data: data)
     }
     
     func close(fromController:SimpleController,animated:Bool) {

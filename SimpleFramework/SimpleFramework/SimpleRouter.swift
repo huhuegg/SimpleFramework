@@ -83,6 +83,14 @@ public class SimpleRouter: NSObject {
             let _ = toController.setPresentTransitioning(transitioning: transitioning)
             fromController.present(toController, animated: animated, completion: {
             })
+        case .presentNavi:
+            let navi = UINavigationController()
+            navi.viewControllers = [toController]
+            
+            //ViewControll过场动画的delegate在被Present的Controller上 (toController)
+            let _ = toController.setPresentTransitioning(transitioning: transitioning)
+            fromController.present(navi, animated: animated, completion: {
+            })
         }
 
     }
@@ -122,7 +130,7 @@ public class SimpleRouter: NSObject {
 
 
             
-        case .present:
+        case .present,.presentNavi:
             if let navi = fromController.presentingViewController as? UINavigationController { ////发起present的是UINavigationController
                 guard navi.viewControllers.count > 0 else {
                     print("Is present from navigation,but navigation.viewControllers is empty")

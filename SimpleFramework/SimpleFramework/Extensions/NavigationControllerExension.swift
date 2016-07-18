@@ -8,7 +8,7 @@
 
 import UIKit
 
-//MARK:- NavigationController扩展
+//MARK:- 修改NavigationController样式
 extension SimpleController {
     
     //MARK:- 设置状态栏样式
@@ -39,4 +39,3 @@ extension SimpleController {
     }
 
 }
-

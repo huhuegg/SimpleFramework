@@ -11,6 +11,7 @@ import UIKit
 public enum ControllerShowType {
     case push
     case present
+    case presentNavi
 }
 
 public class SimpleHandler: NSObject,SimpleRouterProtocol {

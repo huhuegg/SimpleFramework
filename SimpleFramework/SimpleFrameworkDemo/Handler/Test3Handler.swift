@@ -28,6 +28,11 @@ extension Test3Handler {
     func dismiss(from:SimpleController) {
         AppRouter.instance.close(fromController: from, animated: true)
     }
+    
+    func pushToTest4(from:SimpleController, data:Dictionary<String,AnyObject>?) {
+        let transitioning:UIViewControllerAnimatedTransitioning? = nil
+        AppRouter.instance.show(routerId: AppRouterID.test4WithNav, type: ControllerShowType.push, fromController: from, animated: true, transitioning:transitioning,data: data)
+    }
 }
 
 

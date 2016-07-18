@@ -29,7 +29,7 @@ extension Test2Handler {
     
     func presentToTest3(from:SimpleController, data:Dictionary<String,AnyObject>?) {
         let transitioning:UIViewControllerAnimatedTransitioning? = nil
-        AppRouter.instance.show(routerId: AppRouterID.test3, type: ControllerShowType.present, fromController: from, animated: true, transitioning:transitioning,data: data)
+        AppRouter.instance.show(routerId: AppRouterID.test3, type: ControllerShowType.presentNavi, fromController: from, animated: true, transitioning:transitioning,data: data)
     }
 }
 

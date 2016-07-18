@@ -40,6 +40,8 @@
 		84E737281D19544F0003A16F /* SimpleFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845793281D17E8AB008C33CD /* SimpleFramework.framework */; };
 		84E737291D19544F0003A16F /* SimpleFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 845793281D17E8AB008C33CD /* SimpleFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84EF58C51D3C8C7B00340FDE /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58C41D3C8C7B00340FDE /* StringExtension.swift */; };
+		84EF58CC1D3CC8BF00340FDE /* Test4WithNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58CB1D3CC8BF00340FDE /* Test4WithNavController.swift */; };
+		84EF58CE1D3CC8EB00340FDE /* Test4WithNavHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58CD1D3CC8EB00340FDE /* Test4WithNavHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +104,8 @@
 		84E737221D1953DD0003A16F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84E737241D1953DD0003A16F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84EF58C41D3C8C7B00340FDE /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		84EF58CB1D3CC8BF00340FDE /* Test4WithNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Test4WithNavController.swift; path = Controller/Test4WithNavController.swift; sourceTree = "<group>"; };
+		84EF58CD1D3CC8EB00340FDE /* Test4WithNavHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Test4WithNavHandler.swift; path = Handler/Test4WithNavHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 		8411E2871D1BECCB008C8FB0 /* Test3 */ = {
 			isa = PBXGroup;
 			children = (
+				84EF58C91D3CC86700340FDE /* Test4WithNavController */,
 				844BA7251D2CDE8900F11E76 /* Test3Controller.swift */,
 				844BA7261D2CDE8900F11E76 /* Test3Handler.swift */,
 			);
@@ -292,6 +297,15 @@
 			name = Test1;
 			sourceTree = "<group>";
 		};
+		84EF58C91D3CC86700340FDE /* Test4WithNavController */ = {
+			isa = PBXGroup;
+			children = (
+				84EF58CB1D3CC8BF00340FDE /* Test4WithNavController.swift */,
+				84EF58CD1D3CC8EB00340FDE /* Test4WithNavHandler.swift */,
+			);
+			name = Test4WithNavController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -431,6 +445,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84EF58CC1D3CC8BF00340FDE /* Test4WithNavController.swift in Sources */,
 				844BA7141D2CDE2900F11E76 /* Test1ControllerAnimation.swift in Sources */,
 				844BA7241D2CDE7D00F11E76 /* Test2Handler.swift in Sources */,
 				844BA70F1D2CDE1200F11E76 /* AppRouter.swift in Sources */,
@@ -438,6 +453,7 @@
 				844BA7231D2CDE7D00F11E76 /* Test2Controller.swift in Sources */,
 				844BA71C1D2CDE6500F11E76 /* TestHandler.swift in Sources */,
 				844BA70E1D2CDE1200F11E76 /* AppDelegate.swift in Sources */,
+				84EF58CE1D3CC8EB00340FDE /* Test4WithNavHandler.swift in Sources */,
 				844BA7281D2CDE8900F11E76 /* Test3Handler.swift in Sources */,
 				844BA7201D2CDE7300F11E76 /* Test1Handler.swift in Sources */,
 				844BA7271D2CDE8900F11E76 /* Test3Controller.swift in Sources */,
