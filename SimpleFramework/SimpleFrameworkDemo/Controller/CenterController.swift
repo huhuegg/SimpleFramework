@@ -57,7 +57,7 @@ extension CenterController:UITableViewDelegate {
     }
 }
 
-//MARK: - NavigationController扩展
+//MARK: - NavigationController滑动隐藏
 extension CenterController:UIScrollViewDelegate {
     
     
@@ -70,6 +70,7 @@ extension CenterController:UIScrollViewDelegate {
     //正在拖拽
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         //控制器第一次显示的时候，会调用一次这个方法，而不调用上一个方法，所以要在这里做一层判断
+        //print("scrollViewDidSroll y:\(scrollView.contentOffset.y)")
         guard let last = lastY else {
             return
         }
@@ -102,19 +103,24 @@ extension CenterController:UIScrollViewDelegate {
     
     //拖拽结束
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        navigationBarAnimation(scrollView: scrollView)
+        //print("scrollViewDidEndDragging y:\(scrollView.contentOffset.y)")
         lastY = nil
         originY = nil
     }
     
     //减速结束
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        //print("scrollViewDidEndDecelerating y:\(scrollView.contentOffset.y)")
+        navigationBarAnimation(scrollView: scrollView)
         lastY = nil
         originY = nil
     }
     
     func navigationBarAnimation(scrollView: UIScrollView) {
         if let y = self.navigationController?.navigationBar.frame.origin.y {
-            if y == 20 || y == -44 {
+            //print("y:\(y) ")
+            if y == 20 {
                 return
             }
             

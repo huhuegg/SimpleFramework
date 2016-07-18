@@ -29,9 +29,9 @@ extension Test3Handler {
         AppRouter.instance.close(fromController: from, animated: true)
     }
     
-    func pushToTest4(from:SimpleController, data:Dictionary<String,AnyObject>?) {
+    func presentNaviCenter(from:SimpleController, data:Dictionary<String,AnyObject>?) {
         let transitioning:UIViewControllerAnimatedTransitioning? = nil
-        AppRouter.instance.show(routerId: AppRouterID.test4WithNav, type: ControllerShowType.push, fromController: from, animated: true, transitioning:transitioning,data: data)
+        AppRouter.instance.show(routerId: AppRouterID.center, type: ControllerShowType.presentNavi, fromController: from, animated: true, transitioning:transitioning,data: data)
     }
 }
 

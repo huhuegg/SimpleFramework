@@ -57,7 +57,7 @@ private extension Test3Controller{
     @objc func testButtonTest() {
         print("testButtonTest")
 //        (handler as! Test3Handler).getTestDataList()
-        (handler as! Test3Handler).pushToTest4(from: self, data: nil)
+        (handler as! Test3Handler).presentNaviCenter(from: self, data: nil)
     }
 }
 
