@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8407AAAE1D3E3C600038B97B /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8407AAAD1D3E3C600038B97B /* libxml2.tbd */; };
 		843EEE2B1D2E4B2200217A30 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EEE2A1D2E4B2200217A30 /* UIViewExtension.swift */; };
 		844BA70E1D2CDE1200F11E76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA70C1D2CDE1200F11E76 /* AppDelegate.swift */; };
 		844BA70F1D2CDE1200F11E76 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA70D1D2CDE1200F11E76 /* AppRouter.swift */; };
@@ -42,6 +43,15 @@
 		84EF58C51D3C8C7B00340FDE /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58C41D3C8C7B00340FDE /* StringExtension.swift */; };
 		84EF58CC1D3CC8BF00340FDE /* Test4WithNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58CB1D3CC8BF00340FDE /* Test4WithNavController.swift */; };
 		84EF58CE1D3CC8EB00340FDE /* Test4WithNavHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58CD1D3CC8EB00340FDE /* Test4WithNavHandler.swift */; };
+		84EF58D51D3DD62900340FDE /* AppNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58D41D3DD62900340FDE /* AppNetwork.swift */; };
+		84EF58D81D3DE26F00340FDE /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58D71D3DE26F00340FDE /* SwiftyJSON.swift */; };
+		84EF58DA1D3E2BF500340FDE /* LineSidRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58D91D3E2BF500340FDE /* LineSidRequest.swift */; };
+		84EF58DC1D3E2E9400340FDE /* LineContentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58DB1D3E2E9400340FDE /* LineContentRequest.swift */; };
+		84EF58E41D3E33D800340FDE /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58DF1D3E33D800340FDE /* CSS.swift */; };
+		84EF58E51D3E33D800340FDE /* Kanna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58E01D3E33D800340FDE /* Kanna.swift */; };
+		84EF58E61D3E33D800340FDE /* libxmlHTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58E11D3E33D800340FDE /* libxmlHTMLDocument.swift */; };
+		84EF58E71D3E33D800340FDE /* libxmlHTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58E21D3E33D800340FDE /* libxmlHTMLNode.swift */; };
+		84EF58E81D3E33D800340FDE /* libxmlParserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58E31D3E33D800340FDE /* libxmlParserOption.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +79,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8407AAAD1D3E3C600038B97B /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		8407AAAF1D3E3DD70038B97B /* libxml2-kanna.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "libxml2-kanna.h"; sourceTree = "<group>"; };
+		8407AAB01D3E3DD70038B97B /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		843EEE2A1D2E4B2200217A30 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		844BA70C1D2CDE1200F11E76 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		844BA70D1D2CDE1200F11E76 /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
@@ -95,6 +108,7 @@
 		845793371D17EE02008C33CD /* SimpleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleController.swift; sourceTree = "<group>"; };
 		845C28AF1D2219FF00A61433 /* IAPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		848D86401D3C7492006A6126 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		84A9F88C1D3E4EF900BA417F /* SimpleFrameworkDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SimpleFrameworkDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		84BC66BC1D213315006A0412 /* SimpleControllerAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleControllerAnimatedTransitioning.swift; sourceTree = "<group>"; };
 		84CDB3A31D2B64BE00CA55FF /* NavigationControllerExension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerExension.swift; sourceTree = "<group>"; };
 		84CDB3A51D2B64E100CA55FF /* TabbarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarExtension.swift; sourceTree = "<group>"; };
@@ -106,6 +120,15 @@
 		84EF58C41D3C8C7B00340FDE /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		84EF58CB1D3CC8BF00340FDE /* Test4WithNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Test4WithNavController.swift; path = Controller/Test4WithNavController.swift; sourceTree = "<group>"; };
 		84EF58CD1D3CC8EB00340FDE /* Test4WithNavHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Test4WithNavHandler.swift; path = Handler/Test4WithNavHandler.swift; sourceTree = "<group>"; };
+		84EF58D41D3DD62900340FDE /* AppNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNetwork.swift; sourceTree = "<group>"; };
+		84EF58D71D3DE26F00340FDE /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		84EF58D91D3E2BF500340FDE /* LineSidRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSidRequest.swift; sourceTree = "<group>"; };
+		84EF58DB1D3E2E9400340FDE /* LineContentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineContentRequest.swift; sourceTree = "<group>"; };
+		84EF58DF1D3E33D800340FDE /* CSS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSS.swift; sourceTree = "<group>"; };
+		84EF58E01D3E33D800340FDE /* Kanna.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kanna.swift; sourceTree = "<group>"; };
+		84EF58E11D3E33D800340FDE /* libxmlHTMLDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = libxmlHTMLDocument.swift; sourceTree = "<group>"; };
+		84EF58E21D3E33D800340FDE /* libxmlHTMLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = libxmlHTMLNode.swift; sourceTree = "<group>"; };
+		84EF58E31D3E33D800340FDE /* libxmlParserOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = libxmlParserOption.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8407AAAE1D3E3C600038B97B /* libxml2.tbd in Frameworks */,
 				84E737281D19544F0003A16F /* SimpleFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +151,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8407AAAC1D3E3C600038B97B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8407AAAD1D3E3C600038B97B /* libxml2.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8411E2821D1BEC88008C8FB0 /* Test2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +183,7 @@
 			children = (
 				844BA70C1D2CDE1200F11E76 /* AppDelegate.swift */,
 				844BA70D1D2CDE1200F11E76 /* AppRouter.swift */,
+				84EF58D41D3DD62900340FDE /* AppNetwork.swift */,
 			);
 			path = AppBase;
 			sourceTree = "<group>";
@@ -178,6 +211,7 @@
 				8457932A1D17E8AB008C33CD /* SimpleFramework */,
 				84E737171D1953DD0003A16F /* SimpleFrameworkDemo */,
 				845793291D17E8AB008C33CD /* Products */,
+				8407AAAC1D3E3C600038B97B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,6 +235,7 @@
 				84CDB3A21D2B64BE00CA55FF /* Extensions */,
 				84BC66BB1D213315006A0412 /* Animation */,
 				845C28AE1D2219FF00A61433 /* Tools */,
+				84EF58D61D3DE26F00340FDE /* Include */,
 				8457932D1D17E8AB008C33CD /* Info.plist */,
 			);
 			path = SimpleFramework;
@@ -247,11 +282,14 @@
 		84E737171D1953DD0003A16F /* SimpleFrameworkDemo */ = {
 			isa = PBXGroup;
 			children = (
+				84EF58D31D3DD26600340FDE /* Network */,
 				844BA7291D2CDEAB00F11E76 /* Model */,
 				844BA70B1D2CDE1200F11E76 /* AppBase */,
 				84E737371D1954B50003A16F /* Module */,
 				844BA7101D2CDE2900F11E76 /* Animation */,
+				84EF58DD1D3E33D800340FDE /* Include */,
 				84E737391D1956B90003A16F /* res */,
+				84A9F88C1D3E4EF900BA417F /* SimpleFrameworkDemo-Bridging-Header.h */,
 			);
 			path = SimpleFrameworkDemo;
 			sourceTree = "<group>";
@@ -304,6 +342,45 @@
 				84EF58CD1D3CC8EB00340FDE /* Test4WithNavHandler.swift */,
 			);
 			name = Test4WithNavController;
+			sourceTree = "<group>";
+		};
+		84EF58D31D3DD26600340FDE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				84EF58D91D3E2BF500340FDE /* LineSidRequest.swift */,
+				84EF58DB1D3E2E9400340FDE /* LineContentRequest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		84EF58D61D3DE26F00340FDE /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				84EF58D71D3DE26F00340FDE /* SwiftyJSON.swift */,
+			);
+			path = Include;
+			sourceTree = "<group>";
+		};
+		84EF58DD1D3E33D800340FDE /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				84EF58DE1D3E33D800340FDE /* Kanna */,
+			);
+			path = Include;
+			sourceTree = "<group>";
+		};
+		84EF58DE1D3E33D800340FDE /* Kanna */ = {
+			isa = PBXGroup;
+			children = (
+				8407AAAF1D3E3DD70038B97B /* libxml2-kanna.h */,
+				8407AAB01D3E3DD70038B97B /* module.modulemap */,
+				84EF58DF1D3E33D800340FDE /* CSS.swift */,
+				84EF58E01D3E33D800340FDE /* Kanna.swift */,
+				84EF58E11D3E33D800340FDE /* libxmlHTMLDocument.swift */,
+				84EF58E21D3E33D800340FDE /* libxmlHTMLNode.swift */,
+				84EF58E31D3E33D800340FDE /* libxmlParserOption.swift */,
+			);
+			path = Kanna;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,6 +455,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 9M6475P28E;
 						DevelopmentTeamName = "MIN JIE ZHANG";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -437,6 +515,7 @@
 				84EF58C51D3C8C7B00340FDE /* StringExtension.swift in Sources */,
 				848D86411D3C7492006A6126 /* UIColorExtension.swift in Sources */,
 				845793381D17EE02008C33CD /* SimpleController.swift in Sources */,
+				84EF58D81D3DE26F00340FDE /* SwiftyJSON.swift in Sources */,
 				845793361D17EA03008C33CD /* SimpleRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,21 +526,29 @@
 			files = (
 				84EF58CC1D3CC8BF00340FDE /* Test4WithNavController.swift in Sources */,
 				844BA7141D2CDE2900F11E76 /* Test1ControllerAnimation.swift in Sources */,
+				84EF58DA1D3E2BF500340FDE /* LineSidRequest.swift in Sources */,
+				84EF58DC1D3E2E9400340FDE /* LineContentRequest.swift in Sources */,
+				84EF58D51D3DD62900340FDE /* AppNetwork.swift in Sources */,
 				844BA7241D2CDE7D00F11E76 /* Test2Handler.swift in Sources */,
 				844BA70F1D2CDE1200F11E76 /* AppRouter.swift in Sources */,
 				844BA72B1D2CDEE400F11E76 /* TestData.swift in Sources */,
 				844BA7231D2CDE7D00F11E76 /* Test2Controller.swift in Sources */,
 				844BA71C1D2CDE6500F11E76 /* TestHandler.swift in Sources */,
+				84EF58E81D3E33D800340FDE /* libxmlParserOption.swift in Sources */,
 				844BA70E1D2CDE1200F11E76 /* AppDelegate.swift in Sources */,
+				84EF58E51D3E33D800340FDE /* Kanna.swift in Sources */,
+				84EF58E41D3E33D800340FDE /* CSS.swift in Sources */,
 				84EF58CE1D3CC8EB00340FDE /* Test4WithNavHandler.swift in Sources */,
 				844BA7281D2CDE8900F11E76 /* Test3Handler.swift in Sources */,
 				844BA7201D2CDE7300F11E76 /* Test1Handler.swift in Sources */,
 				844BA7271D2CDE8900F11E76 /* Test3Controller.swift in Sources */,
 				844BA7131D2CDE2900F11E76 /* PresentControllerBoxAnimation.swift in Sources */,
+				84EF58E71D3E33D800340FDE /* libxmlHTMLNode.swift in Sources */,
 				844BA71F1D2CDE7300F11E76 /* Test1Controller.swift in Sources */,
 				844BA7171D2CDE4600F11E76 /* CenterController.swift in Sources */,
 				844BA7181D2CDE4600F11E76 /* CenterHandler.swift in Sources */,
 				844BA71B1D2CDE6500F11E76 /* TestController.swift in Sources */,
+				84EF58E61D3E33D800340FDE /* libxmlHTMLDocument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,13 +721,19 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2 ";
 				INFOPLIST_FILE = SimpleFrameworkDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = app.SimpleFrameworkDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/SimpleFrameworkDemo/Include/Kanna\"";
+				SWIFT_OBJC_BRIDGING_HEADER = "SimpleFrameworkDemo/SimpleFrameworkDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -649,13 +742,18 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2 ";
 				INFOPLIST_FILE = SimpleFrameworkDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = app.SimpleFrameworkDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/SimpleFrameworkDemo/Include/Kanna\"";
+				SWIFT_OBJC_BRIDGING_HEADER = "SimpleFrameworkDemo/SimpleFrameworkDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};

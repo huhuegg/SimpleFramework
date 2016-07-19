@@ -20,6 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("AppRouter setup: \(status == true ? "success":"failed")")
         
         self.window?.makeKeyAndVisible()
+
+        let search = "46"
+        AppNetwork.lineSidRequest(search: search) { (sid) in
+            print("\(search) sid:\(sid)")
+        }
+        
+        
+        
         return status
 
     }
