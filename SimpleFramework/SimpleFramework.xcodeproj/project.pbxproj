@@ -46,7 +46,6 @@
 		84EF58D51D3DD62900340FDE /* AppNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58D41D3DD62900340FDE /* AppNetwork.swift */; };
 		84EF58D81D3DE26F00340FDE /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58D71D3DE26F00340FDE /* SwiftyJSON.swift */; };
 		84EF58DA1D3E2BF500340FDE /* LineSidRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58D91D3E2BF500340FDE /* LineSidRequest.swift */; };
-		84EF58DC1D3E2E9400340FDE /* LineContentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58DB1D3E2E9400340FDE /* LineContentRequest.swift */; };
 		84EF58E41D3E33D800340FDE /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58DF1D3E33D800340FDE /* CSS.swift */; };
 		84EF58E51D3E33D800340FDE /* Kanna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58E01D3E33D800340FDE /* Kanna.swift */; };
 		84EF58E61D3E33D800340FDE /* libxmlHTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58E11D3E33D800340FDE /* libxmlHTMLDocument.swift */; };
@@ -123,7 +122,6 @@
 		84EF58D41D3DD62900340FDE /* AppNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNetwork.swift; sourceTree = "<group>"; };
 		84EF58D71D3DE26F00340FDE /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		84EF58D91D3E2BF500340FDE /* LineSidRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSidRequest.swift; sourceTree = "<group>"; };
-		84EF58DB1D3E2E9400340FDE /* LineContentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineContentRequest.swift; sourceTree = "<group>"; };
 		84EF58DF1D3E33D800340FDE /* CSS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSS.swift; sourceTree = "<group>"; };
 		84EF58E01D3E33D800340FDE /* Kanna.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kanna.swift; sourceTree = "<group>"; };
 		84EF58E11D3E33D800340FDE /* libxmlHTMLDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = libxmlHTMLDocument.swift; sourceTree = "<group>"; };
@@ -348,7 +346,6 @@
 			isa = PBXGroup;
 			children = (
 				84EF58D91D3E2BF500340FDE /* LineSidRequest.swift */,
-				84EF58DB1D3E2E9400340FDE /* LineContentRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -527,7 +524,6 @@
 				84EF58CC1D3CC8BF00340FDE /* Test4WithNavController.swift in Sources */,
 				844BA7141D2CDE2900F11E76 /* Test1ControllerAnimation.swift in Sources */,
 				84EF58DA1D3E2BF500340FDE /* LineSidRequest.swift in Sources */,
-				84EF58DC1D3E2E9400340FDE /* LineContentRequest.swift in Sources */,
 				84EF58D51D3DD62900340FDE /* AppNetwork.swift in Sources */,
 				844BA7241D2CDE7D00F11E76 /* Test2Handler.swift in Sources */,
 				844BA70F1D2CDE1200F11E76 /* AppRouter.swift in Sources */,
@@ -728,6 +724,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = app.SimpleFrameworkDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/SimpleFrameworkDemo/Include/Kanna\"";
 				SWIFT_OBJC_BRIDGING_HEADER = "SimpleFrameworkDemo/SimpleFrameworkDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -749,6 +746,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = app.SimpleFrameworkDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/SimpleFrameworkDemo/Include/Kanna\"";
 				SWIFT_OBJC_BRIDGING_HEADER = "SimpleFrameworkDemo/SimpleFrameworkDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

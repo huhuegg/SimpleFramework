@@ -9,16 +9,19 @@
 import SimpleFramework
 
 
-class LineSidRequest:SimpleHttpRequest {
+
+class LineSidRequest:SimpleHttpRequest,AppHttpRequestProtocol {
     var search:String = ""
     
+    //init
     init(search:String) {
         super.init()
         self.search = search
-        self.setup()
+        self.setupRequest()
     }
     
-    private func setup() {
+    //初始化request
+    internal func setupRequest() {
         let url = URL(string: "http://shanghaicity.openservice.kankanews.com/public/bus/get")
         
         //postData
@@ -27,22 +30,28 @@ class LineSidRequest:SimpleHttpRequest {
         let req = NSMutableURLRequest(url: url!)
         req.httpMethod = "POST"
         req.httpBody = postData
-        req.setValue("ansoecdxc=oY1pTw1R0Nhy7b_Z2A78eRuc8_j8", forHTTPHeaderField: "Cookie")
         
         self.request = req as URLRequest
     }
     
-    func request(completionHandler:(String?) -> ()) {
-        doRequest { (data, error) in
-            if let _ = data {
-                let sid = self.convertData(data: data!)
-                completionHandler(sid)
+    //doRequest
+    internal func request(completionHandler:(AppHttpResponse) -> ()) {
+        doRequest { (result) in
+            //result
+            var sid:String?
+            
+            switch result {
+            case let .Success(data):
+                sid = AppNetworkDataConvert.ToSid(data: data)
+                break
+            case let .Failure(error):
+                print("\(self.className()) : \(error.debugDescription)")
+                break
             }
+            let resp = AppHttpResponse.respLineSid(sid: sid)
+            completionHandler(resp)
         }
+
     }
-    
-    private func convertData(data:Data)->String? {
-        let json = JSON(data: data)
-        return json["sid"].string
-    }
+
 }

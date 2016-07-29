@@ -8,64 +8,46 @@
 
 import UIKit
 
+public enum SimpleHttpResult {
+    case Success(Data?)
+    case Failure(NSError?)
+}
 
 public class SimpleHttpRequest: NSObject {
     public var request:URLRequest?
-    
-    
-    
 
-    public func doRequest(completionHandler:(Data?,ErrorProtocol?) -> ()) {
+    public func doRequest(completionHandler:(result:SimpleHttpResult)->()) {
+        print("doRequest")
+        
         guard request != nil else {
-            completionHandler(nil,nil)
+            completionHandler(result: SimpleHttpResult.Failure(nil))
             return
         }
-        NSURLConnection.sendAsynchronousRequest(request!, queue: OperationQueue.init()) { (response, data, error) in
-            if error == nil {
-                if let resp = response as? HTTPURLResponse {
-                    print("code: \(resp.statusCode)")
-                    completionHandler(data, nil)
-                    return
-//                    if let d = data {
-//                        
-////                        let s = String(data: d, encoding: String.Encoding.utf8)
-////                        print("str:\(s)")
-//                    }
-                } else {
-                    print("is not HTTPURLResponse:\(response)")
-                }
-            } else {
-                print("error:\(error)")
+        
+        let config = URLSessionConfiguration.default()
+        //config.requestCachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
+        let urlSession = URLSession(configuration: config, delegate: self, delegateQueue: nil)
+
+        
+        let task = urlSession.dataTask(with: request!) { (data, response, error) in
+            if error != nil {
+                completionHandler(result: SimpleHttpResult.Failure(error))
+                return
             }
-            completionHandler(nil, nil)
+            completionHandler(result: SimpleHttpResult.Success(data))
         }
+        task.resume()
+    }
+
+    public func className()->String {
+        return String(self.classForCoder)
     }
 }
 
-////        //cookie
-//var dictCookie:Dictionary<String,String> = Dictionary()
-//
-////postData
-//let postData = "idnum=46路".data(using: String.Encoding.utf8)
-//
-////request
-//let req = NSMutableURLRequest(url: url!)
-//req.httpMethod = "POST"
-//req.httpBody = postData
-//req.setValue("ansoecdxc=oY1pTw1R0Nhy7b_Z2A78eRuc8_j8", forHTTPHeaderField: "Cookie")
-//
-//NSURLConnection.sendAsynchronousRequest(req as URLRequest, queue: OperationQueue.main()) { (response, data, error) in
-//    if error == nil {
-//        if let resp = response as? HTTPURLResponse {
-//            print("code: \(resp.statusCode)")
-//            if let d = data {
-//                let s = String(data: d, encoding: String.Encoding.utf8)
-//                print("str:\(s)")
-//            }
-//        } else {
-//            print("is not HTTPURLResponse:\(response)")
-//        }
-//    } else {
-//        print("error:\(error)")
-//    }
-//}
+extension SimpleHttpRequest:URLSessionDelegate,URLSessionTaskDelegate {
+    //处理重定向请求，直接使用nil来取消重定向请求
+    public func urlSession(_ session: URLSession, task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse, newRequest request: URLRequest, completionHandler: (URLRequest?) -> Void) {
+        completionHandler(nil)
+    }
+}
+

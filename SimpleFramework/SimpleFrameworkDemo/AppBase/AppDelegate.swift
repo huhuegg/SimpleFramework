@@ -21,12 +21,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.makeKeyAndVisible()
 
-        let search = "46"
-        AppNetwork.lineSidRequest(search: search) { (sid) in
-            print("\(search) sid:\(sid)")
+        
+        
+        AppNetwork.request(request: AppHttpRequest.reqLineSid(search: "46")) { (resp) in
+//            if let _ = .respLineSid(sid:sid) {
+//                print("\(sid)")
+//            }
+            switch resp {
+            case let .respLineSid(sid: sid):
+                print("sid:\(sid!)")
+            default:
+                print("resp error")
+            }
         }
-        
-        
+
         
         return status
 
