@@ -94,7 +94,7 @@ public class SimpleController:UIViewController {
         return String(self.classForCoder)
     }
     
-    //初始化
+    //View初始化
     public func initView() {
         self.view.backgroundColor = UIColor.white()
         clearColorNavigationBarBackground()

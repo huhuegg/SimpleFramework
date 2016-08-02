@@ -51,6 +51,13 @@ public class SimpleHandler: NSObject,SimpleRouterProtocol {
         }
     }
     
+    /**
+     向由当前handler创建的Controllers发送数据
+     
+     - Parameter data: 发送给Controller的数据
+     
+     - Returns: Void
+     */
     public func broadcastControllers(data:Dictionary<String,AnyObject>?) {
         for ctl in controllers {
             if let c = ctl as? SimpleControllerBroadcastProtocol {
@@ -62,7 +69,13 @@ public class SimpleHandler: NSObject,SimpleRouterProtocol {
 }
 
 extension SimpleRouterProtocol where Self:SimpleHandler {
-
+    /**
+     自定义初始化Controller
+     
+     - Parameter data: Controller的初始化数据
+     
+     - Returns: SimpleController
+     */
     public func setupController(data:Dictionary<String,AnyObject>?)->SimpleController? {
         let storyboardName = "Main"
         let controllerIdentifier = name + "Controller"

@@ -24,7 +24,7 @@ public enum SimpleRouterError:ErrorProtocol {
 }
 
 public class SimpleRouter: NSObject {
-
+    ///创建Handler
     public class func create(name:String)->SimpleHandler {
         print("SimpleRouter create -> \(name)")
         let handler = createHandler(name: name)
@@ -44,8 +44,19 @@ public class SimpleRouter: NSObject {
         return  handlerClass.init()
     }
 
+    /**
+        跳转至下一个Controller
+     
+        - Parameter type: push / present / present一个NavigationController
+        - Parameter fromController: 当前SimpleController
+        - Parameter toHandler: 目标Handler
+        - Parameter animated: 是否有切换动画
+        - Parameter transitioning: 自定义过场动画
+        - Parameter data: 可选的传递数据
+     
+        - Returns: Void
+    */
     public class func show(type:ControllerShowType,fromController:SimpleController,toHandler:SimpleHandler,animated:Bool,transitioning:UIViewControllerAnimatedTransitioning?,data:Dictionary<String,AnyObject>?) throws {
-        
 
         guard let toController = toHandler.setupController(data: data) else {
             print("toController setup failed")
@@ -95,6 +106,15 @@ public class SimpleRouter: NSObject {
 
     }
 
+    /**
+     返回上一个Controller
+     
+     - Parameter type: push / present / present一个NavigationController
+     - Parameter fromController: 当前SimpleController
+     - Parameter animated: 是否有过场动画
+
+     - Returns: Void
+     */
     public class func close(fromController:SimpleController,animated:Bool) throws {
 
         let willCloseControllerName = String(fromController.classForCoder)
