@@ -26,9 +26,9 @@ SimpleFramework is an app framework for iOS written in Swift3.
 引入SimpleFramework，设置Build Settings -> BuildOptions -> Embedded Content Contains Swift Code 为Yes
 ### AppDelegate
 ```swift
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        self.window = UIWindow(frame: UIScreen.main().bounds)
+        self.window = UIWindow(frame: UIScreen.main.bounds)
         let status = AppRouter.instance.start(firstRouterId:AppRouterID.test,type: AppRootViewControllerType.tabbarController,data: nil)
         print("AppRouter setup: \(status == true ? "success":"failed")")
         
@@ -106,7 +106,7 @@ extension SimpleRouterProtocol where Self:TestHandler {
         let storyboardName = "Main"
         let controllerIdentifier = name + "Controller"
         
-        let bundle = Bundle.main()
+        let bundle = Bundle.main
         let sb = UIStoryboard(name: storyboardName, bundle: bundle)
         guard let ctl = sb.instantiateViewController(withIdentifier: controllerIdentifier) as? TestController else {
             print("setupController error!")
@@ -189,11 +189,11 @@ class TestController: SimpleController {
 private extension TestController {
 
     @IBAction func pushToTest1(_ sender: AnyObject) {
-        (handler as! TestHandler).pushToTest1(from: self, data: ["key":"pushFromTestController"])
+        (handler as! TestHandler).pushToTest1(from: self, data: ["key":"pushFromTestController" as AnyObject])
     }
     
     @IBAction func presentToTest3(_ sender: AnyObject) {
-        (handler as! TestHandler).presentToTest3(from: self, data: ["key":"presentFromTestController"])
+        (handler as! TestHandler).presentToTest3(from: self, data: ["key":"presentFromTestController" as AnyObject])
     }
 
 }
