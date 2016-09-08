@@ -13,7 +13,7 @@ public protocol SimpleRouterProtocol {
     func setupController(data:Dictionary<String,AnyObject>?)->SimpleController?
 }
 
-public enum SimpleRouterError:ErrorProtocol {
+public enum SimpleRouterError:Error {
     case fromControllerNil
     case toHandlerNil
     case toControllerNil
@@ -23,7 +23,7 @@ public enum SimpleRouterError:ErrorProtocol {
     case presentBackControllerNil
 }
 
-public class SimpleRouter: NSObject {
+open class SimpleRouter: NSObject {
     ///创建Handler
     public class func create(name:String)->SimpleHandler {
         print("SimpleRouter create -> \(name)")
@@ -36,7 +36,7 @@ public class SimpleRouter: NSObject {
     private class func createHandler(name:String)->SimpleHandler {
         let handlerName = name + "Handler"
         
-        let appName = Bundle.main().objectForInfoDictionaryKey("CFBundleName") as! String
+        let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
         let className = "_TtC\(appName.characters.count)\(appName)\(handlerName.characters.count)\(handlerName)"
         
         let handlerClass = NSClassFromString(className) as! SimpleHandler.Type
@@ -117,7 +117,7 @@ public class SimpleRouter: NSObject {
      */
     public class func close(fromController:SimpleController,animated:Bool) throws {
 
-        let willCloseControllerName = String(fromController.classForCoder)
+        let willCloseControllerName = String(describing: fromController.classForCoder)
         switch fromController.fromType {
         case .push:
             guard let naviCtl = fromController.navigationController else {
@@ -138,7 +138,7 @@ public class SimpleRouter: NSObject {
                 throw SimpleRouterError.naviViewControllersCountError
             }
             
-            print("**POP** \(willCloseControllerName) -> \(String(popToController.classForCoder))")
+            print("**POP** \(willCloseControllerName) -> \(String(describing: popToController.classForCoder))")
 
 //            popToController.receiveBackData = fromController.needSendBackData
             
@@ -161,7 +161,7 @@ public class SimpleRouter: NSObject {
                     throw SimpleRouterError.naviViewControllersLastNotMatch
                 }
                 backController.receiveBackData = fromController.needSendBackData
-                print("**DISMISS** \(willCloseControllerName) -> \(String(backController.classForCoder))")
+                print("**DISMISS** \(willCloseControllerName) -> \(String(describing: backController.classForCoder))")
                 fromController.dismiss(animated: animated, completion: {
                     print("dismiss to naviCtl")
                     fromController.handler?.removeController(controller: fromController)
@@ -173,7 +173,7 @@ public class SimpleRouter: NSObject {
                     throw SimpleRouterError.presentBackControllerNil
                 }
                 backController.receiveBackData = fromController.needSendBackData
-                print("**DISMISS** \(willCloseControllerName) -> \(String(backController.classForCoder))")
+                print("**DISMISS** \(willCloseControllerName) -> \(String(describing: backController.classForCoder))")
                 fromController.dismiss(animated: animated, completion: {
                     print("dismiss to tabBarCtl")
                     fromController.handler?.removeController(controller: fromController)
@@ -184,7 +184,7 @@ public class SimpleRouter: NSObject {
                     throw SimpleRouterError.presentBackControllerNil
                 }
                 backController.receiveBackData = fromController.needSendBackData
-                print("**DISMISS** \(willCloseControllerName) -> \(String(backController.classForCoder))")
+                print("**DISMISS** \(willCloseControllerName) -> \(String(describing: backController.classForCoder))")
                 fromController.dismiss(animated: animated, completion: {
                     print("dismiss to ctl")
                     fromController.handler?.removeController(controller: fromController)

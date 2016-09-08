@@ -13,7 +13,7 @@ class Test2Controller: SimpleController {
     
     //MARK:- 初始化
     override func initView() {
-        self.view.backgroundColor = UIColor.white()
+        self.view.backgroundColor = UIColor.white
     }
     
     //MARK:- ViewController Life Cycle
@@ -41,11 +41,11 @@ extension Test2Controller {
 private extension Test2Controller {
     
     @IBAction func presentToTest3(_ sender: AnyObject) {
-        (handler as! Test2Handler).presentToTest3(from: self, data: ["key":"presentFromTest2Controller"])
+        (handler as! Test2Handler).presentToTest3(from: self, data: ["key":"presentFromTest2Controller" as AnyObject])
     }
     
     @IBAction func dismissToTest1(_ sender: AnyObject) {
-        needSendBackData = ["key":"DismissFromTest2Controller"]
+        needSendBackData = ["key":"DismissFromTest2Controller" as AnyObject]
         
         (handler as! Test2Handler).dismissToTest1(from: self)
     }

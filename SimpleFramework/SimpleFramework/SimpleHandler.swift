@@ -14,7 +14,7 @@ public enum ControllerShowType {
     case presentNavi
 }
 
-public class SimpleHandler: NSObject,SimpleRouterProtocol {
+open class SimpleHandler: NSObject,SimpleRouterProtocol {
     public var name:String!
 
     public var data:Dictionary<String,AnyObject>?
@@ -27,7 +27,7 @@ public class SimpleHandler: NSObject,SimpleRouterProtocol {
     }
 
     public func className() ->String {
-        return String(self.classForCoder)
+        return String(describing: self.classForCoder)
     }
 
     public func addController(controller:SimpleController) {
@@ -80,7 +80,7 @@ extension SimpleRouterProtocol where Self:SimpleHandler {
         let storyboardName = "Main"
         let controllerIdentifier = name + "Controller"
         
-        let bundle = Bundle.main()
+        let bundle = Bundle.main
         let sb = UIStoryboard(name: storyboardName, bundle: bundle)
         guard let ctl = sb.instantiateViewController(withIdentifier: controllerIdentifier) as? SimpleController else {
             print("\(storyboardName).\(controllerIdentifier) setupController error!")

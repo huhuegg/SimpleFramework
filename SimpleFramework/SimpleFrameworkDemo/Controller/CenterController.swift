@@ -19,6 +19,7 @@ class CenterController: SimpleController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         // Do any additional setup after loading the view.
+        addRecognizerOnNavigationController()
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,6 +72,11 @@ extension CenterController:UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         //控制器第一次显示的时候，会调用一次这个方法，而不调用上一个方法，所以要在这里做一层判断
         //print("scrollViewDidSroll y:\(scrollView.contentOffset.y)")
+        
+        guard let naviCtl = self.navigationController else {
+            return
+        }
+        
         guard let last = lastY else {
             return
         }
@@ -78,13 +84,13 @@ extension CenterController:UIScrollViewDelegate {
         let distance = scrollView.contentOffset.y - last
         
         if (distance >= 0) {
-            if self.navigationController?.navigationBar.frame.origin.y <= -44 {
-                self.navigationController?.navigationBar.transform = CGAffineTransform(translationX: 0, y: -64)
+            if naviCtl.navigationBar.frame.origin.y <= CGFloat(-44.0) {
+                naviCtl.navigationBar.transform = CGAffineTransform(translationX: 0, y: -64)
                 return
             }
         } else {
-            if self.navigationController?.navigationBar.frame.origin.y >= 20 {
-                self.navigationController?.navigationBar.transform = CGAffineTransform(translationX: 0, y: 0)
+            if naviCtl.navigationBar.frame.origin.y >= CGFloat(20.0) {
+                naviCtl.navigationBar.transform = CGAffineTransform(translationX: 0, y: 0)
                 return
             }
         }
@@ -92,12 +98,12 @@ extension CenterController:UIScrollViewDelegate {
         lastY = scrollView.contentOffset.y
         if originY != nil {
             if scrollView.contentOffset.y - originY! > 64 {
-                self.navigationController?.navigationBar.transform = CGAffineTransform(translationX: 0, y: -64)
+                naviCtl.navigationBar.transform = CGAffineTransform(translationX: 0, y: -64)
             } else if originY! - scrollView.contentOffset.y > 64 {
-                self.navigationController?.navigationBar.transform = CGAffineTransform(translationX: 0, y: 0)
+                naviCtl.navigationBar.transform = CGAffineTransform(translationX: 0, y: 0)
             }
         } else {
-            self.navigationController?.navigationBar.transform = CGAffineTransform(translationX: 0, y: -distance)
+            naviCtl.navigationBar.transform = CGAffineTransform(translationX: 0, y: -distance)
         }
     }
     

@@ -11,6 +11,7 @@ import SimpleFramework
 
 
 class LineSidRequest:SimpleHttpRequest,AppHttpRequestProtocol {
+    
     var search:String = ""
     
     //init
@@ -35,7 +36,7 @@ class LineSidRequest:SimpleHttpRequest,AppHttpRequestProtocol {
     }
     
     //doRequest
-    internal func request(completionHandler:(AppHttpResponse) -> ()) {
+    internal func request(completionHandler: @escaping (AppHttpResponse) -> ()) {
         doRequest { (result) in
             //result
             var sid:String?
@@ -51,7 +52,6 @@ class LineSidRequest:SimpleHttpRequest,AppHttpRequestProtocol {
             let resp = AppHttpResponse.respLineSid(sid: sid)
             completionHandler(resp)
         }
-
     }
 
 }

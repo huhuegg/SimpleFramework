@@ -130,7 +130,7 @@ class IAPManager: NSObject,SKProductsRequestDelegate,SKRequestDelegate,SKPayment
     func verifyPruchase(sandbox:Bool){
         // 验证凭据，获取到苹果返回的交易凭据
         // appStoreReceiptURL iOS7.0增加的，购买交易完成后，会将凭据存放在该地址
-        let receiptURL = Bundle.main().appStoreReceiptURL
+        let receiptURL = Bundle.main.appStoreReceiptURL
         // 从沙盒中获取到购买凭据
         let receiptData = try? Data(contentsOf: receiptURL!)
         // 发送网络POST请求，对购买凭据进行验证
@@ -150,7 +150,7 @@ class IAPManager: NSObject,SKProductsRequestDelegate,SKRequestDelegate,SKPayment
         BASE64 常用的编码方案，通常用于数据传输，以及加密算法的基础算法，传输过程中能够保证数据传输的稳定性
         BASE64是可以编码和解码的
         */
-        let encodeStr = receiptData?.base64EncodedString(NSData.Base64EncodingOptions.encodingEndLineWithLineFeed)
+        let encodeStr = receiptData?.base64EncodedString(options: Data.Base64EncodingOptions.endLineWithLineFeed)
         
         let payload = NSString(string: "{\"receipt-data\" : \"" + encodeStr! + "\"}")
         print(payload)
@@ -168,7 +168,7 @@ class IAPManager: NSObject,SKProductsRequestDelegate,SKRequestDelegate,SKPayment
                 print("验证失败")
 //                AppNotification.send(AppNotificationType.IAPPaymentCompleted, userInfo: ["status":false,"message":"验证失败"])
             } else {
-                let dict: AnyObject? = try? JSONSerialization.jsonObject(with: result!, options: JSONSerialization.ReadingOptions.allowFragments)
+                let dict: AnyObject? = try! JSONSerialization.jsonObject(with: result!, options: JSONSerialization.ReadingOptions.allowFragments) as AnyObject?
                 if (dict != nil) {
                     // 比对字典中以下信息基本上可以保证数据安全
                     // bundle_id&application_version&product_id&transaction_id
@@ -176,10 +176,10 @@ class IAPManager: NSObject,SKProductsRequestDelegate,SKRequestDelegate,SKPayment
                     
                     
                     if let status = dict!.object(forKey: "status") {
-                        if String(status) == "0" {
+                        if String(describing: status) == "0" {
                             print("[\(url!.absoluteString)]验证成功:\(dict)")
 //                            AppNotification.send(AppNotificationType.IAPPaymentCompleted, userInfo: ["status":true,"message":"验证成功"])
-                        } else if String(status) == "21007" { //沙盒
+                        } else if String(describing: status) == "21007" { //沙盒
                             print("需要在沙盒环境下重新验证")
                             self.verifyPruchase(sandbox: true)
                         } else {

@@ -45,12 +45,12 @@ class Test1Controller: SimpleController {
 private extension Test1Controller {
     
     @IBAction func popToTest(_ sender: AnyObject) {
-        needSendBackData = ["key":"BackFromTest1Controller"]
+        needSendBackData = ["key":"BackFromTest1Controller" as AnyObject]
         (handler as! Test1Handler).popToTest(from: self)
     }
     
     @IBAction func presentTest2(_ sender: AnyObject) {
-        (handler as! Test1Handler).presentToTest2(from: self, data: ["key":"presentFromTest1Controller"])
+        (handler as! Test1Handler).presentToTest2(from: self, data: ["key":"presentFromTest1Controller" as AnyObject])
     }
     
     

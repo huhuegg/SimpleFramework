@@ -15,7 +15,7 @@ extension SimpleController {
     public func changeStatusBarStyle(_ statusBarStyle:UIStatusBarStyle) {
         //动态修改状态栏样式必须在Info.plist中将View controller-based status bar appearance设置为NO
 
-        UIApplication.shared().setStatusBarStyle(statusBarStyle, animated: false)
+        UIApplication.shared.setStatusBarStyle(statusBarStyle, animated: false)
         //当某页面已经显示的时候需要动态地更改状态栏样式
         self.setNeedsStatusBarAppearanceUpdate()
     }

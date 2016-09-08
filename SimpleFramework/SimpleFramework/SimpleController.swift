@@ -13,7 +13,7 @@ public protocol SimpleControllerBroadcastProtocol {
     func callFromHandler(dict:Dictionary<String,AnyObject>?)
 }
 
-public class SimpleController:UIViewController {
+open class SimpleController:UIViewController {
     //MARK:- Property
     public var handler:SimpleHandler?
     
@@ -37,13 +37,13 @@ public class SimpleController:UIViewController {
     public var isShowing:Bool = false
 
     //MARK:- ViewController Life Cycle
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         handler?.addController(controller: self)
     }
     
     
-    public override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //print("handler:\(handler) controllers:\(handler?.controllers)")
         
@@ -53,7 +53,7 @@ public class SimpleController:UIViewController {
 //        }
     }
     
-    public override func viewWillDisappear(_ animated: Bool) {
+    open override func viewWillDisappear(_ animated: Bool) {
         if fromType == .push {
             //检测NavigationController返回按钮点击，右滑切换Controller
             if let navi = self.navigationController {
@@ -72,7 +72,7 @@ public class SimpleController:UIViewController {
         super.viewWillDisappear(animated)
     }
     
-    public override func viewDidDisappear(_ animated: Bool) {
+    open override func viewDidDisappear(_ animated: Bool) {
         //Change controller status -> false
         self.isShowing = false
         
@@ -91,19 +91,20 @@ public class SimpleController:UIViewController {
     
     //MARK:- Function
     public func className() ->String {
-        return String(self.classForCoder)
+        //return String(self.classForCoder)
+        return NSStringFromClass(self.classForCoder)
     }
     
     //View初始化
-    public func initView() {
-        self.view.backgroundColor = UIColor.white()
+    open func initView() {
+        self.view.backgroundColor = UIColor.white
         clearColorNavigationBarBackground()
     }
 
     public func setNavigationTransitioning(transitioning:UIViewControllerAnimatedTransitioning?) {
         print("\(self.className()) setNavigationTransitioning: \(transitioning)")
         if let _ = transitioning {
-            self.navigationController!.delegate = self
+            self.navigationController?.delegate = self
             self.transitioning = transitioning
         }
     }
@@ -111,7 +112,7 @@ public class SimpleController:UIViewController {
     public func addRecognizerOnNavigationController() {
         let naviRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(SimpleController.handleNaviRecognizer(recognizer:)))
         naviRecognizer.edges = .left
-        self.navigationController!.view.addGestureRecognizer(naviRecognizer)
+        self.navigationController?.view.addGestureRecognizer(naviRecognizer)
     }
     
     public func handleNaviRecognizer(recognizer: UIScreenEdgePanGestureRecognizer) {
@@ -154,13 +155,13 @@ extension SimpleController: UIViewControllerTransitioningDelegate {
     
     //UIViewControllerAnimatedTransitioning: 这个协议中提供了接口, 遵守这个协议的对象实现动画的具体内容
     public func animationController(forPresentedController presented: UIViewController, presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        print("\(String(self.classForCoder)) animationController forPresentedController:\(transitioning)")
+        print("\(self.className()) animationController forPresentedController:\(transitioning)")
         self.isShowing = true
         return transitioning
     }
     
-    public func animationController(forDismissedController dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        print("\(String(self.classForCoder)) animationController forDismissedController:\(transitioning)")
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        print("\(self.className()) animationController forDismissedController:\(transitioning)")
         self.isShowing = false
         return transitioning
     }

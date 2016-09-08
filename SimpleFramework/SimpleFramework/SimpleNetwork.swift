@@ -13,40 +13,40 @@ public enum SimpleHttpResult {
     case Failure(NSError?)
 }
 
-public class SimpleHttpRequest: NSObject {
+open class SimpleHttpRequest: NSObject {
     public var request:URLRequest?
 
-    public func doRequest(completionHandler:(result:SimpleHttpResult)->()) {
+    public func doRequest(completionHandler:@escaping (_ result:SimpleHttpResult)->()) {
         print("doRequest")
         
         guard request != nil else {
-            completionHandler(result: SimpleHttpResult.Failure(nil))
+            completionHandler(SimpleHttpResult.Failure(nil))
             return
         }
         
-        let config = URLSessionConfiguration.default()
+        let config = URLSessionConfiguration.default
         //config.requestCachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         let urlSession = URLSession(configuration: config, delegate: self, delegateQueue: nil)
 
         
         let task = urlSession.dataTask(with: request!) { (data, response, error) in
             if error != nil {
-                completionHandler(result: SimpleHttpResult.Failure(error))
+                completionHandler(SimpleHttpResult.Failure(error as NSError?))
                 return
             }
-            completionHandler(result: SimpleHttpResult.Success(data))
+            completionHandler(SimpleHttpResult.Success(data))
         }
         task.resume()
     }
 
     public func className()->String {
-        return String(self.classForCoder)
+        return String(describing: self.classForCoder)
     }
 }
 
 extension SimpleHttpRequest:URLSessionDelegate,URLSessionTaskDelegate {
     //处理重定向请求，直接使用nil来取消重定向请求
-    public func urlSession(_ session: URLSession, task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse, newRequest request: URLRequest, completionHandler: (URLRequest?) -> Void) {
+    @nonobjc public func urlSession(_ session: URLSession, task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse, newRequest request: URLRequest, completionHandler: (URLRequest?) -> Void) {
         completionHandler(nil)
     }
 }

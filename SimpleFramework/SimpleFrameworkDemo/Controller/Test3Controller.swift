@@ -14,13 +14,13 @@ class Test3Controller: SimpleController {
     
     //MARK:- IBAction
     @IBAction func dismiss(_ sender: AnyObject) {
-        needSendBackData = ["key":"DissmissFromTest3"]
+        needSendBackData = ["key":"DissmissFromTest3" as AnyObject]
         (handler as! Test3Handler).dismiss(from: self)
     }
     
     //MARK:- 初始化
     override func initView() {
-        self.view.backgroundColor = UIColor.yellow()
+        self.view.backgroundColor = UIColor.yellow
         self.transitioningDelegate = self
         
         testButton.addTarget(self, action: .testButtonClicked, for: UIControlEvents.touchUpInside)

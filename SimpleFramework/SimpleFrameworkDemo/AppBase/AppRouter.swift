@@ -32,7 +32,7 @@ class AppRouter: NSObject {
     }()
     
     var window:UIWindow? = {
-        if let appDelegate = UIApplication.shared().delegate as? AppDelegate {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             return appDelegate.window
         }
         return nil
@@ -51,7 +51,7 @@ class AppRouter: NSObject {
     var centerHandler:CenterHandler!
     var test4WithNavHandler:Test4WithNavHandler!
 
-    private func initHandlers() {
+    fileprivate func initHandlers() {
         testHandler = SimpleRouter.create(name: "Test") as! TestHandler
         test1Handler = SimpleRouter.create(name: "Test1") as! Test1Handler
         test2Handler = SimpleRouter.create(name: "Test2") as! Test2Handler
@@ -60,7 +60,7 @@ class AppRouter: NSObject {
         test4WithNavHandler = SimpleRouter.create(name: "Test4WithNav") as! Test4WithNavHandler
     }
     
-    private func getHandler(routerId:AppRouterID)->SimpleHandler? {
+    fileprivate func getHandler(routerId:AppRouterID)->SimpleHandler? {
         switch routerId {
         case .test:
             return testHandler
@@ -77,7 +77,8 @@ class AppRouter: NSObject {
         }
     }
     
-    private func setupTabBar(data:Dictionary<String,AnyObject>?)->Array<UIViewController> {
+    //Tabbar只能包含UIViewController，不能添加NavigationController
+    fileprivate func setupTabBar(data:Dictionary<String,AnyObject>?)->Array<UIViewController> {
         let (_,eduCtl) = setupToHandler(routerId: .test, data: nil)
         let (_,newsCtl) = setupToHandler(routerId: .test1, data: nil)
         let (_,centerCtl) = setupToHandler(routerId: .center, data: nil)
@@ -203,7 +204,7 @@ private extension AppRouter {
     func startWithTabBarController(data:Dictionary<String,AnyObject>?) {
         print("startWithTabBarController")
         let controllers = setupTabBar(data:data)
-        
+
         tabbarCtl.viewControllers = controllers
         
         //TODO:- 此处修改默认选中的Controller

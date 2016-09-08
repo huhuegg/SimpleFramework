@@ -20,7 +20,7 @@ extension SimpleRouterProtocol where Self:CenterHandler {
         let storyboardName = "Main"
         let controllerIdentifier = name + "Controller"
         
-        let bundle = Bundle.main()
+        let bundle = Bundle.main
         let sb = UIStoryboard(name: storyboardName, bundle: bundle)
         guard let ctl = sb.instantiateViewController(withIdentifier: controllerIdentifier) as? TestController else {
             print("setupController error!")

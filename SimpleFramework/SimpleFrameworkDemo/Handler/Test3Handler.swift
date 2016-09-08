@@ -12,7 +12,7 @@ import SimpleFramework
 class Test3Handler: SimpleHandler {
     //MARK:- Controller call handler func
     func getTestDataList() {
-        broadcastControllers(data: ["from":"Test3Handler"])
+        broadcastControllers(data: ["from":"Test3Handler" as AnyObject])
     }
 }
 

@@ -28,9 +28,9 @@ public extension UITabBarController {
         }
     }
     
-    private func addAnimatedOnTabBarButtonClicked(tabBarButton:UIControl) {
+    fileprivate func addAnimatedOnTabBarButtonClicked(tabBarButton:UIControl) {
         for view in tabBarButton.subviews {
-            if String(view.classForCoder) == "UITabBarSwappableImageView" {
+            if String(describing: view.classForCoder) == "UITabBarSwappableImageView" {
                 let animation = SimpleKeyframeAnimation.tabBarAnimation()
                 //添加layer动画
                 view.layer.add(animation, forKey: nil)

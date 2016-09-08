@@ -10,11 +10,11 @@ import UIKit
 import SimpleFramework
 
 class Test1ControllerAnimation: SimpleControllerAnimatedTransitioning {
-    override func transitionDuration(_ transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    override func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }
     
-    override func animateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
+    override func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         transitionContext.completeTransition(true)
 //        // 得到容器视图
 //        let containerView = transitionContext.containerView()

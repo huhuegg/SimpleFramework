@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8407AAAE1D3E3C600038B97B /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8407AAAD1D3E3C600038B97B /* libxml2.tbd */; };
+		840A60DD1D5D711C004924D3 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A60DC1D5D711C004924D3 /* CloudKitManager.swift */; };
 		843EEE2B1D2E4B2200217A30 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EEE2A1D2E4B2200217A30 /* UIViewExtension.swift */; };
 		844BA70E1D2CDE1200F11E76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA70C1D2CDE1200F11E76 /* AppDelegate.swift */; };
 		844BA70F1D2CDE1200F11E76 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA70D1D2CDE1200F11E76 /* AppRouter.swift */; };
@@ -32,6 +33,7 @@
 		845793381D17EE02008C33CD /* SimpleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845793371D17EE02008C33CD /* SimpleController.swift */; };
 		845C28B01D2219FF00A61433 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C28AF1D2219FF00A61433 /* IAPManager.swift */; };
 		848D86411D3C7492006A6126 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D86401D3C7492006A6126 /* UIColorExtension.swift */; };
+		84ACB0521D6D78E1005650A4 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACB0511D6D78E1005650A4 /* UIDeviceExtension.swift */; };
 		84BC66BD1D213315006A0412 /* SimpleControllerAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC66BC1D213315006A0412 /* SimpleControllerAnimatedTransitioning.swift */; };
 		84CDB3A41D2B64BE00CA55FF /* NavigationControllerExension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDB3A31D2B64BE00CA55FF /* NavigationControllerExension.swift */; };
 		84CDB3A61D2B64E100CA55FF /* TabbarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDB3A51D2B64E100CA55FF /* TabbarExtension.swift */; };
@@ -44,13 +46,7 @@
 		84EF58CC1D3CC8BF00340FDE /* Test4WithNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58CB1D3CC8BF00340FDE /* Test4WithNavController.swift */; };
 		84EF58CE1D3CC8EB00340FDE /* Test4WithNavHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58CD1D3CC8EB00340FDE /* Test4WithNavHandler.swift */; };
 		84EF58D51D3DD62900340FDE /* AppNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58D41D3DD62900340FDE /* AppNetwork.swift */; };
-		84EF58D81D3DE26F00340FDE /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58D71D3DE26F00340FDE /* SwiftyJSON.swift */; };
 		84EF58DA1D3E2BF500340FDE /* LineSidRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58D91D3E2BF500340FDE /* LineSidRequest.swift */; };
-		84EF58E41D3E33D800340FDE /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58DF1D3E33D800340FDE /* CSS.swift */; };
-		84EF58E51D3E33D800340FDE /* Kanna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58E01D3E33D800340FDE /* Kanna.swift */; };
-		84EF58E61D3E33D800340FDE /* libxmlHTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58E11D3E33D800340FDE /* libxmlHTMLDocument.swift */; };
-		84EF58E71D3E33D800340FDE /* libxmlHTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58E21D3E33D800340FDE /* libxmlHTMLNode.swift */; };
-		84EF58E81D3E33D800340FDE /* libxmlParserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF58E31D3E33D800340FDE /* libxmlParserOption.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,8 +75,7 @@
 
 /* Begin PBXFileReference section */
 		8407AAAD1D3E3C600038B97B /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
-		8407AAAF1D3E3DD70038B97B /* libxml2-kanna.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "libxml2-kanna.h"; sourceTree = "<group>"; };
-		8407AAB01D3E3DD70038B97B /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		840A60DC1D5D711C004924D3 /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		843EEE2A1D2E4B2200217A30 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		844BA70C1D2CDE1200F11E76 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		844BA70D1D2CDE1200F11E76 /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
@@ -108,6 +103,7 @@
 		845C28AF1D2219FF00A61433 /* IAPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		848D86401D3C7492006A6126 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		84A9F88C1D3E4EF900BA417F /* SimpleFrameworkDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SimpleFrameworkDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		84ACB0511D6D78E1005650A4 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		84BC66BC1D213315006A0412 /* SimpleControllerAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleControllerAnimatedTransitioning.swift; sourceTree = "<group>"; };
 		84CDB3A31D2B64BE00CA55FF /* NavigationControllerExension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerExension.swift; sourceTree = "<group>"; };
 		84CDB3A51D2B64E100CA55FF /* TabbarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarExtension.swift; sourceTree = "<group>"; };
@@ -120,13 +116,7 @@
 		84EF58CB1D3CC8BF00340FDE /* Test4WithNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Test4WithNavController.swift; path = Controller/Test4WithNavController.swift; sourceTree = "<group>"; };
 		84EF58CD1D3CC8EB00340FDE /* Test4WithNavHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Test4WithNavHandler.swift; path = Handler/Test4WithNavHandler.swift; sourceTree = "<group>"; };
 		84EF58D41D3DD62900340FDE /* AppNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNetwork.swift; sourceTree = "<group>"; };
-		84EF58D71D3DE26F00340FDE /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		84EF58D91D3E2BF500340FDE /* LineSidRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSidRequest.swift; sourceTree = "<group>"; };
-		84EF58DF1D3E33D800340FDE /* CSS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSS.swift; sourceTree = "<group>"; };
-		84EF58E01D3E33D800340FDE /* Kanna.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kanna.swift; sourceTree = "<group>"; };
-		84EF58E11D3E33D800340FDE /* libxmlHTMLDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = libxmlHTMLDocument.swift; sourceTree = "<group>"; };
-		84EF58E21D3E33D800340FDE /* libxmlHTMLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = libxmlHTMLNode.swift; sourceTree = "<group>"; };
-		84EF58E31D3E33D800340FDE /* libxmlParserOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = libxmlParserOption.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				845C28AF1D2219FF00A61433 /* IAPManager.swift */,
+				840A60DC1D5D711C004924D3 /* CloudKitManager.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -264,6 +255,7 @@
 				843EEE2A1D2E4B2200217A30 /* UIViewExtension.swift */,
 				848D86401D3C7492006A6126 /* UIColorExtension.swift */,
 				84EF58C41D3C8C7B00340FDE /* StringExtension.swift */,
+				84ACB0511D6D78E1005650A4 /* UIDeviceExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -353,7 +345,6 @@
 		84EF58D61D3DE26F00340FDE /* Include */ = {
 			isa = PBXGroup;
 			children = (
-				84EF58D71D3DE26F00340FDE /* SwiftyJSON.swift */,
 			);
 			path = Include;
 			sourceTree = "<group>";
@@ -361,23 +352,8 @@
 		84EF58DD1D3E33D800340FDE /* Include */ = {
 			isa = PBXGroup;
 			children = (
-				84EF58DE1D3E33D800340FDE /* Kanna */,
 			);
 			path = Include;
-			sourceTree = "<group>";
-		};
-		84EF58DE1D3E33D800340FDE /* Kanna */ = {
-			isa = PBXGroup;
-			children = (
-				8407AAAF1D3E3DD70038B97B /* libxml2-kanna.h */,
-				8407AAB01D3E3DD70038B97B /* module.modulemap */,
-				84EF58DF1D3E33D800340FDE /* CSS.swift */,
-				84EF58E01D3E33D800340FDE /* Kanna.swift */,
-				84EF58E11D3E33D800340FDE /* libxmlHTMLDocument.swift */,
-				84EF58E21D3E33D800340FDE /* libxmlHTMLNode.swift */,
-				84EF58E31D3E33D800340FDE /* libxmlParserOption.swift */,
-			);
-			path = Kanna;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -501,6 +477,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84ACB0521D6D78E1005650A4 /* UIDeviceExtension.swift in Sources */,
+				840A60DD1D5D711C004924D3 /* CloudKitManager.swift in Sources */,
 				844D33161D38BE0600741068 /* SimpleKeyframeAnimation.swift in Sources */,
 				84CDB3A41D2B64BE00CA55FF /* NavigationControllerExension.swift in Sources */,
 				84CDB3A61D2B64E100CA55FF /* TabbarExtension.swift in Sources */,
@@ -512,7 +490,6 @@
 				84EF58C51D3C8C7B00340FDE /* StringExtension.swift in Sources */,
 				848D86411D3C7492006A6126 /* UIColorExtension.swift in Sources */,
 				845793381D17EE02008C33CD /* SimpleController.swift in Sources */,
-				84EF58D81D3DE26F00340FDE /* SwiftyJSON.swift in Sources */,
 				845793361D17EA03008C33CD /* SimpleRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,21 +507,16 @@
 				844BA72B1D2CDEE400F11E76 /* TestData.swift in Sources */,
 				844BA7231D2CDE7D00F11E76 /* Test2Controller.swift in Sources */,
 				844BA71C1D2CDE6500F11E76 /* TestHandler.swift in Sources */,
-				84EF58E81D3E33D800340FDE /* libxmlParserOption.swift in Sources */,
 				844BA70E1D2CDE1200F11E76 /* AppDelegate.swift in Sources */,
-				84EF58E51D3E33D800340FDE /* Kanna.swift in Sources */,
-				84EF58E41D3E33D800340FDE /* CSS.swift in Sources */,
 				84EF58CE1D3CC8EB00340FDE /* Test4WithNavHandler.swift in Sources */,
 				844BA7281D2CDE8900F11E76 /* Test3Handler.swift in Sources */,
 				844BA7201D2CDE7300F11E76 /* Test1Handler.swift in Sources */,
 				844BA7271D2CDE8900F11E76 /* Test3Controller.swift in Sources */,
 				844BA7131D2CDE2900F11E76 /* PresentControllerBoxAnimation.swift in Sources */,
-				84EF58E71D3E33D800340FDE /* libxmlHTMLNode.swift in Sources */,
 				844BA71F1D2CDE7300F11E76 /* Test1Controller.swift in Sources */,
 				844BA7171D2CDE4600F11E76 /* CenterController.swift in Sources */,
 				844BA7181D2CDE4600F11E76 /* CenterHandler.swift in Sources */,
 				844BA71B1D2CDE6500F11E76 /* TestController.swift in Sources */,
-				84EF58E61D3E33D800340FDE /* libxmlHTMLDocument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,7 +697,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = app.SimpleFrameworkDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/SimpleFrameworkDemo/Include/Kanna\"";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SimpleFrameworkDemo/SimpleFrameworkDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -747,7 +719,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = app.SimpleFrameworkDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/SimpleFrameworkDemo/Include/Kanna\"";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SimpleFrameworkDemo/SimpleFrameworkDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

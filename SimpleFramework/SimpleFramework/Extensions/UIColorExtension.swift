@@ -14,7 +14,7 @@ public extension UIColor {
         //#RRGGBB
         guard hexStr.hasPrefix("#") else {
             print("hexStr(\(hexStr)) not hasPrefix #")
-            return UIColor.clear()
+            return UIColor.clear
         }
         
         let rgbIndex = hexStr.index(after: hexStr.startIndex)
@@ -24,7 +24,7 @@ public extension UIColor {
         
         guard rgb.characters.count == 6 else {
             print("hexStr(\(rgb) count:\(rgb.characters.count)) error!")
-            return UIColor.clear()
+            return UIColor.clear
         }
         
         if let rStr = rgb.simpleSubString(from:0,length:2), let gStr = rgb.simpleSubString(from:2,length:2), let bStr = rgb.simpleSubString(from:4,length:2) {
@@ -42,6 +42,6 @@ public extension UIColor {
                 return UIColor(red: CGFloat(r)/255.0, green: CGFloat(g)/255.0, blue: CGFloat(b)/255.0, alpha: 1.0)
             }
         }
-        return UIColor.clear()
+        return UIColor.clear
     }
 }

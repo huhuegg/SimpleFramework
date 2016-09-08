@@ -12,13 +12,13 @@ import SimpleFramework
 
 //缩放
 class PresentControllerBoxAnimation: SimpleControllerAnimatedTransitioning {
-    override func transitionDuration(_ transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    override func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }
     
-    override func animateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
+    override func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         // 得到容器视图
-        let containerView = transitionContext.containerView()
+        let containerView = transitionContext.containerView
         
         guard let toController = getToController(transitionContext: transitionContext) else {
             print("toController is nil")
@@ -26,8 +26,8 @@ class PresentControllerBoxAnimation: SimpleControllerAnimatedTransitioning {
             return
         }
         
-        let fromView = transitionContext.view(forKey: UITransitionContextFromViewKey)!
-        let toView = transitionContext.view(forKey: UITransitionContextToViewKey)!
+        let fromView = transitionContext.view(forKey: UITransitionContextViewKey.from)!
+        let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)!
         
         if toController.isShowing {
             print("present")

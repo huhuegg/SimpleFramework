@@ -19,15 +19,15 @@ public enum AppHttpResponse {
 
 protocol AppHttpRequestProtocol {
     func setupRequest()
-    func request(completionHandler:(AppHttpResponse) -> ())
+    func request(completionHandler:@escaping (AppHttpResponse) -> ())
 }
 
 class AppNetwork: NSObject {
-    class func request(request:AppHttpRequest, completionHandler:(resp:AppHttpResponse)->()) {
+    class func request(request:AppHttpRequest, completionHandler:@escaping (_ resp:AppHttpResponse)->()) {
         switch request {
         case let .reqLineSid(search):
             LineSidRequest(search: search).request(completionHandler: { (resp) in
-                completionHandler(resp: resp)
+                completionHandler(resp)
             })
         }
     }
@@ -38,10 +38,26 @@ class AppNetwork: NSObject {
 class AppNetworkDataConvert {
     class func ToSid(data:Data?)->String? {
         guard let d = data else {
+            print("AppNetworkDataConvert failed, data is nil")
             return nil
         }
-        let json = JSON(data: d)
-        let sid = json["sid"].string
-        return sid
+        
+        do {
+            let json = try JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions.mutableContainers)
+            guard let dict = json as? Dictionary<String,AnyObject> else {
+                print("AppNetworkDataConvert failed, can't convert data to json as Dictionary")
+                return nil
+            }
+            
+            guard let sid = dict["sid"] as? String else {
+                return nil
+            }
+            
+            return sid
+        } catch _ {
+            print("AppNetworkDataConvert failed, can't convert data to json")
+            return nil
+        }
+        
     }
 }
