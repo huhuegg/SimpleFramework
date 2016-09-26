@@ -17,12 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        //获取设备名称
-        let name = UIDevice.current.name
-        //获取设备的型号
-        let modelName = UIDevice.current.modelName
-        
-        print("name:\(name) modelName:\(modelName)")
+//        //获取设备名称
+//        let name = UIDevice.current.name
+//        //获取设备的型号
+//        let modelName = UIDevice.current.modelName
+//        
+//        print("name:\(name) modelName:\(modelName)")
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let status = AppRouter.instance.start(firstRouterId:AppRouterID.test,type: AppRootViewControllerType.tabbarController,data: nil)
@@ -30,19 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.makeKeyAndVisible()
         
-        
-        
-        AppNetwork.request(request: AppHttpRequest.reqLineSid(search: "46")) { (resp) in
-            //            if let _ = .respLineSid(sid:sid) {
-            //                print("\(sid)")
-            //            }
-            switch resp {
-            case let .respLineSid(sid: sid):
-                print("sid:\(sid!)")
-                //default:
-                //    print("resp error")
-            }
-        }
         
         return status
     }

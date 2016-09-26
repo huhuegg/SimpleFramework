@@ -21,9 +21,12 @@ open class SimpleHandler: NSObject,SimpleRouterProtocol {
     
     public var controllers:Array<SimpleController?> = Array()
     
+    public var isActive:Bool = false
+    
     //Any SimpleHandlerClass Init
     required override public init() {
         super.init()
+        
     }
 
     public func className() ->String {
@@ -95,6 +98,5 @@ extension SimpleRouterProtocol where Self:SimpleHandler {
 
         return ctl
     }
-    
-    
 }
+

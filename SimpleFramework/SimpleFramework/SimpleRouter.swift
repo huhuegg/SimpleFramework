@@ -77,17 +77,16 @@ open class SimpleRouter: NSObject {
                 throw SimpleRouterError.naviViewControllersCountError
             }
             
-            guard naviCtl.viewControllers[naviCtl.viewControllers.count - 1] == fromController else {
-                print("naviCtl.viewControllers.last is not self, FAILED!")
-                throw SimpleRouterError.naviViewControllersLastNotMatch
-            }
+//            guard naviCtl.viewControllers[naviCtl.viewControllers.count - 1] == fromController else {
+//                print("naviCtl.viewControllers.last is not self, FAILED!")
+//                throw SimpleRouterError.naviViewControllersLastNotMatch
+//            }
             
             //NavigationController自定义过场动画
             if let _ = transitioning {
                 //NavigationControll过场动画的delegate在发起Push的Controller上 (fromController)
                 fromController.setNavigationTransitioning(transitioning: transitioning)
             }
-            
             naviCtl.pushViewController(toController, animated: animated)
         case .present:
             //ViewControll过场动画的delegate在被Present的Controller上 (toController)
@@ -129,10 +128,10 @@ open class SimpleRouter: NSObject {
                 throw SimpleRouterError.naviViewControllersCountError
             }
             
-            guard naviCtl.viewControllers[naviCtl.viewControllers.count - 1] == fromController else {
-                print("naviCtl.viewControllers.last is not self, FAILED!")
-                throw SimpleRouterError.naviViewControllersLastNotMatch
-            }
+//            guard naviCtl.viewControllers[naviCtl.viewControllers.count - 1] == fromController else {
+//                print("naviCtl.viewControllers.last is not self, FAILED!")
+//                throw SimpleRouterError.naviViewControllersLastNotMatch
+//            }
             guard let popToController = naviCtl.viewControllers[naviCtl.viewControllers.count - 2] as? SimpleController else {
                 print("can't find popToController")
                 throw SimpleRouterError.naviViewControllersCountError

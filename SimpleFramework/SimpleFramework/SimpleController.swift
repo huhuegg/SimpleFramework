@@ -45,12 +45,16 @@ open class SimpleController:UIViewController {
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        handler?.isActive = true
         //print("handler:\(handler) controllers:\(handler?.controllers)")
         
         //print("\(self.className()) viewWillAppear: \(self)")
 //        if let _ = receiveBackData {
 //            print("\(self): viewWillAppear, data:\(data) receiveBackData:\(receiveBackData)")
 //        }
+        
+        
+        
     }
     
     open override func viewWillDisappear(_ animated: Bool) {
@@ -58,7 +62,7 @@ open class SimpleController:UIViewController {
             //检测NavigationController返回按钮点击，右滑切换Controller
             if let navi = self.navigationController {
                 if self.navigationController?.viewControllers.index(of: self) == nil {
-                    print("统一处理NavigationController返回 **POP** \(self.className())")
+                    //print("统一处理NavigationController返回 **POP** \(self.className())")
                     if navi.viewControllers.count > 0 {
                         if let popToController = navi.viewControllers[navi.viewControllers.count - 1] as? SimpleController {
                             //返回数据
@@ -75,9 +79,10 @@ open class SimpleController:UIViewController {
     open override func viewDidDisappear(_ animated: Bool) {
         //Change controller status -> false
         self.isShowing = false
+        handler?.isActive = false
         
         if fromType == .push && self.navigationController == nil {
-            print("``````````````````````````\(self.className())[\(fromType)] viewDidDisappear: \(self.navigationController)")
+            print("\(self.className())[\(fromType)] viewDidDisappear: \(self.navigationController)")
             handler!.removeController(controller: self)
         }
         super.viewDidDisappear(animated)
@@ -95,10 +100,21 @@ open class SimpleController:UIViewController {
         return NSStringFromClass(self.classForCoder)
     }
     
+    public func showDebug() {
+        let vc = UIAlertController(title: self.className(), message: self.className(), preferredStyle: UIAlertControllerStyle.alert)
+        let cancleAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel) { (_) in
+        }
+        vc.addAction(cancleAction)
+        
+        self.present(vc, animated: true) { 
+            
+        }
+    }
+    
     //View初始化
     open func initView() {
         self.view.backgroundColor = UIColor.white
-        clearColorNavigationBarBackground()
+        //clearColorNavigationBarBackground()
     }
 
     public func setNavigationTransitioning(transitioning:UIViewControllerAnimatedTransitioning?) {

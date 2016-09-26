@@ -17,7 +17,7 @@ open class SimpleHttpRequest: NSObject {
     public var request:URLRequest?
 
     public func doRequest(completionHandler:@escaping (_ result:SimpleHttpResult)->()) {
-        print("doRequest")
+        print("SimpleHttpRequest.doRequest")
         
         guard request != nil else {
             completionHandler(SimpleHttpResult.Failure(nil))
