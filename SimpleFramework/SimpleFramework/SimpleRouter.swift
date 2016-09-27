@@ -21,6 +21,7 @@ public enum SimpleRouterError:Error {
     case naviViewControllersCountError
     case naviViewControllersLastNotMatch
     case presentBackControllerNil
+    case presentBackControllerUnknown
 }
 
 open class SimpleRouter: NSObject {
@@ -167,12 +168,24 @@ open class SimpleRouter: NSObject {
                 })
 
             } else if let tabBarCtl = fromController.presentingViewController as? UITabBarController { //发起present的是UITabBarController
-                guard let backController = tabBarCtl.selectedViewController as? SimpleController else {
-                    print("PresentBackController is nil")
-                    throw SimpleRouterError.presentBackControllerNil
+                var backController:SimpleController?
+                if let naviCtl = tabBarCtl.selectedViewController as? UINavigationController {
+                    print("back to NavigationController include SimpleController")
+                    backController = naviCtl.viewControllers.last as? SimpleController
+                } else if let backSimpleCtl = tabBarCtl.selectedViewController as? SimpleController {
+                    print("back to SimpleController")
+                    backController = backSimpleCtl
+                } else {
+                    print("PresentBackController is unknown")
+                    throw SimpleRouterError.presentBackControllerUnknown
                 }
-                backController.receiveBackData = fromController.needSendBackData
-                print("**DISMISS** \(willCloseControllerName) -> \(String(describing: backController.classForCoder))")
+                
+                if let _ = backController {
+                    backController!.receiveBackData = fromController.needSendBackData
+                    print("**DISMISS** \(willCloseControllerName) -> \(String(describing: backController!.classForCoder))")
+                }
+
+                
                 fromController.dismiss(animated: animated, completion: {
                     print("dismiss to tabBarCtl")
                     fromController.handler?.removeController(controller: fromController)
