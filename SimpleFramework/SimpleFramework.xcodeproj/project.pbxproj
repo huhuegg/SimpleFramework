@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8407AAAE1D3E3C600038B97B /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8407AAAD1D3E3C600038B97B /* libxml2.tbd */; };
-		840A60DD1D5D711C004924D3 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A60DC1D5D711C004924D3 /* CloudKitManager.swift */; };
 		843EEE2B1D2E4B2200217A30 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EEE2A1D2E4B2200217A30 /* UIViewExtension.swift */; };
 		844BA70E1D2CDE1200F11E76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA70C1D2CDE1200F11E76 /* AppDelegate.swift */; };
 		844BA70F1D2CDE1200F11E76 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BA70D1D2CDE1200F11E76 /* AppRouter.swift */; };
@@ -75,7 +74,6 @@
 
 /* Begin PBXFileReference section */
 		8407AAAD1D3E3C600038B97B /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
-		840A60DC1D5D711C004924D3 /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		843EEE2A1D2E4B2200217A30 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		844BA70C1D2CDE1200F11E76 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		844BA70D1D2CDE1200F11E76 /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
@@ -233,7 +231,6 @@
 			isa = PBXGroup;
 			children = (
 				845C28AF1D2219FF00A61433 /* IAPManager.swift */,
-				840A60DC1D5D711C004924D3 /* CloudKitManager.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -478,7 +475,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84ACB0521D6D78E1005650A4 /* UIDeviceExtension.swift in Sources */,
-				840A60DD1D5D711C004924D3 /* CloudKitManager.swift in Sources */,
 				844D33161D38BE0600741068 /* SimpleKeyframeAnimation.swift in Sources */,
 				84CDB3A41D2B64BE00CA55FF /* NavigationControllerExension.swift in Sources */,
 				84CDB3A61D2B64E100CA55FF /* TabbarExtension.swift in Sources */,
